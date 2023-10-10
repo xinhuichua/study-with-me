@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+
+    <link rel="stylesheet" href="../css/profilepage.css" />
+</head>
+<body>
+    <div class="container-fluid p-0" id="top">
+        <!-- Navbar top -->
+        <div class="background">
+            <div class="row bg-body-secondary">
+                <div class="col-6">
+                    <a class="navbar-brand d-flex size m-1" href="main-page.html">MainPage</a>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    <a class="nav-link m-1 size" href="cardlist.html">CardList</a>
+                    <a class="nav-link m-1 size" href="">Profile</a>
+                    <a class="nav-link m-1 size"><button id="logoutButton">Logout</button></a>
+                    
+                </div>
+            </div>
+            <!-- row 2 -->
+            <div class="row">
+                <div class="col-6 d-flex align-items-center justify-content-center    text-white colHeight">
+                    <img class="imageicon" src="../img/Ai_images/hiker1.jpg" alt="">
+                    <h1>Username: <br>
+                    <span id="username"></span>
+                    </h1>
+                </div>
+                <div class="col-6"></div>
+                
+            </div>
+            <!-- row 3 -->
+            <div class="row">
+                <div class="col">
+                    <a href="#emoji-container">Scroll to Emoji</a>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+       
+        <div class="row">
+            <div class="col">
+                <h2 class="imageheader text-center ">Purchased Images</h2>
+                <div id="imageContainer" class="row d-flex justify-content-center ">
+                    <!-- Purchased images will be displayed here dynamically -->
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col">
+                <a href="#top">back to top</a>
+            </div>
+        </div>
+        <div class="row bg-body-tertiary ">
+            <div class="col-6">
+                <div id="emoji-container" class="emoji-scroll-container"></div>
+            </div>
+            <div class="col-6">
+                
+            </div>
+        </div>
+        
+        
+    </div>
+    
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+
+    <script src="../js/profilepage.js"></script>
+</body>
+</html>

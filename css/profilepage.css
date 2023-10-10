@@ -1,0 +1,53 @@
+.size{
+    font-size: 40px;
+    
+}
+
+.background{
+    background-image: url(../img/Ai_images/dark1.jpg);
+    background-size: cover;
+    height: 700px;
+}
+.imageicon{
+    width: 150px;
+    height: 150px;
+    
+}
+
+.colHeight{
+    height: 500px;
+}
+
+.profileimg{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+/* CSS Styles */
+.emoji-group {
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+.emoji {
+    font-size: 24px; /* Adjust as needed */
+    margin-right: 5px; /* Adjust spacing between emojis */
+}
+
+
+/* Add this to your CSS */
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.container-fluid {
+    max-width: 100%; /* Limit the container width */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* CSS to style the emoji container */
+.emoji-scroll-container {
+    max-height: 300px; /* Set your desired fixed height here */
+    overflow-y: auto; /* Enable vertical scrolling when content exceeds the height */
+    padding: 10px; /* Optional: Add padding for spacing */
+}
