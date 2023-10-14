@@ -139,7 +139,11 @@ body {
     font-size: 32px;
     font-weight: bold;
    
-     border: 1px hidden black; 
+    border: 1px hidden black; 
+    border-radius: 10px;
+    background: #cbfbd9;
+    box-shadow:  1px 1px 9px #516457,
+                 -1px -1px 9px #ffffff;
 }
 
 .notes__body {
@@ -149,6 +153,10 @@ body {
     margin-top: 2em;
     resize: none;
     border: 1px hidden black;
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow:  5px 5px 10px #c1c1c1,
+                 -5px -5px 10px #ffffff;
 }
 
 .notes__list-item{
