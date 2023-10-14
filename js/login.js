@@ -47,18 +47,14 @@ function login() {
       // Push to Firebase Database
       database_ref.child('users/' + user.uid).update(user_data)
 
-
-    
-      // //alert box
-      // Display a Bootstrap success alert
+      //display alert box
       var successAlert = document.getElementById('success-alert');
       successAlert.style.display = 'block';
 
+      //set interval so that user can see the alert before directing to the next page
       setInterval(function(){
         window.location.href = "main-page.html",4000
       })
-
-      
      
 
     })
@@ -69,7 +65,11 @@ function login() {
 
       console.log(error_code)
       console.log(error_message)
-      alert(error_message);
+
+      //display fail box
+       var failAlert = document.getElementById('fail-alert');
+            failAlert.style.display = 'block';
+     
     })
 }
 
