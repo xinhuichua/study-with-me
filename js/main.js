@@ -70,7 +70,7 @@ logoutButton.addEventListener('click', () => {
     });
   });
 
-//timer
+/* //timer
 let timer;
 let countdownTime = 1500; // 25 minutes in seconds
 let isPaused = false; // To track whether the timer is paused
@@ -136,7 +136,7 @@ function addMinutes() {
         countdownTime += 60; // Add 60 seconds (1 minute) to the countdown time
         updateDisplay(countdownTime);
     }
-}
+} */
 
 
 function togglediv(id) {
