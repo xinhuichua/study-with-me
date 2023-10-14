@@ -45,7 +45,7 @@ function register() {
 
   if (validate_field(email) == false || validate_field(password) == false) {
     //display fail box
-    var emptyAlert = document.getElementById('fail-alert');
+    var emptyAlert = document.getElementById('invalid-alert');
     emptyAlert.style.display = 'block';
     return;
     // Don't continue running the code
@@ -88,8 +88,9 @@ function register() {
       // Firebase will use this to alert of its errors
       var error_code = error.code;
       var error_message = error.message;
+      console.log(error_message)
 
-      alert(error_message);
+   
     });
 }
 
