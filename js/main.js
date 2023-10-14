@@ -32,8 +32,9 @@ var firebaseConfig = {
   
           //checkAndEnableButtons();
           window.addEventListener('load', checkAndEnableButtons);
-  
-          
+
+          displayUserTodoList(user.uid);
+
 
           setInterval(checkAndEnableButtons, 5000);
   
@@ -334,7 +335,126 @@ function checkAndEnableButtons() {
 }
 
 
+function saveTodoList() {
+    const todo = document.getElementById('input').value;
+    
 
+    if (!currentUser) {
+        // The user is not signed in; handle this case accordingly
+        alert('You need to sign in to add a note.');
+        return;
+    }
+
+    
+
+    // Ensure the user is signed in before adding a note
+    const userNotesRef = database.ref('users/' + currentUser.uid + '/todo');
+
+    // Push the note data to the user's notes in the Firebase database
+    const newNoteRef = userNotesRef.push();
+    newNoteRef.set({
+        todo: todo,
+        
+    });
+
+    // Clear the input fields after saving
+    document.getElementById('input').value = '';
+    
+
+    // Optionally, you can add a success message or perform any other action
+    alert('Note saved successfully!');
+}
+
+function displayUserTodoList(uid) {
+    const display = document.getElementById('display');
+    const todoInput = document.getElementById('input');
+    
+
+    // Reference to the user's notes in the database
+    const userNotesRef = database.ref('users/' + uid + '/todo');
+
+    // Listen for changes to the user's notes
+    userNotesRef.on('value', (snapshot) => {
+        display.innerHTML = ''; // Clear the existing notes
+
+        // Loop through each note in the user's notes
+        snapshot.forEach((childSnapshot) => {
+            const note = childSnapshot.val();
+            const noteId = childSnapshot.key;
+
+            // Create a container for each note
+            const noteContainer = document.createElement('div');
+            noteContainer.className = 'todo-container';
+            noteContainer.setAttribute('margin-top','10px');
+
+            // Add a click event listener to each note container
+            noteContainer.addEventListener('click', () => {
+                // Display the clicked note in the preview area
+                todoInput.value = note.todo;
+                
+            });
+
+            // Create a delete button for the note
+
+             const deleteButton = document.createElement('img');
+            deleteButton.setAttribute('src', '../img/delete.png');
+            deleteButton.setAttribute('width', '20px');
+      
+
+            // Add a click event listener to the delete button
+            deleteButton.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent the click event from propagating to the note container
+                deleteListFromDatabase(uid, noteId);
+            });
+
+            // Create a summary view for the note (e.g., only title)
+            const summaryView = document.createElement('div');
+            summaryView.className = 'notes__summary-view';
+            summaryView.textContent = note.todo; // You can customize the summary view as needed
+
+            // Append the summary view and delete button to the note container
+            noteContainer.appendChild(summaryView);
+            noteContainer.appendChild(deleteButton);
+
+            // Append the note container to the notes list
+            display.appendChild(noteContainer);
+        });
+    });
+}
+
+function deleteListFromDatabase(uid, noteId) {
+    const userNotesRef = database.ref('users/' + uid + '/todo');
+
+    const confirmed = window.confirm("Are you sure you want to delete?")
+
+    if(confirmed){
+        userNotesRef.child(noteId).remove();
+    }
+
+}
+
+// Function to clear all to-do items from the user's to-do list
+function clearToDoList(userId) {
+    const userToDoListRef = database.ref('users/' + userId + '/todo');
+
+    const confirmed = window.confirm("Are you sure you want to clear the entire list?")
+
+    if(confirmed){
+        userToDoListRef.remove();
+    }
+}
+
+// Add an event listener to the "Clear List" button
+const clearButton = document.getElementById('clearButton');
+
+clearButton.addEventListener('click', () => {
+    if (currentUser) {
+        clearToDoList(currentUser.uid);
+    } else {
+        // The user is not signed in; handle this case accordingly
+        alert('You need to sign in to clear the list.');
+    }
+});
 
 
 
