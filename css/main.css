@@ -69,7 +69,7 @@
     height: 500px;
 }
 
-.imageIcon{
+.iconImage{
     width: 40px;
     height: 40px;
 }
@@ -175,4 +175,8 @@ li .form-check-input {
 
 .nav-link{
     font-family: 'Times New Roman', Times, serif;
+}
+
+.logoutButton{
+    /* design the button */
 }

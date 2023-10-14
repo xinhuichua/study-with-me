@@ -39,6 +39,18 @@ auth.onAuthStateChanged(function(user) {
         userId = null;
     }
 });
+logoutButton.addEventListener('click', () => {
+    // Sign the user out
+    auth.signOut().then(() => {
+      // Redirect the user to the login page after logout
+      alert("User logged out");
+      window.location.href = 'home.html'; // Replace with the actual login page URL
+      
+    }).catch((error) => {
+      // Handle any errors that occur during sign-out
+      console.error('Error signing out:', error);
+    });
+  });
 
 const userCurrentImages = []; // Create an empty array to store user's current images
 console.log(userCurrentImages)

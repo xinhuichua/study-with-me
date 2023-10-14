@@ -19,14 +19,38 @@
         
         <!-- NAV BAR -->
         <div class="row" style="background-color:#e9fce9">
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-5 col-sm-12" style="background-color:#defade">
-                <a class="navbar-brand d-flex m-1 font" style="text-decoration:underline;">profile</a>
-            </div>
-            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-7 col-sm-12 d-flex justify-content-end">
-                <a class="nav-link m-1 font" href="main-page.html">main page</a>
-                <a class="nav-link m-1 font" href="cardlist.html">card shop</a>
-                <a class="nav-link m-1"><button type="button" class="btn font" style="font-style: italic;" id="logoutButton">logout</button></a>
-            </div>
+            <div class="col">
+                <nav class="navbar navbar-expand-lg justify-content-between"> <!-- Use 'justify-content-between' to separate items -->
+                  <!-- Home Icon -->
+                  <a class="navbar-brand d-flex font size" href="main-page.html">
+                    <img src="../img/Ai_images/icon.jpg" class="iconImage">
+                  </a>
+              
+                  <!-- Hamburger Button (Appears in smaller screens) -->
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+              
+                  <!-- Navbar Items (Collapsed in smaller screens) -->
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' to push items to the right -->
+                      <li class="nav-item">
+                        <a class="nav-link text-center" href="notetaking.html">Notetaking</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-center" href="cardlist.html">Card List</a>
+                      </li>
+                      
+                      <li class="nav-item">
+                        
+                          <a href="" class="nav-link logoutButton text-center" id="logoutButton">Logout</a>
+                        
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
         </div>
         
         <!-- MAIN CONTENT -->
