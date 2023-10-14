@@ -13,6 +13,14 @@ const resetButton = document.getElementById("reset-button");
 const addMinutesButton = document.getElementById("add-minutes-button");
 const minusMinutesButton = document.getElementById("minus-minutes-button");
 
+function updateDisplay(time) {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  const formattedTime = `${minutes.toString().padStart(2, "0")}:${seconds
+    .toString()
+    .padStart(2, "0")}`;
+  display.textContent = formattedTime;
+}
 
 function toggleTimer() {
     if (timer == null) {
