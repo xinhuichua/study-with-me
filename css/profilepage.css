@@ -1,17 +1,20 @@
-.size{
-    font-size: 40px;
-    
+.font{
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-.background{
+/* .background{
     background-image: url(../img/Ai_images/dark1.jpg);
     background-size: cover;
     height: 700px;
-}
+} */
 .imageicon{
-    width: 150px;
-    height: 150px;
-    
+    width: 300px;
+    height: 300px;    
 }
 
 .colHeight{
@@ -22,6 +25,7 @@
     width: 200px;
     height: 200px;
     margin: 10px;
+    
 }
 
 /* CSS Styles */
@@ -42,6 +46,7 @@ body {
 
 .container-fluid {
     max-width: 100%; /* Limit the container width */
+    height: 100vh;
     margin: 0 auto; /* Center the container horizontally */
 }
 
@@ -50,4 +55,16 @@ body {
     max-height: 300px; /* Set your desired fixed height here */
     overflow-y: auto; /* Enable vertical scrolling when content exceeds the height */
     padding: 10px; /* Optional: Add padding for spacing */
+}
+
+.username {
+
+    font-family: 'Courier New', Courier, monospace;
+
+    font-size: 25px;
+
+    text-align: center;
+
+    margin-top: 10px;
+
 }

@@ -12,72 +12,58 @@
 
     <link rel="stylesheet" href="../css/profilepage.css" />
 </head>
+
 <body>
-    <div class="container-fluid p-0" id="top">
-        <!-- Navbar top -->
-        <div class="background">
-            <div class="row bg-body-secondary">
-                <div class="col-6">
-                    <a class="navbar-brand d-flex size m-1" href="main-page.html">MainPage</a>
-                </div>
-                <div class="col-6 d-flex justify-content-end">
-                    <a class="nav-link m-1 size" href="cardlist.html">CardList</a>
-                    <a class="nav-link m-1 size" href="">Profile</a>
-                    <a class="nav-link m-1 size"><button id="logoutButton">Logout</button></a>
-                    
-                </div>
+
+    <div class="container-fluid" id="top" style="background-color:mintcream">
+        
+        <!-- NAV BAR -->
+        <div class="row" style="background-color:#e9fce9">
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-5 col-sm-12" style="background-color:#defade">
+                <a class="navbar-brand d-flex m-1 font" style="text-decoration:underline;">profile</a>
             </div>
-            <!-- row 2 -->
-            <div class="row">
-                <div class="col-6 d-flex align-items-center justify-content-center    text-white colHeight">
-                    <img class="imageicon" src="../img/Ai_images/hiker1.jpg" alt="">
-                    <h1>Username: <br>
-                    <span id="username"></span>
-                    </h1>
-                </div>
-                <div class="col-6"></div>
-                
-            </div>
-            <!-- row 3 -->
-            <div class="row">
-                <div class="col">
-                    <a href="#emoji-container">Scroll to Emoji</a>
-                </div>
+            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-7 col-sm-12 d-flex justify-content-end">
+                <a class="nav-link m-1 font" href="main-page.html">main page</a>
+                <a class="nav-link m-1 font" href="cardlist.html">card shop</a>
+                <a class="nav-link m-1"><button type="button" class="btn font" style="font-style: italic;" id="logoutButton">logout</button></a>
             </div>
         </div>
         
-
-
-
-       
+        <!-- MAIN CONTENT -->
         <div class="row">
-            <div class="col">
-                <h2 class="imageheader text-center ">Purchased Images</h2>
-                <div id="imageContainer" class="row d-flex justify-content-center ">
-                    <!-- Purchased images will be displayed here dynamically -->
+
+            <!-- SIDE PROFILE COLUMN -->
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-5 col-sm-12 p-5" style="background-color:#defade; height: 100vh;">
+                <div class="row justify-content-center align-items-center">
+                    <img class="imageicon" src="../img/Ai_images/hiker1.jpg" alt=""><br>
+                    <p class="username"> <span id="username"></span> </p>
                 </div>
             </div>
-        </div>
 
-
-
-        <div class="row">
-            <div class="col">
-                <a href="#top">back to top</a>
-            </div>
-        </div>
-        <div class="row bg-body-tertiary ">
-            <div class="col-6">
-                <div id="emoji-container" class="emoji-scroll-container"></div>
-            </div>
-            <div class="col-6">
+            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-7 col-sm-12" style="background-color:mintcream">
                 
+                <!-- MOOD INSIGHTS -->
+                <div class="row text-center p-4">
+                    <h2 style="font-family: Georgia, 'Times New Roman', Times, serif">mood insights</h2>
+                    <div class="row justify-content-center">
+                        <div id="emoji-container" class="emoji-scroll-container"></div>
+                    </div>
+                </div>
+
+                <!-- PURCHASED CARDS -->
+                <div class="row text-center p-3">
+                    <h2 style="font-family: Georgia, 'Times New Roman', Times, serif">purchased cards</h2>
+                        <div class="col">
+                            <div id="imageContainer" class="row d-flex ">
+                                <!-- Purchased images will be displayed here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        
-        
     </div>
-    
 
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 
@@ -87,7 +73,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
 
-
     <script src="../js/profilepage.js"></script>
 </body>
+
 </html>
