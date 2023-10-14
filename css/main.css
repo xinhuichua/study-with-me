@@ -1,22 +1,3 @@
-.timer {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center-align the content horizontally */
-    justify-content: center; /* Center-align the content vertically */
-    height: 260px; /* Set the height of the timer div to the viewport height */
-    width: 400px;
-    
-}
-
-.timer-display {
-    /* Style for the timer display */
-}
-
-.buttons {
-    margin-top: 10px; /* Add some space between the timer display and buttons */
-    display: flex;
-}
-
 .divbox{
     display: none;
     width: 400px;
