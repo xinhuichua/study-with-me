@@ -36,7 +36,9 @@
              
                 
             </div>
-            <div class="col-lg-8 col-md-7"></div>
+            <div class="col-lg-8 col-md-7 title">
+                <h2>My Notes</h2>
+            </div>
 
             <div class="col-md-1 col-sm-6">
 
@@ -59,7 +61,7 @@
         
         <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-12">
-                        <div class="notes__sidebar w-100 ">
+                        <div class="notes__sidebar w-100" id="greenScroll">
                             <button class="notes__add" type="button" onclick="addNote()">Start New Note</button>
                             <div class="notes__list" id="notesList">
                             </div>
@@ -70,7 +72,7 @@
                         <div class="notes__preview w-100 ">
                             <div>
                                 <label for="fontSelector">
-                                    <p class="">Font Family:</p>
+                                    <p class=""></p>
                                     
                                 </label>
                                 <select id="fontSelector" onchange="changeFontFamily()">
