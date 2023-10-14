@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/notetaking.css">
+    <link rel="stylesheet" href="../css/dark.css">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <!-- Navbar top -->
+        <div class="row bg-body-secondary font">
+            <div class="col-6 ">
+                  <a class="navbar-brand d-flex font size" href="main-page.html"><img src="../img/Ai_images/icon.jpg" class="iconImage" ></a>
+            </div>
+      
+            <div class="col-6 d-flex justify-content-end align-items-center ">
+                  <a class="nav-link font size" href="profilepage.html">Profile</a>
+                  <button id="logoutButton">Logout</button>
+            </div>
+          </div>
+
+
+       
+          <div class="row p-3">
+            <div class="col-lg-3 col-md-4">
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="searchNotes" aria-describedby="emailHelp" placeholder="Search Notes">
+                      
+                      </div>
+             
+                
+            </div>
+            <div class="col-lg-8 col-md-7"></div>
+
+            <div class="col-md-1 col-sm-6">
+
+                <div id="app">
+                <div class="flex">
+                    <div class="mode-toggle" @click="modeToggle" :class="darkDark">
+                        <div class="toggle">
+                            <div id="dark-mode" type="checkbox"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div> 
+
+            
+            
+        </div>  
+        
+        
+        <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <div class="notes__sidebar w-100 ">
+                            <button class="notes__add" type="button" onclick="addNote()">Start New Note</button>
+                            <div class="notes__list" id="notesList">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8 col-sm-12">
+                        <div class="notes__preview w-100 ">
+                            <div>
+                                <label for="fontSelector">
+                                    <p class="">Font Family:</p>
+                                    
+                                </label>
+                                <select id="fontSelector" onchange="changeFontFamily()">
+                                    <option value="Arial, sans-serif">Arial</option>
+                                    <option value="Helvetica, sans-serif">Helvetica</option>
+                                    <option value="Times New Roman, serif">Times New Roman</option>
+                                    <option value="Courier New, monospace">Courier New</option>
+                                    <option value="Georgia, serif">Georgia</option>
+                                </select>
+                            </div>
+                            <input class="notes__title" type="text" placeholder=" Enter a title..." id="noteTitle">
+                            <textarea class="notes__body" id="noteBody" placeholder=" I am the notes body..."></textarea>
+                            <button class="notes__save btn btn-success m-2" type="button" onclick="saveNote()">Save Note</button>
+                            <button class="notes__update btn btn-light m-2" type="button" onclick="updateNote()">Update Note</button>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+    <!-- Firebase scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    
+    <!-- JavaScript file for notes app -->
+    <script src="../js/notetaking.js"></script>
+
+    <!-- Vue dark mode -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+  <script  src="../js/dark.js"></script>
+</body>
+</html>
