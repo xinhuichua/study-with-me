@@ -172,3 +172,7 @@ li .form-check-input {
     height:200px;
     overflow:auto;
 }
+
+.nav-link{
+    font-family: 'Times New Roman', Times, serif;
+}
