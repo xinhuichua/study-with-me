@@ -80,11 +80,9 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"></a>
-                  </li>
+              <div class="collapse navbar-collapse d-flex justify-content-end " id="navbarNav">
+                <ul class="navbar-nav  ">
+                  
                   <li class="nav-item">
                     <a class="nav-link" href="notetaking.html">Notetaking</a>
                   </li>
@@ -94,9 +92,12 @@
                   <li class="nav-item">
                     <a class="nav-link" href="profilepage.html">Profile</a>
                   </li>
+                  <li class="nav-item">
+                    <button class="nav-link" id="logoutButton">Logout</button>
+                  </li>
                 </ul>
               </div>
-              <button id="logoutButton">Logout</button>
+              
           
           </nav>
         </div>
@@ -114,53 +115,7 @@
           </div>
             <div class="row heightDistance studyBackground">
 
-              <!-- i just commented the prev code just in case need to reuse or smt -->
-
-                <!-- for the navbar -->
-                <!-- <div class="col-1 align-content-center justify-content-center">
-                    <div class="centering h-100 heightDistance">
-                        <div class="navbarmain navbarBorder">
-                            <div class="bar">
-                                <button class="btn btnHeight " onclick="changeBackgroundImage()">
-                                  <img src="../img/icon/timer.jpg" alt="" class="imageIcon">
-                                    <p class="iconText">BG</p>
-                                </button>
-                            </div>
-                            <div class="bar">
-                                <button class="btn btnHeight" type="submit"  onclick="togglediv('imageContainer')">
-          
-                                  <div>
-                                    <img src="../img/icon/timer.jpg" alt="" class="imageIcon">
-                                    <p class="iconText">Timer</p>
-                                  </div>
-                                </button>
-                            </div>
-                            <div class="bar">
-                                <button class="btn btnHeight" type="submit"  onclick="togglediv('imageContainer2')">
-                                  <div>
-                                    <img src="../img/icon/music.jpg" alt="" class="imageIcon">
-                                    <p class="iconText">Music</p>
-                                  </div>
-                                </button>
-                            </div>
-                            <div class="bar">
-                              <button class="btn btnHeight" type="submit"  onclick="togglediv('imageContainer3')">
-                                <div>
-                                  <img src="../img/icon/todo.jpg" alt="" class="imageIcon">
-                                  <p class="iconText">Todo</p>
-                                </div>
-                              </button>
-                            </div>
-                            <div class="bar">
-                              <button class="btn btnHeight" type="submit"  onclick="togglediv('imageContainer4')">
-                                <div>
-                                  <img src="../img/icon/mood.jpg" alt="" class="imageIcon">
-                                  <p class="iconText">Mood</p>
-                                </div></button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+             
                 <!-- the actual content -->
                 <div class="col-11 ">
                     <div class="row d-flex justify-content-center ">
