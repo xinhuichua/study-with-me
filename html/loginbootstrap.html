@@ -14,24 +14,33 @@
     crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="../css/loginbootstrap.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 
 <body>
 
+
   <div class="container-fluid">
     <div class="row bg-body-secondary">
       <div class="col ">
 
-        <a class="navbar-brand d-flex font" href="home.html"><img src="../img/Ai_images/icon.jpg" class="iconImage" ></a>
+        <a class="navbar-brand d-flex font" href="home.html"><img src="../img/Ai_images/icon.jpg" class="iconImage"></a>
 
       </div>
 
 
     </div>
     <div class="row my-5">
-      <div class="col-lg-4 col-md-2 col-sm-1"></div>
+      <div class="col-lg-4 col-md-2 col-sm-1">
+
+      </div>
       <div class="col-lg-4 col-md-8 col-sm-10">
+
+        <!-- Success Alert Box (Initially hidden) -->
+        <div id="success-alert" class="alert alert-success" style="display: none;">
+          <strong>Success:</strong> You have logged in successfully.
+        </div>
 
         <div class="glass p-3 w-100 m-0">
 
@@ -49,7 +58,7 @@
 
             <div class="row my-4">
               <div class="col ">
-                <button type="button" onclick="login()" style="width: 100%;"
+                <button type="button" id="loginBtn" onclick="login()" style="width: 100%;"
                   class="btn btn-outline-dark mx-auto d-block">Log In</button>
               </div>
             </div>
