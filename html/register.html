@@ -30,6 +30,20 @@
         <div class="row my-5">
             <div class="col-lg-4 col-md-2 col-sm-1"></div>
             <div class="col-lg-4 col-md-8 col-sm-10">
+                         <!-- success registration message is hidden and only displayed if user registers successfully-->
+            <div id="success-alert" class="alert alert-success" style="display: none;">
+                <strong>Success:</strong> You account has beeen created. You can login now.
+              </div>
+  
+                 <!-- fail registration message is hidden and only displayed if user registers unsuccessfully-->
+                 <div id="invalid-alert" class="alert alert-danger" style="display: none;">
+                  <strong>Fail:</strong> Email or password invalid format
+                </div>
+
+                <div id="empty-alert" class="alert alert-danger" style="display: none;">
+                    <strong>Fail:</strong> Please fill in all fields
+                  </div>
+
                 <div class="glass p-3 w-100 m-0">
                     <h1 class="registrationPage text-center">Registration</h1>
                     <form>

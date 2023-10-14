@@ -68,7 +68,7 @@ function login() {
 
       //display fail box
        var failAlert = document.getElementById('fail-alert');
-            failAlert.style.display = 'block';
+      failAlert.style.display = 'block';
      
     })
 }
