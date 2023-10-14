@@ -4,6 +4,15 @@ body {
     margin: 0;
    
 }
+.pr-0 {
+    padding-right: 0px;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Lucida', cursive;
+    color: #52d482;
+}
 
 .font{
     font-size: 20px;
@@ -31,6 +40,8 @@ body {
     overflow-y: auto;
     padding: 1em;
     width: 300px;
+    border-radius: 10px;
+    height: 700px;
    
 }
 
@@ -46,10 +57,12 @@ body {
     padding: 0.75em 0;
     width: 100%;
     transition: background-color 0.3s;
+    font-family: 'Lucida', cursive;
 }
 
 .notes__add:hover {
-    background: black;
+    background: #B9DEFF;
+    color: black;
 }
 
 .notes__list{
@@ -153,94 +166,57 @@ body {
     margin: 5px 0;
 }
 
-
-
-/* Your existing CSS styles go here */
-
-/* Add styles for the dark theme */
-[data-theme='dark'] {
-    background-color: black;
-    color: white
+.notes__save {
+    font-family: 'Lucida', cursive;
 }
 
-/* .dark-theme {
-    background-color: black;
-    color: white;
-} */
-
-/* Add any initial styles for your textarea here */
-
-
-/* 
-.togglecenter{
-    align-items: center;
-    display: flex;
-   
-} */
-
-/* toggle button start */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  .switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 60px; /* Fixed width */
-    height: 34px; /* Fixed height */
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+.notes__update {
+    font-family: 'Lucida', cursive;
 }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-  /* toggle button end */
+
+.notes__update:hover {
+    background-color: rgb(32, 149, 251);
+    border: none;
+}
+
+.scrollbar
+{
+	margin-top: 30px;
+	float: left;
+	height: 400px;
+	width: 65px;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+    border-radius: 15px;
+background: #ffdab9;
+box-shadow:  5px 5px 14px #f0cdae,
+             -5px -5px 14px #ffe7c4;
+}
+
+
+#greenScroll::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+#greenScroll::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+#greenScroll::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #FFF;
+	background-image: -webkit-linear-gradient(top,
+											  #e4fcf0 0%,
+											  #81f3a1 50%,
+											  #67f2aa 51%,
+											  #2aed61 100%);
+}
+
 
   .iconImage{
     width: 50px;
