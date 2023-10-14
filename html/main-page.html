@@ -13,6 +13,7 @@
   <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap'>
   <link rel="stylesheet" href="../css/sidebar.css">
   <link rel="stylesheet" href="../css/timer.css">
+  <link rel="stylesheet" href="../css/mood.css">
 </head>
 
 <body style="background-color: mintcream;">
@@ -155,11 +156,18 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-6 divbox divbox4" id="imageContainer4">
-                            <h2>How are you feeling today?</h2>
-                            <button id="happy-button" onclick="recordMood('&#128516')" disabled>😄 Happy</button>
-                            <button id="sad-button" onclick="recordMood('sad')" disabled>😞 Sad</button>
-                            <button id="normal-button" onclick="recordMood('normal')" disabled>😐 Normal</button>
+                        <div class="col-6 moodDiv" id="imageContainer4">
+                            <h2 class="mood-header">How are you feeling today?</h2>
+                            <p class="mood-subheader">
+                              Select mood:
+                            </p>
+                            <div class="mood-buttons">
+                              <button id="happy-button" onclick="recordMood('#2d6b5f')" disabled><img src="../img/happiness.png" alt="" class="src"></button>
+                              <button id="sad-button" onclick="recordMood('#dff4c7')" disabled><img src="../img/normal.png" alt="" class="src"></button>
+                              <button id="normal-button" onclick="recordMood('#edbf98')" disabled><img src="../img/sad.png" alt="" class="src"></button>
+
+                            </div>
+                           
 
                         </div>
                     </div>
@@ -186,6 +194,8 @@
 <script src="../js/main.js"></script>
 <script  src="../js/sidebar.js"></script>
 <script src ="../js/timer.js"></script>
+<script src ="../js/mood.js"></script>
 
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </html>

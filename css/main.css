@@ -3,10 +3,7 @@
     width: 400px;
     margin-left: 60px;
 }
-.moodDivBox{
-    width: 400px;
-    margin-left: 60px;
-}
+
 
 .divbox1{
    
@@ -28,12 +25,7 @@
     /* background-color: white; */
     border: 2px solid black;
 }
-.divbox4{
-   
-    height: 200px;
-    /* background-color: white; */
-    border: 2px solid black;
-}
+
 
 .bordertest{
     border-radius: 12%;
