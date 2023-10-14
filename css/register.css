@@ -1,0 +1,53 @@
+/* html, body {
+    width: 100%;
+    height: 100%;
+    background: url("../img/bg-img.jpg"), #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(9px);
+} */
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+  
+body {
+    background: url("../img/bg-img.jpg"), #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(9px);
+} 
+
+
+.glass {
+    width: 500px;
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.879);
+}
+.registrationPage{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.font{
+    font-size: 20px;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .iconImage{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+  }
+  
