@@ -122,3 +122,73 @@
 .textColor{
     color: aqua;
 }
+
+.mt-6{
+    margin-top: 8rem;
+}
+.btn-outline-purple{
+    background-color:#9900cc;
+    color:white;
+}
+.btn-outline-purple:hover{
+    background-color: none;
+    color:#9900cc;
+    border-color:#9900cc;
+}
+.fa-trash{
+    color:rgba(250, 120, 33, 0.726);
+}
+.my-6{
+    margin:0.2rem 0;
+}
+.text-bold{
+    font-weight: bold;
+}    
+li{
+    position: relative;
+}
+li .delete-item {
+    position: absolute;
+   right:50px;
+}
+li .form-check-input {
+    position: absolute;
+    right:80px;
+  }
+#mode{
+    margin-right:20px;
+    padding:0 20px;
+}
+.dark-mode{
+    background: #212529 !important;
+    color:#fff !important;
+    
+}
+.dark-mode  .btn-outline-dark{
+    color: #fff;
+    border : 2px solid #fff;
+}
+.dark-mode input::placeholder {
+    color: white;
+  }
+.dark-mode input{
+    background-color: #404040 !important;
+  }
+.dark-mode ul li{
+    background: #212529 !important;
+    color:#fff !important;
+}
+.dark-mode #cardHeader{
+    border-bottom: 2px solid #fff;
+}
+
+
+.todo-container{
+    display:flex; /*display delete button at the side*/
+    justify-content: space-between;
+}
+
+#todolist{
+    height:200px;
+    overflow:auto;
+}

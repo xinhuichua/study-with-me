@@ -187,7 +187,20 @@
                           </div>
                         </div>
                         <div class="col-6 divbox divbox3" id="imageContainer3">
-          
+                          <div class="card" id="todolist">
+                            <div class="card-body">
+                             <h2 class="text-center">To-Do List <i class="fa-solid fa-clipboard-list"></i></h2>
+                             <div class="input-group mb-3">
+                                <input type="text" class="form-control" id ='input' placeholder="To-Do List" aria-label="Enter a Word" aria-describedby="button2">
+                                <button class="btn btn-outline-purple" type="button" id="addButton" onclick="saveNote()">Add</button>
+                              </div>
+                              <div class="display" id="display">
+                              </div>
+                              <div class="d-grid col-6 mx-auto">
+                                <button class="btn btn-outline-danger" type="button" id="clearButton">Clear List</button>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                         <div class="col-6 divbox divbox4" id="imageContainer4">
                             <h2>How are you feeling today?</h2>
