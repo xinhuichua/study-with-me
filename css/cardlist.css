@@ -3,12 +3,14 @@ html, body {
 }
 
 /* Define a CSS class to set the size of images */
-.space {
+.SpecialImage {
     width: 200px; /* Set the desired width */
     height: 150px; /* Set the desired height */
+    max-width: 100%;
+    height: auto; /* Ensure images maintain their aspect ratio */
 }
 
-.imageC{
+.imageDisplayFlex{
     display: flex;
     
 }
@@ -16,7 +18,7 @@ p{
     text-align: center;
 }
 /* Add this CSS to your stylesheet */
-.testing123:hover {
+.ImageWithPoints:hover {
     transform: scale(1.05); /* Scale the card when hovered */
     transition: transform 0.3s ease; /* Add a smooth transition effect */
 }
@@ -36,15 +38,12 @@ img{
 
 
 
-.space {
-    max-width: 100%;
-    height: auto; /* Ensure images maintain their aspect ratio */
-}
 
-.currentpoints{
-    text-align: center;
-}
 
-.imageHeaderNumber{
+/* .currentpoints{
     text-align: center;
-}
+} */
+
+/* .imageHeaderNumber{
+    text-align: center;
+} */

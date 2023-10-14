@@ -20,7 +20,7 @@ const storage = firebase.storage();
 const database = firebase.database();
 
 const purchasedImageUrls = [];
-console.log(purchasedImageUrls)
+//console.log(purchasedImageUrls)
 let userId; // User ID
 
 
@@ -33,7 +33,7 @@ auth.onAuthStateChanged(function(user) {
         //fetchPointsFromDatabase();
         getUserImageUrlData();
         createImageContainers();
-        displaypoint()
+        displayPoint()
     } else {
         // User is signed out
         userId = null;
@@ -128,8 +128,8 @@ function createImageContainers() {
                     const pointsElement = document.createElement('p');
 
                     pointsElement.textContent = points + ' points';
-                    divContainer.classList.add('testing123')
-                    imgElement.classList.add('space');
+                    divContainer.classList.add('ImageWithPoints')
+                    imgElement.classList.add('SpecialImage');
                     imgElement.src = url;
 
                     // Append the <img> and points elements to the <div> container
@@ -247,7 +247,7 @@ function addImageToUserDatabase(imageUrl) {
 // }
 
 //when the user first load this page, i will call this function in auth to display current points
-function displaypoint() {
+function displayPoint() {
     if (!userId) {
         // Handle the case where userId is not defined
         console.error('userId is not defined');
