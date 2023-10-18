@@ -14,18 +14,11 @@
 } */
 .imageicon{
     width: 300px;
-    height: 300px;    
+    /* height: 300px;     */
 }
 
 .colHeight{
     height: 500px;
-}
-
-.profileimg{
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-    
 }
 
 /* CSS Styles */
@@ -70,7 +63,8 @@ body {
 }
 
 .iconImage{
-    width: 60px;
-    height: 60px;
-    margin-left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
 }
