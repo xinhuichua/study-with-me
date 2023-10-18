@@ -18,7 +18,10 @@ p{
     text-align: center;
 }
 /* Add this CSS to your stylesheet */
-.ImageWithPoints:hover {
+.divBackgroundDesign{
+    background-color: #defade;
+}
+.divBackgroundDesign:hover {
     transform: scale(1.05); /* Scale the card when hovered */
     transition: transform 0.3s ease; /* Add a smooth transition effect */
 }
@@ -36,18 +39,7 @@ img{
     flex-wrap: wrap; /* Allow images to wrap to the next line */
 }
 
-.iconImage{
-    width: 60px;
-    height: 60px;
-    margin-left: 15px;
+.titleDesign{
+    color: aqua;
 }
 
-
-
-/* .currentpoints{
-    text-align: center;
-} */
-
-/* .imageHeaderNumber{
-    text-align: center;
-} */

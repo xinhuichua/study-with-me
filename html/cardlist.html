@@ -10,7 +10,52 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cardlist.css" />
 </head>
-<body>
+<body style="background-color: mintcream;">
+    <div class="modal" tabindex="-1" id="CardPurchaseStatus">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center titleDesign">Card Status</h5>
+          </div>
+          <div class="modal-body">
+            <p>You have already purchased this card</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" tabindex="-1" id="CardBuying">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center titleDesign">Card Status</h5>
+          </div>
+          <div class="modal-body">
+            <p>You have just purchased this card. Congratulation!</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" tabindex="-1" id="CardPointsStatus">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center titleDesign">Card Status</h5>
+          </div>
+          <div class="modal-body">
+            <p>You do not have enough points to buy this card. Keep on studying to collect points!</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
  
     
     
@@ -61,13 +106,18 @@
                 <h1 class="">Current Points: <span id="pointsSpan">0</span></h1>
             </div>
         </div>
-        
+
+        <div class="row">
+          <div class="col text-center">
+              <h1>Collect Special Cards</h1>
+          </div>
+        </div>
 
 
         <!-- images collection -->
         <div class="row">
             <div class="col p-0 ">
-                <div class="card" >
+                <div class="card" style="background-color: mintcream;">
 
                     <div class="card-body">
                         <div id="imageContainer" class="imageDisplayFlex justify-content-center">

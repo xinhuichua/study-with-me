@@ -21,6 +21,10 @@ const database = firebase.database();
 
 const purchasedImageUrls = [];
 //console.log(purchasedImageUrls)
+
+const userCurrentImages = []; // Create an empty array to store user's current images
+//console.log(userCurrentImages)
+
 let userId; // User ID
 
 
@@ -52,8 +56,7 @@ logoutButton.addEventListener('click', () => {
     });
   });
 
-const userCurrentImages = []; // Create an empty array to store user's current images
-console.log(userCurrentImages)
+
 function getUserImageUrlData() {
     // Check if userId is defined
     if (!userId) {
@@ -86,78 +89,105 @@ function getUserImageUrlData() {
 }
 
 const imageData = [
-    { imageName: 'hiker1.jpg', points: 10 },
-    { imageName: 'hiker2.jpg', points: 30 },
-    { imageName: 'hiker3.jpg', points: 150 },
-    { imageName: 'hiker4.jpg', points: 30 },
-    { imageName: 'dark1.jpg', points: 350 },
-    { imageName: 'dark2.jpg', points: 330 },
-    { imageName: 'dark3.jpg', points: 320 },
-    { imageName: 'dark4.jpg', points: 310 },
-    { imageName: 'rabbit1.jpg', points: 130 },
-    { imageName: 'rabbit2.jpg', points: 230 },
-    { imageName: 'rabbit3.jpg', points: 330 },
-    { imageName: 'rabbit4.jpg', points: 430 },
-    // Add more objects for additional images and points as needed
+    { imageName: 'african_forest_elephant.jpg', points: 10000 ,cardName: 'elephant'},
+    { imageName: 'amur_leopard.jpg', points: 12000 ,cardName: 'Amur Leopard'},
+    { imageName: 'black_rhino.jpg', points: 6000 ,cardName: 'Black Rhino'},
+    { imageName: 'african_wild_dog.jpg', points: 2000 ,cardName: 'African Wild Dog'},
+    { imageName: 'black_spider_monkey.jpg', points: 400 ,cardName: 'Black Spider Monkey'},
+    { imageName: 'blackfooted_ferrets.jpg', points: 1800 ,cardName: 'Ferrets'},
+    { imageName: 'blue_whale.jpg', points: 15000 ,cardName: 'Blue Whale'},
+    { imageName: 'giant_panda.jpg', points: 5000 ,cardName: 'Giant Panda'},
+    { imageName: 'hawksbill_turtle.jpg', points: 1500 ,cardName: 'turtle'},
+    { imageName: 'hectors_dolphin.jpg', points: 7000 ,cardName: 'dolphin'},
+    { imageName: 'monarch_butterfly.jpg', points: 500 ,cardName: 'Monarch Butterfly'},
+    { imageName: 'mountain_gorilla.jpg', points: 4500 ,cardName: 'Gorilla'},
+    { imageName: 'northern_spotted_owl.jpg', points: 800 ,cardName: 'Northern Owl'},
+    { imageName: 'red_panda.jpg', points: 5500 ,cardName: 'Red Panda'},
+    { imageName: 'sea_lion.jpg', points: 4000 ,cardName: 'Sea Lion'},
+    { imageName: 'sunda_tiger.jpg', points: 3500 ,cardName: 'Sunda Tiger'},
+    { imageName: 'whale_shark.jpg', points: 8000 ,cardName: 'Whale Shark'},
+    { imageName: 'yangtze_finless_porpoise.jpg', points: 1000 ,cardName: 'Yangtze'},
+    
 ];
 //because everytime image is taken from firebase storage, its not in order so have to store the 
-// url & points in the empty array and from there display it
-const imageUrls = []; // Create an empty array to store image URLs
+// name, url & points in the empty array and from there display it
+const imageUrls = []; // Create an empty array to store image URLs,cardname,points
 
 const imageContainer = document.getElementById('imageContainer');
 
 // Function to create and append image containers
 function createImageContainers() {
-    // Sort imageData based on points in descending order
-    imageData.sort((a, b) => b.points - a.points);
-
+    
     imageData.forEach((imageInfo) => {
-        const imageName = imageInfo.imageName;
-        const points = imageInfo.points;
-
+        //point 1
+        let imageFileName = imageInfo.imageName; //hiker1.jpg
+        let cardPoints = imageInfo.points; //10
+        let cardName = imageInfo.cardName; //hiker123
+        
         // Get a reference to the image in Firebase Storage
-        const imageRef = storage.ref().child('images/' + imageName);
+        //point 1
+        const imageRef = storage.ref().child('images/' + imageFileName); // getting the exact name of the file in the firebase storage
 
         // Get the download URL for the image
         imageRef.getDownloadURL().then(function(url) {
+            //console.log(url)
             // Store the image URL in the array
-            imageUrls.push({ url, points });
-
+            imageUrls.push({ url, cardPoints, cardName }); // referring to point 1
+            
             // Check if all URLs have been collected
+            // imageUrls = [{url:'',cardPoints:10,cardName:'hiker'}]
             if (imageUrls.length === imageData.length) {
-                // Sort the image URLs based on points
-                imageUrls.sort((a, b) => b.points - a.points);
+                //console.log(imageUrls)
+                //Sort the image URLs based on points
+                imageUrls.sort((a, b) => b.cardPoints - a.cardPoints);
 
                 // Create and append image containers in the sorted order
-                imageUrls.forEach((imageUrlInfo) => {
-                    const url = imageUrlInfo.url;
-                    const points = imageUrlInfo.points;
+                imageUrls.forEach((imageUrlInfo) => { //looping through the array of objects
+                    let url = imageUrlInfo.url; 
+                    let points = imageUrlInfo.cardPoints;
+                    let cardName = imageUrlInfo.cardName;
 
-                    // Create a <div> element to hold the image and points
-                    const divContainer = document.createElement('div');
-                    
-                    const imgElement = document.createElement('img');
-                    const pointsElement = document.createElement('p');
+                    // Create a <div> element to hold the image, card name, and points
+                    let divCardContainer = document.createElement('div');
+                    divCardContainer.classList.add('card', 'col-lg-3', 'col-md-6', 'col-sm-12', 'm-3', 'divBackgroundDesign');
+                    divCardContainer.setAttribute('style', 'display:inline-block; width:12rem');
 
+                    let cardNameElement = document.createElement('p');
+                    cardNameElement.className = 'card-title';
+                    let cardImageElement = document.createElement('img');
+                    let pointsElement = document.createElement('p');
+
+                    // Card Name
+                    cardNameElement.textContent = cardName; 
+                    // Image Element
+                    cardImageElement.classList.add('SpecialImage');
+                    cardImageElement.src = url;
+                    // Points
                     pointsElement.textContent = points + ' points';
-                    divContainer.classList.add('ImageWithPoints')
-                    imgElement.classList.add('SpecialImage');
-                    imgElement.src = url;
-
-                    // Append the <img> and points elements to the <div> container
-                    
-                    divContainer.appendChild(imgElement);
-                    divContainer.appendChild(pointsElement);
+                
+                    // Append the Card Name, Image Element, Points to the <div> container
+                    divCardContainer.appendChild(cardNameElement);
+                    divCardContainer.appendChild(cardImageElement);
+                    divCardContainer.appendChild(pointsElement);
 
                     // Append the <div> container to the imageContainer
-                    imageContainer.appendChild(divContainer);
+                    imageContainer.appendChild(divCardContainer);
+
+                    //console.log(purchasedImageUrls)
+                    //console.log(userCurrentImages)
 
                     // Add a click event listener to the <div> container
-                    divContainer.addEventListener('click', function() {
-                        // Check if the URL already exists in purchasedImageUrls
-                        if (purchasedImageUrls.includes(url) || userCurrentImages.includes(url)) {
-                            alert('You already purchased this image.');
-                        } else {
+                    divCardContainer.addEventListener('click', function() {
+                        // Check if the URL already exists in purchasedImageUrls & userCurrentImages
+                        if (
+                            purchasedImageUrls.some((userImage) => userImage.imageUrl == url) ||
+                            userCurrentImages.some((userImage) => userImage.imageUrl == url)
+                        ) {
+                            //https://getbootstrap.com/docs/5.0/components/modal/
+                            var CardPurchaseStatus = new bootstrap.Modal(document.getElementById('CardPurchaseStatus'));
+                            CardPurchaseStatus.show();
+                  
+                        }else {
                             // Attempt to exchange points when the user clicks on the image
                             var userPointsRef = database.ref('users/' + userId + '/points');
                     
@@ -169,7 +199,10 @@ function createImageContainers() {
                     
                                     if (exchangeSuccessful) {
                                         // Deduct the points in the database
-                                        alert('YOU BOUGHT IT');
+                                        
+                                        var CardBuying = new bootstrap.Modal(document.getElementById('CardBuying'));
+                                        CardBuying.show();
+                                        
                                         var updatedPoints = userPoints.Points - points;
                     
                                         userPointsRef.set({ Points: updatedPoints }, function(error) {
@@ -177,13 +210,15 @@ function createImageContainers() {
                                                 console.error('Error deducting points from the database:', error);
                                             } else {
                                                 console.log('Points deducted successfully. New user points:', updatedPoints);
-                    
-                                                // Add the purchased image URL to the user's database record
-                                                addImageToUserDatabase(url);
+                                                
+                                                // Add the purchased card content to the user's database record with this function
+                                                addImageToUserDatabase(url, cardNameElement, points);
                                             }
                                         });
                                     } else {
-                                        alert('Not enough points to exchange.');
+                                        
+                                        var CardPointsStatus = new bootstrap.Modal(document.getElementById('CardPointsStatus'));
+                                        CardPointsStatus.show();
                                     }
                                 } else {
                                     console.error('Invalid userPoints value:', userPoints);
@@ -212,20 +247,30 @@ function exchangePoints(userPoints, imagePoints) {
 }
 
 
-function addImageToUserDatabase(imageUrl) {
+function addImageToUserDatabase(imageUrl, cardNameElement, points) {
+    
     if (userId) {
-        console.log('Adding image to user database - userId:', userId, 'imageUrl:', imageUrl);
+        const imgNameText = cardNameElement.textContent;
+        console.log('Adding image to user database - userId:', userId, 'imageUrl:', imageUrl, 'name:', imgNameText, 'cardpoint', points);
 
         // Define the path to the user's data in the database (customize this)
         const userRef = database.ref('users/' + userId);
 
-        // Update the user's data with the purchased image URL
-        userRef.child('purchasedImages').push(imageUrl, function(error) {
+        // Update the user's data with the purchased image URL and cardNameElement
+        userRef.child('purchasedImages').push({
+            imageUrl: imageUrl,
+            cardNameElement: imgNameText,
+            points: points
+        }, function(error) {
             if (error) {
                 console.error('Error adding image to user database:', error);
             } else {
                 console.log('Image added to user database successfully.');
-                purchasedImageUrls.push(imageUrl);
+                purchasedImageUrls.push({ 
+                    imageUrl: imageUrl, 
+                    cardNameElement: imgNameText, 
+                    points:points 
+                });
             }
         });
     } else {
@@ -233,30 +278,6 @@ function addImageToUserDatabase(imageUrl) {
     }
 }
 
-// function fetchPointsFromDatabase() {
-//     if (userId) {
-//         // Reference to the user's points in the database
-//         const userPointsRef = database.ref('users/' + userId + '/points');
-
-//         // Retrieve the points from the database
-//         userPointsRef.once('value').then(function(snapshot) {
-//             const userData = snapshot.val();
-//             if (userData && userData.Points !== undefined && userData.Points !== null) {
-//                 const points = userData.Points;
-//                 // Now, you have the points in the "points" variable
-//                 console.log('Pointssss from the database:', points);
-//             } else {
-//                 // Handle the case where there are no points in the database
-//                 console.log('No points found in the database.');
-//             }
-//         }).catch(function(error) {
-//             // Handle any errors that may occur during the retrieval
-//             console.error('Error fetching points:', error);
-//         });
-//     } else {
-//         console.error('User is not authenticated.');
-//     }
-// }
 
 //when the user first load this page, i will call this function in auth to display current points
 function displayPoint() {
