@@ -79,17 +79,65 @@ function displayPurchasedImages(userId) {
     // Reference to the user's purchased images in the database
     const userImagesRef = database.ref('users/' + userId + '/purchasedImages');
 
-    // Listen for changes in the purchased images data
-    userImagesRef.on('child_added', function(data) {
-        const imageUrl = data.val();
-        // Create an <img> element and set its source to the purchased image URL
-        const imgElement = document.createElement('img');
-        imgElement.src = imageUrl;
+    userImagesRef.on('value', (snapshot) => {
+        const imageContainer = document.getElementById('imageContainer');
+        
+        // Create an array to collect images
+        const imagesArray = [];
 
-        imgElement.classList.add('profileimg');
-        // Append the <img> element to the imageContainer
-        imageContainer.appendChild(imgElement);
+        snapshot.forEach((childSnapshot) => {
+            const images = childSnapshot.val();
+
+            const url = images.imageUrl;
+            const cardName = images.cardNameElement;
+            const cardPoints = images.points;
+
+            imagesArray.push({ url, cardName, cardPoints });
+        });
+
+        // Sort the array based on points in descending order
+        imagesArray.sort((a, b) => b.cardPoints - a.cardPoints);
+
+        imagesArray.forEach((imageInfo) => {
+            const { url, cardName, cardPoints } = imageInfo;
+
+            let divCardContainer = document.createElement('div');
+            divCardContainer.classList.add('card', 'col-lg-3', 'col-md-6', 'col-sm-12', 'm-3', 'divBackgroundDesign');
+            divCardContainer.setAttribute('style', 'display:inline-block; width:12rem');
+
+            let cardImageElement = document.createElement('img');
+            cardImageElement.src = url;
+            cardImageElement.classList.add('card-img-top');
+
+            // const cardLabelDiv = document.createElement('div');
+            // cardLabelDiv.classList.add('card-body');
+
+            let cardNameElement = document.createElement('p');
+            cardNameElement.className = 'card-title';
+            cardNameElement.textContent = cardName;
+
+            let pointsElement = document.createElement('p');
+            pointsElement.textContent = cardPoints +" points";
+
+            divCardContainer.appendChild(cardNameElement);
+            divCardContainer.appendChild(cardImageElement);
+            divCardContainer.appendChild(pointsElement)
+            
+
+            // Append the image container to the document's DOM
+            imageContainer.appendChild(divCardContainer);
+
+            //call a function to count the array of object to track how many cards the user bought
+            displayImagesCount(imagesArray)
+        });
     });
+}
+
+function displayImagesCount(imagesArray) {
+    
+    const test = imagesArray.length;
+    var cardCount = document.getElementById('cardCount');
+    cardCount.textContent = test
 }
 
 
