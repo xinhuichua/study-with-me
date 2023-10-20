@@ -226,9 +226,31 @@ box-shadow:  5px 5px 14px #f0cdae,
 }
 
 
-  .iconImage{
+.iconImage{
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-top: 10px;
+}
+
+.icon {
+    position: relative;
+    color: blue;
+}
+
+.icon:hover ~ .info {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    background-color: grey;
+    color: #FFF;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    left: 40%;
+  }
+
+  .info {
+    display: none;
   }
