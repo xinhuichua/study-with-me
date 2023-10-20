@@ -8,8 +8,8 @@ body {
 body.dark-mode {
   background-color: #242424;
 }
-body.dark-mode .flex h1 {
-  color: #fff;
+body.dark-mode h2 {
+  color: #fff; /* would need to change the h2 accordingly if there is anything else that needs to be turned white in dark theme */
 }
 
 .mode-toggle {

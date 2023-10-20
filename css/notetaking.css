@@ -130,9 +130,7 @@ body {
     outline: none;
     width: 100%;
     height: 50vh;
-    border-radius: 20px;
-
-    
+    border-radius: 20px;  
 }
 
 .notes__title {
@@ -172,6 +170,7 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     margin: 5px 0;
+    overflow: hidden; /*this will ensure that the words fit into the box and not spill out */
 }
 
 .notes__save {
@@ -249,8 +248,8 @@ box-shadow:  5px 5px 14px #f0cdae,
     border-radius: 6px;
     padding: 5px;
     left: 40%;
-  }
+}
 
-  .info {
+.info {
     display: none;
-  }
+}
