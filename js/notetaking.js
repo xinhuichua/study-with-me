@@ -170,24 +170,23 @@ function displayUserNotes(uid) {
             });
 
             // Create a delete button for the note
-
-             const deleteButton = document.createElement('img');
+            const deleteButton = document.createElement('img');
             deleteButton.setAttribute('src', '../img/delete.png');
             deleteButton.setAttribute('width', '20px');
-           
-
-            // Add a click event listener to the delete button
+        
+         
+            //event listner for deletebutton
             deleteButton.addEventListener('click', (e) => {
                 e.stopPropagation(); // Prevent the click event from propagating to the note container
                 deleteNoteFromDatabase(uid, noteId);
             });
 
-            // Create a summary view for the note (e.g., only title)
+            // display only title in the note list
             const summaryView = document.createElement('div');
             summaryView.className = 'notes__summary-view';
             summaryView.textContent = note.title; // You can customize the summary view as needed
 
-            // Append the summary view and delete button to the note container
+            // Append the  summarView consiting of note title and delete button to the note container
             noteContainer.appendChild(summaryView);
             noteContainer.appendChild(deleteButton);
 
@@ -195,16 +194,29 @@ function displayUserNotes(uid) {
             notesList.appendChild(noteContainer);
         });
     });
+
+    
 }
 
 // Function to delete a note from the user's notes in the database
 function deleteNoteFromDatabase(uid, noteId) {
-    const userNotesRef = database.ref('users/' + uid + '/notes');
+const userNotesRef = database.ref('users/' + uid + '/notes');
 
-    const confirmed = window.confirm("Are you sure you want to delete?")
+    // Show the Bootstrap modal
+    const deleteConfirmationModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
+    deleteConfirmationModal.show();
 
-    if(confirmed){
-        userNotesRef.child(noteId).remove();
+    // Attach an event listener to the "Delete" button in the modal to perform the deletion
+    const confirmDeleteButton = document.getElementById('confirmDeleteButton');
+    if (confirmDeleteButton) {
+        confirmDeleteButton.addEventListener('click', () => {
+            userNotesRef.child(noteId).remove();
+    
+            // Close the modal after deletion
+            deleteConfirmationModal.hide();
+        });
+    } else {
+        console.error('confirmDeleteButton is null or does not exist.');
     }
 
 }
@@ -222,6 +234,36 @@ function changeFontFamily() {
 }
 
 
+  
+
+
+// search function
+function searchNotes(query) {
+    // Get the notes list container
+    const notesList = document.getElementById('notesList');
+
+    // Get all note containers within the list
+    const noteContainers = notesList.getElementsByClassName('notes__list-item');
+
+    //ensure text is in lowercase before searching
+    const lowercaseQuery = query.toLowerCase();
+
+    // Loop through each note container and check if it contains the search query
+    for (const noteContainer of noteContainers) {
+       
+        const summaryView = noteContainer.querySelector('.notes__summary-view');
+
+        // Get the delete button image within the container
+        const deleteButton = noteContainer.querySelector('img[alt="Delete Note"]');
+
+        // If the summary view text contains the search query, show the note; otherwise, hide it
+        if (summaryView.textContent.toLowerCase().includes(lowercaseQuery)) {
+            noteContainer.style.display = 'block';
+        } else {
+            noteContainer.style.display = 'none';
+        }
+    }
+}
 
 
 
