@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     margin: 0;
+
    
 }
 .pr-0 {
@@ -10,8 +11,8 @@ body {
 
 .title {
     text-align: center;
-    font-family: 'Lucida', cursive;
-    color: #52d482;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
 }
 
 .font{
@@ -20,7 +21,7 @@ body {
     padding-bottom: 5px;
     padding-left: 20px;
     padding-right: 20px;
-    font-family: 'Times New Roman', Times, serif;
+    
 }  
 
 .notes {
@@ -30,18 +31,18 @@ body {
 }
 
 .notes * {
-    font-family: sans-serif;
    
+   font-family: 'Times New Roman', Times, serif;
 }
 
 .notes__sidebar {
-    border-right: 2px solid #dddddd;
+    border-right: 1px solid ;
     flex-shrink: 0;
     overflow-y: auto;
     padding: 1em;
     width: 300px;
-    border-radius: 10px;
-    height: 700px;
+    
+    height: 600px;
    
 }
 
@@ -56,18 +57,14 @@ body {
     margin-bottom: 1em;
     padding: 0.75em 0;
     width: 100%;
-    transition: background-color 0.3s;
-    font-family: 'Lucida', cursive;
-}
-
-.notes__add:hover {
-    background: #B9DEFF;
-    color: black;
+    
 }
 
 .notes__list{
-    background-color: white;
-    color:black; 
+     padding: 2px;
+    color:white;
+   
+   
 
 
 }
@@ -76,9 +73,8 @@ body {
 .notes__list-item {
     cursor: pointer;
     /* transition: background-color 2s; */
-    color: black;
-    background-color: white;
-    
+    color: white;
+    background-color: #467061;
 }
 
 .notes__list-item:hover{
@@ -90,7 +86,7 @@ body {
 
 .notes__list-item--selected {
     background: #eeeeee;
-    border-radius: 7px;
+ 
     font-weight: bold;
 }
 
@@ -120,28 +116,31 @@ body {
     flex-grow: 1;
 }
 
-.notes__title{
-    outline: none;
-    width: 100%;
-    border-radius: 20px;
-}
+
 .notes__body {
-    border: none;
+  
     outline: none;
     width: 100%;
     height: 50vh;
-    border-radius: 20px;  
+    border: 0px;
+  
 }
 
 .notes__title {
     font-size: 32px;
     font-weight: bold;
+    outline: none;
+   background-color: #618264;
+   color: white;
+    border:none;
+    width: 100%;
+    
    
-    border: 1px hidden black; 
-    border-radius: 10px;
-    background: #cbfbd9;
-    box-shadow:  1px 1px 9px #516457,
-                 -1px -1px 9px #ffffff;
+}
+.notes__title::placeholder{
+   color:white;
+ 
+   
 }
 
 .notes__body {
@@ -150,17 +149,19 @@ body {
     line-height: 1.5;
     margin-top: 2em;
     resize: none;
-    border: 1px hidden black;
-    border-radius: 10px;
-    background: #e0e0e0;
-    box-shadow:  5px 5px 10px #c1c1c1,
-                 -5px -5px 10px #ffffff;
+   color: white;
+    
+    background: #618264;
+}
+
+.notes__body::placeholder {
+   color: white;
 }
 
 .notes__list-item{
     text-align: center;
     height: 40px;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
 .notes__list-item {
@@ -174,11 +175,12 @@ body {
 }
 
 .notes__save {
-    font-family: 'Lucida', cursive;
+   
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .notes__update {
-    font-family: 'Lucida', cursive;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .notes__update:hover {
@@ -186,43 +188,6 @@ body {
     border: none;
 }
 
-.scrollbar
-{
-	margin-top: 30px;
-	float: left;
-	height: 400px;
-	width: 65px;
-	overflow-y: scroll;
-	margin-bottom: 25px;
-    border-radius: 15px;
-background: #ffdab9;
-box-shadow:  5px 5px 14px #f0cdae,
-             -5px -5px 14px #ffe7c4;
-}
-
-
-#greenScroll::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-	background-color: #F5F5F5;
-	border-radius: 10px;
-}
-
-#greenScroll::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: #F5F5F5;
-}
-#greenScroll::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	background-color: #FFF;
-	background-image: -webkit-linear-gradient(top,
-											  #e4fcf0 0%,
-											  #81f3a1 50%,
-											  #67f2aa 51%,
-											  #2aed61 100%);
-}
 
 
 .iconImage{
@@ -253,3 +218,15 @@ box-shadow:  5px 5px 14px #f0cdae,
 .info {
     display: none;
 }
+
+/*aligning font-family select and speech to text side by side*/
+.fontSpeech {
+    display: flex; 
+    align-items: center; 
+}
+
+.form-select {
+    margin-right: 10px; 
+}
+
+

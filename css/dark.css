@@ -1,16 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 body {
-  background-color: #fff;
+  background-color: #618264;
   color: #171717;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 body.dark-mode {
-  background-color: #242424;
+  background-color: black;
 }
 body.dark-mode h2 {
   color: #fff; /* would need to change the h2 accordingly if there is anything else that needs to be turned white in dark theme */
 }
+
 
 .mode-toggle {
   position: relative;
