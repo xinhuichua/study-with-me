@@ -22,45 +22,35 @@
 
 
   <div class="container-fluid">
-    <div class="row bg-body-secondary">
-      <div class="col ">
-
-        <a class="navbar-brand d-flex font" href="home.html"><img src="../img/Ai_images/icon.jpg" class="iconImage"></a>
-
+    
+    <div class="row">
+      <div class="col-2 mx-auto">
+        <a class= "d-flex m-2" href="home.html"><img src="../img/Ai_images/icon.jpg" class="iconImage"></a>
       </div>
-
-
     </div>
+
     <div class="row my-5">
-      <div class="col-lg-4 col-md-2 col-sm-1">
-
-      </div>
+      <div class="col-lg-4 col-md-2 col-sm-1"></div>
       <div class="col-lg-4 col-md-8 col-sm-10">
-
-         <!-- success login message is hidden and only displayed if user logins successfully-->
-            <div id="success-alert" class="alert alert-success" style="display: none;">
-              <strong>Success:</strong> You have logged in successfully.
-            </div>
-
-               <!-- fail login message is hidden and only displayed if user logins unsuccessfully-->
-               <div id="fail-alert" class="alert alert-danger" style="display: none;">
-                <strong>Fail:</strong> The user name or password are incorrect.
-              </div>
-  
+      <!-- success login message is hidden and only displayed if user logins successfully-->
+        <div id="success-alert" class="alert alert-success" style="display: none;">
+          <strong>Success:</strong> You have logged in successfully.
+        </div>
+      <!-- fail login message is hidden and only displayed if user logins unsuccessfully-->
+        <div id="fail-alert" class="alert alert-danger" style="display: none;">
+          <strong>Fail:</strong> The user name or password are incorrect.
+        </div>
         <div class="glass p-3 w-100 m-0">
-
           <form>
-            <h2 class="text-center" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Login</h2>
+            <h2 class="text-center" style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: #618264;">Login</h2>
             <div class="form-group mb-3 mt-4">
-              <label for="email">Email address</label>
+              <label for="email" style="color: #618264;">Email address</label>
               <input type="email" class="form-control" id="email" placeholder="Enter email" required>
-
             </div>
             <div class="form-group my-3">
-              <label for="password">Password</label>
+              <label for="password" style="color: #618264;">Password</label>
               <input type="password" class="form-control" id="password" placeholder="Password" required>
             </div>
-
             <div class="row my-4">
               <div class="col ">
                 <button type="button" id="loginBtn" onclick="login()" style="width: 100%;"
@@ -70,7 +60,7 @@
             <div class="row my-4">
               <div class="col text-center">
                 Don't have an account?
-                <a href="register.html">Register</a>
+                <a href="register.html" style="color: #618264;">Register</a>
               </div>
             </div>
 
