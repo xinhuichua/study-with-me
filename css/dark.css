@@ -12,6 +12,30 @@ body.dark-mode h2 {
   color: #fff; /* would need to change the h2 accordingly if there is anything else that needs to be turned white in dark theme */
 }
 
+body.dark-mode .lead {
+  color: #fff; 
+}
+
+body.dark-mode .notes__title {
+  background-color: black;
+}
+
+body.dark-mode .notes__body {
+  background-color: black;
+}
+
+body.dark-mode .notes__list-item {
+  background-color: black;
+}
+
+body.dark-mode .notes__list-item:hover {
+  background-color: mintcream;
+  color: black;
+}
+
+body.dark-mode .icon {
+  color: white;
+}
 
 .mode-toggle {
   position: relative;
@@ -101,8 +125,8 @@ h1 {
 .flex {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   width: 50%;
   height: 50%;
 }

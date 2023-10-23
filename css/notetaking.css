@@ -78,9 +78,8 @@ body {
 }
 
 .notes__list-item:hover{
-    background-color: black;
-    color: white;
-
+    background-color: mintcream;
+    color: black;
 }
 
 
@@ -187,8 +186,6 @@ body {
     background-color: rgb(32, 149, 251);
     border: none;
 }
-
-
 
 .iconImage{
     width: 50px;
