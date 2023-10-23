@@ -5,10 +5,7 @@ html, body {
 }
 
 body {
-  background: url("../img/bg-img.jpg"), #000;
-  background-repeat: no-repeat;
-  background-size: cover;
-  backdrop-filter: blur(9px);
+  background-color: white;
 } 
 
 button:hover {
@@ -25,7 +22,7 @@ button {
   width: 500px;
   border-radius: 8px;
   padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 3px solid #618264;
 }
 
 .font{
@@ -36,8 +33,10 @@ button {
   font-family: 'Times New Roman', Times, serif;
 }
 .iconImage{
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
