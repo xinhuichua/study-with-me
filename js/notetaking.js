@@ -1,6 +1,5 @@
-// Your web app's Firebase configuration
+// Firebase configuration
 var firebaseConfig = {
-    // put your api stuff here
     apiKey: "AIzaSyCT4ilVsx9OHQwazEKXgPyHaV1wus6e_Ik",
     authDomain: "test1-69744.firebaseapp.com",
     databaseURL: "https://test1-69744-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -11,14 +10,6 @@ var firebaseConfig = {
     measurementId: "G-0LBGW6RB64"
   };
 
-
-  // Add the new rule for allowing read and write access to all authenticated users (for login register rule)
-  //".read": "auth != null",
-  //".write": "auth != null"
-
-
-  // Initialize Firebase with your configuration
-
 firebase.initializeApp(firebaseConfig);
 
 // Initialize Firebase database reference
@@ -27,12 +18,12 @@ const database = firebase.database();
 const auth = firebase.auth();
 let currentUser; // To store the current user's information
 
-auth.onAuthStateChanged((user) => { //check whether user login - user ID and details
+firebase.auth().onAuthStateChanged((user) => { //check whether user login - user ID and details
     if (user) {
         // User is signed in
         currentUser = user;
 
-        // Call a function to display the user's notes
+        // dislay usernotes based on userid
         displayUserNotes(user.uid);
 
         // Attach a click event handler to the logout button
@@ -50,12 +41,14 @@ auth.onAuthStateChanged((user) => { //check whether user login - user ID and det
 
     } else {
         // User is signed out
-        currentUser = null;
+      //  currentUser = null;
+        window.location = 'home.html'; //If User is not logged in, redirect to home page
     }
 });
 
-// ... Your existing code ...
 
+
+//-------------Note function-------------------------
 // Function to update a note's content
 function updateNote() {
     const title = document.getElementById('noteTitle').value;
@@ -75,47 +68,38 @@ function updateNote() {
                         timestamp: firebase.database.ServerValue.TIMESTAMP,
                     });
 
-                    // Optionally, you can add a success message or perform any other action
-                    alert('Note updated successfully!');
+                   //success message
+                    console.log('Note updated successfully!');
                 });
             } else {
                 // Note with the given title does not exist, handle accordingly
-                alert('Note not found for update.');
+              console.log('Note not found for update.');
             }
         });
     } else {
         // The user is not signed in; you may want to handle this case accordingly
-        alert('You need to sign in to update a note.');
+        console.log('You need to sign in to update a note.');
     }
 }
 
-// ... Your existing code ...
 
 
-function addNote() {
-    // Clear the input fields
-    document.getElementById('noteTitle').value = '';
-    document.getElementById('noteBody').value = '';
-
-    // Focus on the title field
-    document.getElementById('noteTitle').focus();
-}
-
-
-// Function to add a new note for the current user
+// save note
 function saveNote() {
     const title = document.getElementById('noteTitle').value;
     const body = document.getElementById('noteBody').value;
 
+
+
     if (!currentUser) {
         // The user is not signed in; handle this case accordingly
-        alert('You need to sign in to add a note.');
+        console.log('You need to sign in to add a note.');
         return;
     }
 
     if (title.trim() === '' || body.trim() === '') {
         // Handle the case where either the title or body is empty
-        alert('Please enter both a title and a body for the note.');
+        console.log('Please enter both a title and a body for the note.');
         return;
     }
 
@@ -134,8 +118,8 @@ function saveNote() {
     document.getElementById('noteTitle').value = '';
     document.getElementById('noteBody').value = '';
 
-    // Optionally, you can add a success message or perform any other action
-    alert('Note saved successfully!');
+   
+    console.log('Note saved successfully!');
 }
 
 
@@ -170,24 +154,23 @@ function displayUserNotes(uid) {
             });
 
             // Create a delete button for the note
-
-             const deleteButton = document.createElement('img');
+            const deleteButton = document.createElement('img');
             deleteButton.setAttribute('src', '../img/delete.png');
             deleteButton.setAttribute('width', '20px');
-           
-
-            // Add a click event listener to the delete button
+        
+         
+            //event listener for deletebutton
             deleteButton.addEventListener('click', (e) => {
                 e.stopPropagation(); // Prevent the click event from propagating to the note container
                 deleteNoteFromDatabase(uid, noteId);
             });
 
-            // Create a summary view for the note (e.g., only title)
+            // display only title in the note list
             const summaryView = document.createElement('div');
             summaryView.className = 'notes__summary-view';
             summaryView.textContent = note.title; // You can customize the summary view as needed
 
-            // Append the summary view and delete button to the note container
+            // Append the summarView consiting of note title and delete button to the note container
             noteContainer.appendChild(summaryView);
             noteContainer.appendChild(deleteButton);
 
@@ -195,17 +178,30 @@ function displayUserNotes(uid) {
             notesList.appendChild(noteContainer);
         });
     });
+
+    
 }
 
 // Function to delete a note from the user's notes in the database
 function deleteNoteFromDatabase(uid, noteId) {
-    const userNotesRef = database.ref('users/' + uid + '/notes');
+const userNotesRef = database.ref('users/' + uid + '/notes');
 
-    const confirmed = window.confirm("Are you sure you want to delete?")
+    // Show the Bootstrap modal
+    const deleteConfirmationModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
+    deleteConfirmationModal.show();
 
-    if(confirmed){
-        userNotesRef.child(noteId).remove();
-    }
+   
+    // Attach an event listener to the "Delete" button in the modal to perform the deletion
+    const confirmDeleteButton = document.getElementById('confirmDeleteButton');
+    if (confirmDeleteButton) {
+        confirmDeleteButton.addEventListener('click', () => {
+            //remove notes based on noteid
+            userNotesRef.child(noteId).remove();
+    
+            // Close the modal after deletion
+            deleteConfirmationModal.hide();
+        });
+    } 
 
 }
 
@@ -222,6 +218,36 @@ function changeFontFamily() {
 }
 
 
+  
+
+
+// search function
+function searchNotes(query) {
+    // Get the notes list container
+    const notesList = document.getElementById('notesList');
+
+    // Get all note containers within the list
+    const noteContainers = notesList.getElementsByClassName('notes__list-item');
+
+    //ensure text is in lowercase before searching
+    const lowercaseQuery = query.toLowerCase();
+
+    // Loop through each note container and check if it contains the search query
+    for (const noteContainer of noteContainers) {
+       
+        const summaryView = noteContainer.querySelector('.notes__summary-view');
+
+        // Get the delete button image within the container
+        const deleteButton = noteContainer.querySelector('img[alt="Delete Note"]');
+
+        // If the summary view text contains the search query, show the note; otherwise, hide it
+        if (summaryView.textContent.toLowerCase().includes(lowercaseQuery)) {
+            noteContainer.style.display = 'block';
+        } else {
+            noteContainer.style.display = 'none';
+        }
+    }
+}
 
 
 
