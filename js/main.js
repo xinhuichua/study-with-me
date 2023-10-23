@@ -337,9 +337,110 @@ clearButton.addEventListener('click', () => {
 });
 
 
+var moodDataArray = []; // This array will store mood data objects
+
+var moodChart; // Declare moodChart as a global variable
+
+function recordMood(mood) {
+    console.log(mood);
+    // Get the current user (you may need to implement user authentication)
+    if (currentUser) {
+        const userMoodRef = database.ref("users/" + currentUser.uid + "/mood");
+
+        // Create a timestamp for today in a format like 'YYYY-MM'
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1; // Note: Months are zero-indexed, so we add 1.
+        const dateString = `${year}-${(month < 10 ? '0' : '')}${month}`;
+
+        // Check if a mood entry for the current month already exists
+        userMoodRef.child(dateString).once("value")
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const existingMoods = snapshot.val();
+
+                    // Update the mood count based on the value of 'mood'
+                    if (mood === 1) {
+                        existingMoods.happy = (existingMoods.happy || 0) + 1;
+                    } else if (mood === 2) {
+                        existingMoods.sad = (existingMoods.sad  ||0) + 1;
+                    } else if (mood === 3) {
+                        existingMoods.angry = (existingMoods.angry || 0) + 1;
+                    }
+
+                    // Update the existing entry with the new mood values
+                    userMoodRef.child(dateString).update(existingMoods).then(() => {
+                        console.log('Mood updated successfully:', existingMoods);
+                        // Call the function to update button states after updating mood
+                        checkAndEnableButtons();
+                    }).catch((error) => {
+                        console.error('Error updating mood:', error);
+                    });
+                } else {
+                    // If no entry exists for the current month, create a new entry
+                    const newMoodEntry = {};
+
+                    // Update the mood count based on the value of 'mood'
+                    if (mood === 1) {
+                        newMoodEntry.happy = 1;
+                    } else if (mood === 2) {
+                        newMoodEntry.sad = 1;
+                    } else if (mood === 3) {
+                        newMoodEntry.angry = 1;
+                    }
+
+                    userMoodRef.child(dateString).set(newMoodEntry).then(() => {
+                        console.log('Mood recorded successfully:', newMoodEntry);
+                        // Call the function to update button states after recording mood
+                        checkAndEnableButtons();
+                    }).catch((error) => {
+                        console.error('Error recording mood:', error);
+                    });
+                }
+            }).catch((error) => {
+                console.error('Error checking mood entries:', error);
+            });
+    } else {
+        console.log('User not logged in.');
+    }
+}
+
+let lastButtonClickTime = 0;
+
+// Function to enable the buttons
+function enableButtons() {
+    document.getElementById('happy-button').removeAttribute('disabled');
+    document.getElementById('normal-button').removeAttribute('disabled');
+    document.getElementById('sad-button').removeAttribute('disabled');
+}
+
+// Function to disable the buttons
+function disableButtons() {
+    document.getElementById('happy-button').setAttribute('disabled', 'true');
+    document.getElementById('normal-button').setAttribute('disabled', 'true');
+    document.getElementById('sad-button').setAttribute('disabled', 'true');
+    
+   
+}
+
+// Event listeners for button clicks
+document.getElementById('happy-button').addEventListener('click', () => {
+    lastButtonClickTime = Date.now(); // Update the last button click time
+    enableButtons(); // Enable the buttons after a click
+});
+
+document.getElementById('normal-button').addEventListener('click', () => {
+    lastButtonClickTime = Date.now(); // Update the last button click time
+    enableButtons(); // Enable the buttons after a click
+});
+
+document.getElementById('sad-button').addEventListener('click', () => {
+    lastButtonClickTime = Date.now(); // Update the last button click time
+    enableButtons(); // Enable the buttons after a click
+})
 
 
-
+;
 // // Function to add multiple mood records for testing
 // function addTestMoodRecords() {
 //     // Replace 'currentUser.uid' with the actual user's UID
