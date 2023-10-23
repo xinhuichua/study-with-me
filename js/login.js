@@ -16,6 +16,15 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth()
 const database = firebase.database()
 
+var form = document.getElementsByTagName("form")[0];
+// Execute a function when the user presses a key on the keyboard
+form.addEventListener("keydown", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Trigger the button element with a click
+    document.getElementById("loginBtn").click();
+  }
+});
 
 // Set up our login function
 function login() {
