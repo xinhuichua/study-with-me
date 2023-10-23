@@ -152,10 +152,6 @@ header .image-text .profession {
   transition: var(--tran-05);
 }
 
-body.dark .sidebar header .toggle {
-  color: var(--text-color);
-}
-
 .sidebar.close .toggle {
   transform: translateY(-50%) rotate(0deg);
 }
@@ -164,25 +160,6 @@ body.dark .sidebar header .toggle {
   margin-top: 40px;
 }
 
-.sidebar li.search-box {
-  border-radius: 6px;
-  background-color: var(--primary-color-light);
-  cursor: pointer;
-  transition: var(--tran-05);
-}
-
-.sidebar li.search-box input {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  background-color: var(--primary-color-light);
-  color: var(--text-color);
-  border-radius: 6px;
-  font-size: 17px;
-  font-weight: 500;
-  transition: var(--tran-05);
-}
 .sidebar li a {
   list-style: none;
   height: 100%;
@@ -203,10 +180,7 @@ body.dark .sidebar header .toggle {
 .sidebar li a:hover .text {
   color: var(--sidebar-color);
 }
-body.dark .sidebar li a:hover .icon,
-body.dark .sidebar li a:hover .text {
-  color: var(--text-color);
-}
+
 
 .sidebar .menu-bar {
   height: calc(100% - 55px);
@@ -223,61 +197,6 @@ body.dark .sidebar li a:hover .text {
   background-color: var(--primary-color-light);
   position: relative;
   transition: var(--tran-05);
-}
-
-.menu-bar .mode .sun-moon {
-  height: 50px;
-  width: 60px;
-}
-
-.mode .sun-moon i {
-  position: absolute;
-}
-.mode .sun-moon i.sun {
-  opacity: 0;
-}
-body.dark .mode .sun-moon i.sun {
-  opacity: 1;
-}
-body.dark .mode .sun-moon i.moon {
-  opacity: 0;
-}
-
-.menu-bar .bottom-content .toggle-switch {
-  position: absolute;
-  right: 0;
-  height: 100%;
-  min-width: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.toggle-switch .switch {
-  position: relative;
-  height: 22px;
-  width: 40px;
-  border-radius: 25px;
-  background-color: var(--toggle-color);
-  transition: var(--tran-05);
-}
-
-.switch::before {
-  content: "";
-  position: absolute;
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  background-color: var(--sidebar-color);
-  transition: var(--tran-04);
-}
-
-body.dark .switch::before {
-  left: 20px;
 }
 
 .home {
@@ -302,9 +221,6 @@ body.dark .switch::before {
   height: 100vh;
   width: calc(100% - 78px);
 }
-body.dark .home .text {
-  color: var(--text-color);
-}
 
 .menu-links {
   padding-left: 0px;
@@ -315,17 +231,9 @@ body.dark .home .text {
   transition: var(--tran-05); /* You already have this line */
 }
 
-body.dark .container-fluid {
-  padding-left: 78px; /* Adjust for the width when the sidebar is closed */
-}
-
 /* If you want to adjust the position of the navbar's button accordingly */
 .navbar-toggler {
   left: 50px; /* Adjust for the sidebar width */
-}
-
-body.dark .navbar-toggler {
-  left: 78px; /* Adjust for the width when the sidebar is closed */
 }
 
 

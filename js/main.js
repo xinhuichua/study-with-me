@@ -35,6 +35,7 @@ var firebaseConfig = {
 
           displayUserTodoList(user.uid);
 
+          username()
 
           setInterval(checkAndEnableButtons, 5000);
   
@@ -93,7 +94,28 @@ function toggleMoodDiv(id) {
     }
 }
 
+function username(){
+    if (!currentUser) {
+        // Handle the case where userId is not defined
+        console.error('userId is not defined');
+        return;
+    }
+    const username = database.ref('users/' + currentUser.uid + '/full_name');
 
+    const span = document.getElementById('username');
+
+    username.on('value', function(snapshot){
+        const fullname = snapshot.val()
+        if(fullname !== null){
+            span.textContent = fullname;
+        }else{
+            span.textContent = "UNKNOWN USERNAME"
+        }
+    }, function(error){
+        console.error('Error listening for user full name:', error)
+    }
+    )
+}
 
 
 // Point System
