@@ -40,21 +40,29 @@ auth.onAuthStateChanged(function(user) {
         displayPoint()
     } else {
         // User is signed out
-        userId = null;
+        window.location = 'home.html'; //If User is not logged in, redirect to home page
     }
 });
 logoutButton.addEventListener('click', () => {
     // Sign the user out
     auth.signOut().then(() => {
-      // Redirect the user to the login page after logout
-      alert("User logged out");
-      window.location.href = 'home.html'; // Replace with the actual login page URL
+
+          // Show the Bootstrap modal
+      const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+      logoutModal.show();
+     
+      setInterval(function(){
+        window.location.href = "home.html",8000
+      })
+    
       
     }).catch((error) => {
       // Handle any errors that occur during sign-out
       console.error('Error signing out:', error);
     });
   });
+
+
 
 
 function getUserImageUrlData() {
@@ -80,7 +88,7 @@ function getUserImageUrlData() {
                 });
             }
 
-            // Now, the userCurrentImages array contains all the user's purchased images
+            // the userCurrentImages array contains all the user's purchased images
             console.log('User\'s current images:', userCurrentImages);
         })
         .catch(function(error) {
@@ -109,6 +117,7 @@ const imageData = [
     { imageName: 'yangtze.jpg', points: 1000 ,cardName: 'Yangtze'},
     
 ];
+
 //because everytime image is taken from firebase storage, its not in order so have to store the 
 // name, url & points in the empty array and from there display it
 const imageUrls = []; // Create an empty array to store image URLs,cardname,points
@@ -151,6 +160,7 @@ function createImageContainers() {
                     let divCardContainer = document.createElement('div');
                     divCardContainer.classList.add('card', 'col-lg-3', 'col-md-6', 'col-sm-12', 'm-3', 'divBackgroundDesign');
                     divCardContainer.setAttribute('style', 'display:inline-block; width:12rem');
+                 
 
                     let cardNameElement = document.createElement('p');
                     cardNameElement.className = 'card-title';
@@ -173,8 +183,7 @@ function createImageContainers() {
                     // Append the <div> container to the imageContainer
                     imageContainer.appendChild(divCardContainer);
 
-                    //console.log(purchasedImageUrls)
-                    //console.log(userCurrentImages)
+                   
 
                     // Add a click event listener to the <div> container
                     divCardContainer.addEventListener('click', function() {
@@ -239,7 +248,7 @@ function createImageContainers() {
 
 function exchangePoints(userPoints, imagePoints) {
     if (userPoints >= imagePoints) {
-        //updatePointsDisplay();
+       
         return true; // Point exchange successful
     } else {
         return false; // Not enough points
@@ -253,7 +262,7 @@ function addImageToUserDatabase(imageUrl, cardNameElement, points) {
         const imgNameText = cardNameElement.textContent;
         console.log('Adding image to user database - userId:', userId, 'imageUrl:', imageUrl, 'name:', imgNameText, 'cardpoint', points);
 
-        // Define the path to the user's data in the database (customize this)
+        
         const userRef = database.ref('users/' + userId);
 
         // Update the user's data with the purchased image URL and cardNameElement

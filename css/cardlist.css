@@ -10,6 +10,12 @@ html, body {
     height: auto; /* Ensure images maintain their aspect ratio */
 }
 
+.navColor{
+    color:#618264;
+   
+}
+
+
 .imageDisplayFlex{
     display: flex;
     
@@ -17,9 +23,13 @@ html, body {
 p{
     text-align: center;
 }
-/* Add this CSS to your stylesheet */
+
+
 .divBackgroundDesign{
-    background-color: #defade;
+    
+    box-shadow: 5px 5px;
+    
+
 }
 .divBackgroundDesign:hover {
     transform: scale(1.05); /* Scale the card when hovered */
@@ -39,13 +49,11 @@ img{
     flex-wrap: wrap; /* Allow images to wrap to the next line */
 }
 
-.titleDesign{
-    color: aqua;
-}
 
 .iconImage{
-    width: 60px;
-    height: 60px;
-    margin-left: 15px;
-}
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+};
 
