@@ -27,23 +27,28 @@ auth.onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in
         userId = user.uid;
-        username()
+        username();
         displayPurchasedImages(userId);
-        displayMoodEmoji();
 
-
+        if (userId) {
+            fetchMoodDataForDates(userId, datesToFetch).then(() => {
+                displayChart(userId);
+            });
+        } else {
+            console.log('User ID is not defined.');
+        }
+        
         logoutButton.addEventListener('click', () => {
             // Sign the user out
             auth.signOut().then(() => {
-              // Redirect the user to the login page after logout
-              alert("User logged out");
-              window.location.href = 'home.html'; // Replace with the actual login page URL
-              
+                // Redirect the user to the login page after logout
+                alert("User logged out");
+                window.location.href = 'home.html'; // Replace with the actual login page URL
             }).catch((error) => {
-              // Handle any errors that occur during sign-out
-              console.error('Error signing out:', error);
+                // Handle any errors that occur during sign-out
+                console.error('Error signing out:', error);
             });
-          });
+        });
 
     } else {
         // User is signed out
@@ -73,7 +78,7 @@ function username(){
     }
     )
 }
-
+//const imagesArray = [];
 // Function to retrieve and display purchased images
 function displayPurchasedImages(userId) {
     // Reference to the user's purchased images in the database
@@ -142,100 +147,113 @@ function displayImagesCount(imagesArray) {
 
 
 
+
+
+
+
+
 const moodDataArray = [];
 
-function displayMoodEmoji() {
-    // Check if currentUser is defined
+
+
+
+var testing12345 = []; // This array will store mood data objects
+var moodChart; // Declare moodChart as a global variable
+
+function displayChart(userId) {
     if (userId) {
-        // Replace 'currentUser.uid' with the actual user's UID
-        const userMoodRef = database.ref("users/" + userId + "/mood");
-
-        // Query the mood data, assuming you want all mood entries
-        userMoodRef.orderByChild('timestamp').once('value')
-            .then(function (snapshot) {
-                const moodData = snapshot.val();
-
-                if (moodData) {
-                    // Iterate through mood entries and add them to the moodDataArray
-                    Object.keys(moodData).forEach(function (key) {
-                        const moodEntry = moodData[key];
-                        moodDataArray.push(moodEntry);
-                    });
-
-                    // Now you have all mood data in the moodDataArray
-                    console.log('Mood data:', moodDataArray);
-                    
-                    // Call the function to group and display emojis
-                    groupAndDisplayEmojis();
-                } else {
-                    // Handle the case when there is no mood data
-                    console.log('No mood data found.');
-                }
-            })
-            .catch(function (error) {
-                // Handle any errors that occur while fetching the data
-                console.error('Error fetching mood data:', error);
-            });
-    } else {
-        console.log('currentUser is not defined.');
+        if (moodChart) {
+            // Destroy the existing chart if it exists
+            moodChart.destroy();
+        }
+        const moodData = moodDataArray;
+        const labels = moodData.map(data => data.date);
+        const happyData = moodData.map(data => data.happy);
+        const sadData = moodData.map(data => data.sad);
+        const angryData = moodData.map(data => data.angry);
+        moodChart = new Chart("moodBarchart", {
+            type: "bar",
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Happy",
+                        data: happyData,
+                        backgroundColor: "green",
+                    },
+                    {
+                        label: "Sad",
+                        data: sadData,
+                        backgroundColor: "blue",
+                    },
+                    {
+                        label: "Angry",
+                        data: angryData,
+                        backgroundColor: "red",
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                    },
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
     }
 }
 
-// Function to group and display emojis by day/month
-function convertToEmoji(text) {
-    const tempElement = document.createElement('div');
-    tempElement.innerHTML = text;
-    return tempElement.textContent;
-}
 
 
-// Function to group and display emojis by month
-function groupAndDisplayEmojis() {
-    const emojiContainer = document.getElementById('emoji-container');
+function fetchMoodDataForDates(userId, dates) {
+    return new Promise((resolve, reject) => {
+        if (userId) {
+            var promises = dates.map(date => {
+                const userMoodRef = database.ref("users/" + userId + "/mood/" + date);
+                return userMoodRef.once("value")
+                    .then(snapshot => {
+                        if (snapshot.exists()) {
+                            const moodData = snapshot.val();
+                            const happy = moodData.happy || 0;
+                            const sad = moodData.sad || 0;
+                            const angry = moodData.angry || 0;
+                            const moodDataObject = {
+                                date: date,
+                                happy: happy,
+                                sad: sad,
+                                angry: angry
+                            };
+                            // Update the existing data in the array or push new data
+                            const existingDataIndex = moodDataArray.findIndex(item => item.date === date);
+                            if (existingDataIndex !== -1) {
+                                moodDataArray[existingDataIndex] = moodDataObject;
+                            } else {
+                                moodDataArray.push(moodDataObject);
+                            }
+                        } else {
+                            console.log(`No mood data found for ${date}`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching mood data:', error);
+                        reject(error);
+                    });
+            });
 
-    // Create a map to group emojis by month
-    const emojiGroups = new Map();
-
-    moodDataArray.forEach((moodEntry) => {
-        const timestamp = moodEntry.timestamp; // Assuming timestamp is in milliseconds
-        const mood = moodEntry.mood;
-
-        // Create a Date object from the timestamp
-        const date = new Date(timestamp);
-
-        // Extract year and month information
-        const year = date.getFullYear();
-        const month = date.toLocaleString('default', { month: 'long' }); // Get full month name
-
-        // Create a unique key for grouping (e.g., "January 2023")
-        const groupKey = `${month} ${year}`;
-
-        // Create an emoji element
-        const emojiElement = document.createElement('span');
-        emojiElement.textContent = convertToEmoji(mood);
-        emojiElement.className = 'emoji';
-
-        // Check if the group key already exists in the map
-        if (emojiGroups.has(groupKey)) {
-            // If it exists, append the emoji below the month
-            emojiGroups.get(groupKey).appendChild(emojiElement);
-        } else {
-            // If it doesn't exist, create a new group div
-            const groupDiv = document.createElement('div');
-            groupDiv.className = 'emoji-group';
-            groupDiv.innerHTML = `<strong>${groupKey}:</strong><br>`; // Display month above emojis
-            groupDiv.appendChild(emojiElement);
-            emojiGroups.set(groupKey, groupDiv);
+            // Wait for all promises to resolve before resolving the main Promise
+            Promise.all(promises).then(() => {
+                resolve();
+            });
         }
     });
-
-    // Append all group divs to the emoji container
-    emojiGroups.forEach((groupDiv) => {
-        emojiContainer.appendChild(groupDiv);
-    });
 }
 
-// Call the function to group and display emojis
-groupAndDisplayEmojis();
+// Specify the dates you want to fetch
+const datesToFetch = ["2023-10", "2023-11", "2023-12"];
+
 
 
