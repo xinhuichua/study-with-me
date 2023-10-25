@@ -97,24 +97,24 @@ function getUserImageUrlData() {
 }
 
 const imageData = [
-    { imageName: 'elephant.jpg', points: 10000 ,cardName: 'elephant'},
+    { imageName: 'elephant.jpg', points: 10000 ,cardName: 'African Forest Elephant'},
     { imageName: 'leopard.jpg', points: 12000 ,cardName: 'Amur Leopard'},
     { imageName: 'rhino.jpg', points: 6000 ,cardName: 'Black Rhino'},
     { imageName: 'wildDog.jpg', points: 2000 ,cardName: 'African Wild Dog'},
     { imageName: 'monkey.jpg', points: 400 ,cardName: 'Black Spider Monkey'},
-    { imageName: 'ferrets.jpg', points: 1800 ,cardName: 'Ferrets'},
+    { imageName: 'ferrets.jpg', points: 1800 ,cardName: 'Black-Footed Ferrets'},
     { imageName: 'blueWhale.jpg', points: 15000 ,cardName: 'Blue Whale'},
     { imageName: 'panda.jpg', points: 5000 ,cardName: 'Giant Panda'},
-    { imageName: 'turtle.jpg', points: 1500 ,cardName: 'turtle'},
-    { imageName: 'dolphin.jpg', points: 7000 ,cardName: 'dolphin'},
+    { imageName: 'turtle.jpg', points: 1500 ,cardName: 'Hawksbill Turtle'},
+    { imageName: 'dolphin.jpg', points: 7000 ,cardName: "Hector's Dolphin"},
     { imageName: 'butterfly.jpg', points: 500 ,cardName: 'Monarch Butterfly'},
-    { imageName: 'gorrila.jpg', points: 4500 ,cardName: 'Gorilla'},
+    { imageName: 'gorrila.jpg', points: 4500 ,cardName: 'Mountain Gorilla'},
     { imageName: 'owl.jpg', points: 800 ,cardName: 'Northern Owl'},
     { imageName: 'redPanda.jpg', points: 5500 ,cardName: 'Red Panda'},
     { imageName: 'sealion.jpg', points: 4000 ,cardName: 'Sea Lion'},
     { imageName: 'tiger.jpg', points: 3500 ,cardName: 'Sunda Tiger'},
     { imageName: 'whaleShark.jpg', points: 8000 ,cardName: 'Whale Shark'},
-    { imageName: 'yangtze.jpg', points: 1000 ,cardName: 'Yangtze'},
+    { imageName: 'yangtze.jpg', points: 1000 ,cardName: 'Yangtze Finless Porpoise'},
     
 ];
 
@@ -164,8 +164,10 @@ function createImageContainers() {
 
                     let cardNameElement = document.createElement('p');
                     cardNameElement.className = 'card-title';
+                    cardNameElement.setAttribute('style', "font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:17px; padding-top: 10px; margin: 0px");
                     let cardImageElement = document.createElement('img');
                     let pointsElement = document.createElement('p');
+                    pointsElement.setAttribute('style', "font-family: monospace; margin-bottom:10px");
 
                     // Card Name
                     cardNameElement.textContent = cardName; 
@@ -314,8 +316,3 @@ function displayPoint() {
         console.error('Error listening for user points:', error);
     });
 }
-
-
-
-
-

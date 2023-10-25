@@ -42,8 +42,11 @@ auth.onAuthStateChanged(function(user) {
             // Sign the user out
             auth.signOut().then(() => {
                 // Redirect the user to the login page after logout
-                alert("User logged out");
-                window.location.href = 'home.html'; // Replace with the actual login page URL
+                const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+                logoutModal.show();
+                setInterval(function(){
+                    window.location.href = "home.html",8000
+                })
             }).catch((error) => {
                 // Handle any errors that occur during sign-out
                 console.error('Error signing out:', error);
@@ -113,6 +116,7 @@ function displayPurchasedImages(userId) {
             let cardImageElement = document.createElement('img');
             cardImageElement.src = url;
             cardImageElement.classList.add('card-img-top');
+            cardImageElement.setAttribute('style', 'padding: 10px')
 
             // const cardLabelDiv = document.createElement('div');
             // cardLabelDiv.classList.add('card-body');
@@ -120,9 +124,11 @@ function displayPurchasedImages(userId) {
             let cardNameElement = document.createElement('p');
             cardNameElement.className = 'card-title';
             cardNameElement.textContent = cardName;
-
+            cardNameElement.setAttribute('style', "font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:17px; padding-top: 10px; margin: 0px");
+            
             let pointsElement = document.createElement('p');
             pointsElement.textContent = cardPoints +" points";
+            pointsElement.setAttribute('style', "font-family: monospace; margin-bottom:10px");
 
             divCardContainer.appendChild(cardNameElement);
             divCardContainer.appendChild(cardImageElement);
@@ -254,6 +260,3 @@ function fetchMoodDataForDates(userId, dates) {
 
 // Specify the dates you want to fetch
 const datesToFetch = ["2023-10", "2023-11", "2023-12"];
-
-
-
