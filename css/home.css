@@ -1,64 +1,65 @@
 body {
-    margin: 0;
-    overflow-x: hidden; /* This will hide horizontal overflow, preventing horizontal scrollbars */
+  margin: 0;
+  overflow-x: hidden; /* This will hide horizontal overflow, preventing horizontal scrollbars */
 }
 
 .font{
-    font-size: 20px;
-    padding-top: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .tcolor{
-    color: black;
+  color: black;
 }
 
 
-  h1 {
-    color: black;
-    font-size: 4rem;
-    font-weight: 500;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  h1 span {
-    color: #618264;
-    position: relative;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 800;
-  }
-  h1 span::before {
-      content: "";
-      height: 30px;
-      width: 2px;
-      position: absolute;
-      top: 50%;
-      right: -8px;
-      background: #618264;
-      transform: translateY(-45%);
-      animation: blink 0.7s infinite;
-  }
-  h1 span.stop-blinking::before {
-      animation: none;
-  }
-  @keyframes blink {
-      50% { opacity: 0 }
-  }
-
-  .specialtext{
-    height: 300px;
-    padding-top: 50px;
-  }
-
-  .iconImage{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-
-  .navbardesign {
-    margin: 10px;
-    font-size: 20px;
+h1 {
+  color: black;
+  font-size: 4rem;
+  font-weight: 500;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-  
+h1 span {
+  color: #618264;
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 800;
+}
+h1 span::before {
+    content: "";
+    height: 30px;
+    width: 2px;
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    background: #618264;
+    transform: translateY(-45%);
+    animation: blink 0.7s infinite;
+}
+h1 span.stop-blinking::before {
+    animation: none;
+}
+@keyframes blink {
+    50% { opacity: 0 }
+}
+
+.specialtext{
+  height: 300px;
+  padding-top: 50px;
+  margin: 0px;
+}
+
+.iconImage{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.navbardesign {
+  margin: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
