@@ -1,3 +1,4 @@
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   // put your api stuff here
@@ -41,24 +42,38 @@ function register() {
       gender = genderRadios[i].value;
       break;
     }
+    
+   
   }
 
   // Validate input fields
   if (validate_email(email) == false || validate_password(password) == false) {
-    alert('Email or Password is Outta Line!!');
-    //display fail box
-    var invalidAlert = document.getElementById('invalid-alert');
-    invalidAlert.style.display = 'block';
+    
+
+    const modalBody = document.querySelector('#errorModal .modal-body');
+    
+      
+    modalBody.innerText = "Please fill in all blanks"
+  
+
+    const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+    errorModal.show();
     return;
-    // Don't continue running the code
+   
   }
 
   if (validate_field(email) == false || validate_field(password) == false) {
     //display fail box
-    var emptyAlert = document.getElementById('invalid-alert');
-    emptyAlert.style.display = 'block';
+    const modalBody = document.querySelector('#errorModal .modal-body');
+    
+      
+    modalBody.innerText = "Please key in all fields";
+  
+
+    const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+    errorModal.show();
     return;
-    // Don't continue running the code
+
 
 
   }
@@ -85,20 +100,33 @@ function register() {
     })
     .then(function () {
 
-      //display alert box
+      const successBody = document.querySelector('#successModal .modal-body');
 
-      var successAlert = document.getElementById('success-alert');
-      successAlert.style.display = 'block';
-           //set interval so that user can see the alert before directing to the next page
+      successBody.innerText = "Registration success";
+      
+      const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+      successModal.show();
+
       setInterval(function(){
             window.location.href = "home.html",4000
           })
     })
     .catch(function (error) {
-      // Firebase will use this to alert of its errors
-      var error_code = error.code;
+     
       var error_message = error.message;
-      console.log(error_message)
+      console.log(error_message);
+
+     if(error_message != null){
+      const modalBody = document.querySelector('#errorModal .modal-body');
+    
+      
+      modalBody.innerText = error_message;
+    
+
+      const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+      errorModal.show();
+
+     }
 
    
     });
@@ -108,14 +136,16 @@ function register() {
 
 
 
-// Validate Functions
+// email validation - regular expression
 function validate_email(email) {
   expression = /^[^@]+@\w+(\.\w+)+\w$/
   if (expression.test(email) == true) {
-    // Email is good
+    
     return true
   } else {
-    // Email is not good
+
+    
+    
     return false
   }
 }
@@ -129,6 +159,7 @@ function validate_password(password) {
   }
 }
 
+//check if fields are empty
 function validate_field(field) {
   if (field == null) {
     return false

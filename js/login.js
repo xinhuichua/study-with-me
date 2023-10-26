@@ -26,18 +26,25 @@ form.addEventListener("keydown", function(event) {
   }
 });
 
-// Set up our login function
+// login function
 function login() {
-  // Get all our input fields
+  
   email = document.getElementById('email').value
   password = document.getElementById('password').value
   var loginBtn = document.getElementById('loginBtn');
 
   // Validate input fields
   if (validate_email(email) == false || validate_password(password) == false) {
-    alert('Email or Password is Outta Line!!')
+    const modalBody = document.querySelector('#errorModal .modal-body');
+    
+      
+    modalBody.innerText = "Please fill in all blanks"
+  
+
+    const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+    errorModal.show();
     return
-    // Don't continue running the code
+   
   }
 
   auth.signInWithEmailAndPassword(email, password)
@@ -57,8 +64,12 @@ function login() {
       database_ref.child('users/' + user.uid).update(user_data)
 
       //display alert box
-      var successAlert = document.getElementById('success-alert');
-      successAlert.style.display = 'block';
+      const successBody = document.querySelector('#successModal .modal-body');
+
+      successBody.innerText = "Login success";
+      
+      const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+      successModal.show();
 
       //set interval so that user can see the alert before directing to the next page
       setInterval(function(){
@@ -76,35 +87,20 @@ function login() {
       console.log(error_message)
 
       //display fail box
-       var failAlert = document.getElementById('fail-alert');
-      failAlert.style.display = 'block';
+      if(error_message != null){
+        const modalBody = document.querySelector('#errorModal .modal-body');
+      
+        
+        modalBody.innerText = error_message;
+      
+  
+        const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+        errorModal.show();
+  
+       }
      
     })
 }
-
-
-//successbox
-function successBox(){
-  document.getElementById("alertBox").innerHTML= '<div class="alert alert-success" role="alert"> This is a success alert—check it out!</div>';
-
-
-}
-// Function to show a Bootstrap alert with a custom message
-function showAlert(message, alertType) {
-  const alertContainer = document.getElementById('alertBox');
-  const alertHTML = `
-    <div class="alert alert-${alertType} alert-dismissible fade show" role="alert">
-      ${message}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  `;
-
-  alertContainer.innerHTML = alertHTML;
-}
-
-
 
 
 
