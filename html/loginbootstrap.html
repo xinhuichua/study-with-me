@@ -20,6 +20,46 @@
 
 <body>
 
+    <!--register error status-->
+
+    <div class="modal" tabindex="-1" id="errorModal">
+      <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #FCAEAE; ">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Error</h5>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- success modal-->
+    <div class="modal" tabindex="-1" id="successModal">
+      <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #B0D9B1;">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Success</h5>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of modals-->
+
 
   <div class="container-fluid">
 
@@ -34,14 +74,7 @@
     <div class="row my-5">
       <div class="col-lg-4 col-md-2 col-sm-1"></div>
       <div class="col-lg-4 col-md-8 col-sm-10">
-      <!-- success login message is hidden and only displayed if user logins successfully-->
-        <div id="success-alert" class="alert alert-success" style="display: none;">
-          <strong>Success:</strong> You have logged in successfully.
-        </div>
-      <!-- fail login message is hidden and only displayed if user logins unsuccessfully-->
-        <div id="fail-alert" class="alert alert-danger" style="display: none;">
-          <strong>Fail:</strong> The user name or password are incorrect.
-        </div>
+   
         <div class="glass p-3 w-100 m-0">
           <form>
             <h2 class="text-center" style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: #618264;">Login</h2>
@@ -66,10 +99,7 @@
               </div>
             </div>
 
-            <div class="row justify-content-center my-2">
-              <img src="../img/facebook.png" style=" width: 48px;">
-              <img src="../img/google.png" style=" width: 48px;">
-            </div>
+        
           </form>
         </div>
 
