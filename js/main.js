@@ -39,22 +39,11 @@ var firebaseConfig = {
 
           setInterval(checkAndEnableButtons, 5000);
   
-        // test normal
-        //   if (!isTestMoodAdded) {
-        //       addTestMoodRecords(); // Call the function only if test mood records haven't been added yet
-        //       isTestMoodAdded = true; // Set the flag to true after adding test mood records
-        //   }
-          
-        //test september
-        //   if (!isTestMoodAdded) {
-        //     addTestMoodRecordsForSeptember(); // Call the function only if test mood records haven't been added yet
-        //     isTestMoodAdded = true; // Set the flag to true after adding test mood records
-        // }
-          // ...
       } else {
           // User is signed out
           currentUser = null;
-          checkAndEnableButtons();
+          window.location.href = 'home.html';
+       
       }
   });
   
@@ -63,8 +52,7 @@ logoutButton.addEventListener('click', () => {
     // Sign the user out
     auth.signOut().then(() => {
       // Redirect the user to the login page after logout
-      alert("User logged out");
-      window.location.href = 'home.html'; // Replace with the actual login page URL
+      window.location.href = 'home.html'; 
       
     }).catch((error) => {
       // Handle any errors that occur during sign-out
@@ -109,7 +97,7 @@ function username(){
         if(fullname !== null){
             span.textContent = fullname;
         }else{
-            span.textContent = "UNKNOWN USERNAME"
+            console.log("UNKNOWN USERNAME")
         }
     }, function(error){
         console.error('Error listening for user full name:', error)
@@ -182,7 +170,7 @@ function resetPoints() {
     storePointsInFirebase(currentPoints);
     
     resetPoints()
-    alert('Points stored in Firebase: ' + currentPoints);
+    console.log('Points stored in Firebase: ' + currentPoints);
 });
 
 // Initialize the points display and start the update interval
@@ -196,7 +184,7 @@ var imagePaths = ["bg1.jpeg", "bg2.jpg", "bg3.jpeg","bg4.jpg"]; // Replace with 
 
 function changeBackgroundImage() {
   // Select the div with id "studyBG"
-  var studyBGDiv = document.getElementById("studyBG");
+  var studyBGDiv = document.getElementById("studyBg");
 
   // Fetch the next image URL from Firebase Storage
   storage
@@ -243,7 +231,7 @@ function saveTodoList() {
 
     if (!currentUser) {
         // The user is not signed in; handle this case accordingly
-        alert('You need to sign in to add a note.');
+        window.location.href = 'home.html';
         return;
     }
 
@@ -264,7 +252,7 @@ function saveTodoList() {
     
 
     // Optionally, you can add a success message or perform any other action
-    alert('Note saved successfully!');
+  console.log("Note saved successfully")
 }
 
 function displayUserTodoList(uid) {
@@ -353,8 +341,8 @@ clearButton.addEventListener('click', () => {
     if (currentUser) {
         clearToDoList(currentUser.uid);
     } else {
-        // The user is not signed in; handle this case accordingly
-        alert('You need to sign in to clear the list.');
+        
+        console.log("user needs to sign in to do this action")
     }
 });
 
