@@ -1,37 +1,67 @@
+#upperNav{
+    background-color: white;
+}
+
+#sideNav{
+    
+    background-color: white;
+}
+
+.studyBackGround{
+    background-color: #618264;
+}
+
+#pointsCard{
+  
+    text-align: center;
+}
+#pointsHeader{
+    font-size:30px;
+    font-weight: bold;
+}
+
+#pointsValue{
+    font-size:40px;
+    font-weight: bold;
+    color: #618264;
+}
+#pointsButton{
+
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    transition: box-shadow 0.15s ease,transform 0.15s ease;
+    will-change: box-shadow,transform;
+    background: #B0D9B1;
+    box-shadow: 0px 2px 4px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
+    height: 48px;
+    padding: 0 32px;
+    font-size: 18px;
+    border-radius: 6px;
+    color: white;
+    transition: box-shadow 0.15s ease,transform 0.15s ease; 
+
+}
+
+#pointsButton:hover {
+    box-shadow: 0px 4px 8px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
+    transform: translateY(-2px);
+}
+
+#pointsButton:active{
+    box-shadow: inset 0px 3px 7px #d6d6e7;
+    transform: translateY(2px);
+}
+
+
+
 .divbox{
-    display: none;
-    width: 400px;
+    /* display: none; */
+    width: 500px;
+    height: 200px;
     margin-left: 60px;
 }
-
-
-.divbox1{
-   
-    height: 200px;
-    /* the 0.5 at the back means 50% transparent */
-    background-color: rgba(255, 255, 255, 0.5);
-    /* background-color: white; */
-    border: 2px solid black;
-}
-.divbox2{
-   
-    height: 200px;
-    /* background-color: white; */
-    border: 2px solid black;
-}
-.divbox3{
-   
-    height: 200px;
-    /* background-color: white; */
-    border: 2px solid black;
-}
-
-
-.bordertest{
-    border-radius: 12%;
-    width: auto;
-}
-
 
 
 .centering{

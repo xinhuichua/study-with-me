@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="../css/mood.css">
 </head>
 
-<body style="background-color: mintcream;">
-  <nav class="sidebar close" style="background-color: #defade;">
+<body>
+  <nav class="sidebar close" id="sideNav">
     <header>
       <div class="image-text">
         <span class="image">
@@ -73,33 +73,31 @@
   
   </nav>
   <div class="container-fluid">
-      <div class="row" style="background-color: #e9fce9;">
+      <div class="row" id="upperNav">
         <div class="col">
-          <nav class="navbar navbar-expand-lg justify-content-end ">
+          <nav class="navbar navbar-expand-lg justify-content-between"> <!-- Use 'justify-content-between' to separate items -->
+  
             <!-- Hamburger Button (Appears in smaller screens) -->
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-        
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
             <!-- Navbar Items (Collapsed in smaller screens) -->
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 12px;">
               <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' to push items to the right -->
                 <li class="nav-item">
-                  <a class="nav-link text-center" href="notetaking.html">Notetaking</a>
+                  <a class="nav-link text-center navDesign" href="notetaking.html">notes</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-center" href="cardlist.html">Card List</a>
+                  <a class="nav-link text-center navDesign" href="cardlist.html">card shop</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-center" href="profilepage.html">Profile</a>
+                  <a class="nav-link text-center navDesign" href="profilepage.html" >profile</a>
                 </li>
                 <li class="nav-item">
-                        
-                  <a href="" class="nav-link logoutButton text-center" id="logoutButton">Logout</a>
-                
-              </li>
+                    <a href="" class="nav-link text-center navDesign" id="logoutButton" style="font-style: italic;">logout</a>
+                  
+                </li>
               </ul>
             </div>
           </nav>
@@ -111,10 +109,13 @@
         <!-- HTML -->
       <div class="row studyBackGround" id="studyBG">
         <div class="col">
-          <div class="row " >
-              <div class="col text-center textColor ">
+          <div class="col centering">
+            <div class="card" id="pointsCard">
+                <div class="card-body text-center">
+                  <h5 class="card-title" id="pointsHeader">Current Points:</h5>
+                  <p class="card-text" ><span id="pointsValue"></span></p>
                   <button id="pointsButton">Claim Points</button>
-                  <p id="currentPoints">Current Points: <span id="pointsValue"></span></p>
+                </div>
               </div>
           </div>
             <div class="row heightDistance studyBackground">
@@ -123,7 +124,7 @@
                 <!-- the actual content -->
                 <div class="col-11 ">
                     <div class="row d-flex justify-content-center ">
-                        <div class="col-6 divbox1 divbox" id="imageContainer" >
+                        <div class="col-6 divbox" id="imageContainer" >
                           <div class="timer">
                             <div class="test">
                               <p class="textColor" id="timer-display">25:00</p>
@@ -136,7 +137,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-6 divbox2 divbox" id="imageContainer2" >
+                        <div class="col-6 divbox" id="imageContainer2" >
                           <div class="">
                             <iframe style="border-radius:12px"
                               src="https://open.spotify.com/embed/playlist/17pb47EzKKVQ1GjTX3APnt?utm_source=generator" class="music"
@@ -144,7 +145,7 @@
                               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                           </div>
                         </div>
-                        <div class="col-6 divbox divbox3" id="imageContainer3">
+                        <div class="col-6 divbox" id="imageContainer3">
                           <div class="card" id="todolist">
                             <div class="card-body">
                              <h2 class="text-center">To-Do List <i class="fa-solid fa-clipboard-list"></i></h2>
