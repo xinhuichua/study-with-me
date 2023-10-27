@@ -34,6 +34,7 @@
 
 /* Add this to your CSS */
 body {
+    
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 

@@ -175,8 +175,8 @@ function displayChart(userId) {
         const moodData = moodDataArray;
         const labels = moodData.map(data => data.date);
         const happyData = moodData.map(data => data.happy);
+        const normalData = moodData.map(data => data.normal);
         const sadData = moodData.map(data => data.sad);
-        const angryData = moodData.map(data => data.angry);
         moodChart = new Chart("moodBarchart", {
             type: "bar",
             data: {
@@ -185,17 +185,17 @@ function displayChart(userId) {
                     {
                         label: "Happy",
                         data: happyData,
+                        backgroundColor: "yellow",
+                    },
+                    {
+                        label: "Normal",
+                        data: normalData,
                         backgroundColor: "green",
                     },
                     {
                         label: "Sad",
                         data: sadData,
                         backgroundColor: "blue",
-                    },
-                    {
-                        label: "Angry",
-                        data: angryData,
-                        backgroundColor: "red",
                     },
                 ],
             },
@@ -225,13 +225,13 @@ function fetchMoodDataForDates(userId, dates) {
                         if (snapshot.exists()) {
                             const moodData = snapshot.val();
                             const happy = moodData.happy || 0;
+                            const normal = moodData.normal || 0;
                             const sad = moodData.sad || 0;
-                            const angry = moodData.angry || 0;
                             const moodDataObject = {
                                 date: date,
                                 happy: happy,
-                                sad: sad,
-                                angry: angry
+                                normal: normal,
+                                sad: sad
                             };
                             // Update the existing data in the array or push new data
                             const existingDataIndex = moodDataArray.findIndex(item => item.date === date);
