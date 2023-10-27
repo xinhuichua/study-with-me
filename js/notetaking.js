@@ -215,6 +215,8 @@ function changeFontFamily() {
     const previewBody = document.getElementById('noteBody');
     previewTitle.style.fontFamily = selectedFont;
     previewBody.style.fontFamily = selectedFont;
+
+    console.log("change font")
 }
 
 
@@ -249,8 +251,15 @@ function searchNotes(query) {
     }
 }
 
+//justify notes content
+
+function setJustify(justify) {
+    const textElement = document.getElementById('noteBody');
+    textElement.style.textAlign = justify;
 
 
+  }
+  
 
 
 

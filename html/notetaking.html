@@ -76,23 +76,40 @@
     <!--main content in notetaking page-->
     <div class="container-fluid">
       <!-- Navbar top -->
-      <div
-        class="row"
-        style="background-color: white; color: #618264; font-weight: bold"
-      >
-        <div class="col-6">
-          <a class="navbar-brand d-flex font size" href="main-page.html"
-            ><img src="../img/Ai_images/icon.jpg" class="iconImage"
-          /></a>
+      <div class="row" style="background-color: white;">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg justify-content-between"> <!-- Use 'justify-content-between' to separate items -->
+              <!-- Home Icon -->
+              <a class="navbar-brand d-flex m-1 ps-2" href="main-page.html">
+                <img src="../img/Ai_images/icon.jpg" class="iconImage p-0">
+              </a>
+    
+              <!-- Hamburger Button (Appears in smaller screens) -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!-- Navbar Items (Collapsed in smaller screens) -->
+              <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 12px;">
+                <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' to push items to the right -->
+                  <li class="nav-item">
+                    <a class="nav-link text-center navDesign" href="notetaking.html"style="color: rgba(0,0,0,0.8);"><u>notes</u></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-center navDesign" href="cardlist.html">card shop</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-center navDesign" href="profilepage.html">profile</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="" class="nav-link text-center navDesign" id="logoutButton" style="font-style: italic;">logout</a>
+                    
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
         </div>
-
-        <div class="col-6 d-flex justify-content-end align-items-center">
-          <a class="nav-link font size" href="cardlist.html">Card Shop</a>
-          <a class="nav-link font size" href="profilepage.html">Profile</a>
-          <a href="" class="nav-link logoutButton font size" id="logoutButton">Logout</a>
-        </div>
-      </div>
-
       <div class="row p-3">
         <div class="col-lg-3 col-md-4"></div>
         <div class="col-lg-8 col-md-7 title">
@@ -145,12 +162,16 @@
 
         <div class="col-lg-9 col-md-8 col-sm-12 mainBody">
           <div class="notes__preview w-100">
+
+   
             <div class="container fontSpeech">
+          
               <label for="fontSelector"></label>
               <select
                 style="width: 200px"
                 class="form-select"
                 id="fontSelector"
+                onchange="changeFontFamily()"
               >
                 <option value="Arial, sans-serif">Arial</option>
                 <option value="Helvetica, sans-serif">Helvetica</option>
@@ -159,6 +180,10 @@
                 <option value="Georgia, serif">Georgia</option>
               </select>
 
+              <button class="justify" id="left-justify" onclick="setJustify('left')"><i class="bi bi-justify-left"></i></button>
+              <button class="justify" id="center-justify" onclick="setJustify('center')"><i class="bi bi-text-center"></i></button>
+               <button  class="justify" id="right-justify" onclick="setJustify('right')"><i class="bi bi-justify-right"></i></button>
+  
               <!-- speech recognition start stop buttons -->
               <button
                 class="btn bx bxs-microphone bx-md"
@@ -188,9 +213,6 @@
               placeholder=" Enter a title..."
               id="noteTitle"
             />
-
-            <span id="final" class="text-dark"></span>
-            <span id="interim" class="text-info"></span>
 
             <textarea
               class="notes__body"

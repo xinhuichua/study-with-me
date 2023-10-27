@@ -22,6 +22,7 @@ body.dark-mode .notes__title {
 
 body.dark-mode .notes__body {
   background-color: black;
+  border-style: solid 1px;
 }
 
 body.dark-mode .notes__list-item {
@@ -36,6 +37,11 @@ body.dark-mode .notes__list-item:hover {
 body.dark-mode .icon {
   color: white;
 }
+
+body.dark-mode .justify{
+  color:white;
+}
+
 
 .mode-toggle {
   position: relative;
