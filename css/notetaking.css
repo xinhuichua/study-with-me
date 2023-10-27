@@ -21,19 +21,17 @@ body {
     padding-bottom: 5px;
     padding-left: 20px;
     padding-right: 20px;
-    
+    font-family: 'Times New Roman', Times, serif;
 }  
 
 .notes {
     display: flex; 
     height: 100%;
+    font-family: sans-serif;
     
 }
 
-.notes * {
-   
-   font-family: 'Times New Roman', Times, serif;
-}
+
 
 .notes__sidebar {
     border-right: 1px solid ;
@@ -118,10 +116,11 @@ body {
 
 .notes__body {
   
-    outline: none;
+    
     width: 100%;
     height: 50vh;
-    border: 0px;
+  outline:none;
+  border:0;
   
 }
 
@@ -131,14 +130,15 @@ body {
     outline: none;
    background-color: #618264;
    color: white;
-    border:none;
+   border:0;
     width: 100%;
     
    
 }
 .notes__title::placeholder{
    color:white;
- 
+   outline:none;
+   border: 0px;
    
 }
 
@@ -149,7 +149,7 @@ body {
     margin-top: 2em;
     resize: none;
    color: white;
-    
+outline:none;
     background: #618264;
 }
 
@@ -161,9 +161,6 @@ body {
     text-align: center;
     height: 40px;
     border: 1px solid black;
-}
-
-.notes__list-item {
     display: flex;
     justify-content: space-between; /* To push the delete button to the right */
     align-items: center; /* Vertically align content */
@@ -172,6 +169,8 @@ body {
     margin: 5px 0;
     overflow: hidden; /*this will ensure that the words fit into the box and not spill out */
 }
+
+
 
 .notes__save {
    
@@ -226,4 +225,17 @@ body {
     margin-right: 10px; 
 }
 
+.navDesign{
+    color:#618264;
+    margin: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
 
+
+
+.justify{
+    background-color: transparent;
+    border: none;
+    font-size:28px;
+}
