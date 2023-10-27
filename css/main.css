@@ -52,15 +52,161 @@
 }
 
 
-
 .divbox{
     /* display: none; */
-    width: 500px;
-    height: 200px;
+    /* width: 500px;
+    height: 200px; */
+    width: 900px;
+    height: 400px;
     margin-left: 60px;
 }
 
+/* ------------------timer div box-------------------------------------------------- */
 
+.timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align the content horizontally */
+    justify-content: center; /* Center-align the content vertically */
+    height: 200px; /* Set the height of the timer div to the viewport height */
+    width: 400px;
+    background-color: rgb(211, 228, 233) ;
+
+    
+}
+#timer-display {
+    /* Style for the timer display */
+    font-size:50px;
+    color:white;
+
+}
+
+.timerbuttons{
+    margin-top: 10px; /* Add some space between the timer display and buttons */
+    display: flex;
+    
+
+}
+
+.timerbuttons button{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding:0px;
+    border: 0px;
+}
+.timerbuttons img{
+    border: none;
+    width: 40px;
+    background-color: rgb(211, 228, 233) ;
+    
+    
+}
+/* ------------------ end of timer div box-------------------------------------------------- */
+
+/*---------------------------------------- mood div box------------------------ */
+.moodDiv{
+    display: none;
+    /* width: 500px;
+    height: 200px; */
+   
+    background-color: #e9fce9;
+   
+}
+
+.mood-header{
+
+    margin-top: 40px;
+    font-size:50px;
+    color:black;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.mood-subheader{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+.mood-buttons{
+    margin-top: 40px; 
+    display: flex;
+    justify-content: center;
+
+}
+
+/* .mood-buttons button{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding:0px;
+    border: 0px;
+    width: 100px;
+} */
+/* .mood-buttons img{
+    border: none;
+    width: 50px; 
+    background-color: #e9fce9;
+    ;
+} */
+
+.mood-buttons button {
+    border-radius: 10px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding:0px;
+    border: 0px;
+    width: 200px;
+  }
+  
+  #happy-button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid rgb(222, 222, 14)
+  }
+  
+  #happy-button:hover {
+    background-color:rgb(222, 222, 14);
+    color: white;
+  }
+  
+  #sad-button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+  }
+  
+  #sad-button:hover {
+    background-color: #008CBA;
+    color: white;
+  }
+  
+  #normal-button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+  }
+  #normal-button:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+
+/* ---------------------------- end of mood div box ---------------------*/
 .centering{
     display: flex;
     justify-content: center;
