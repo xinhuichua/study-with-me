@@ -373,9 +373,9 @@ function recordMood(mood) {
                     if (mood === 1) {
                         existingMoods.happy = (existingMoods.happy || 0) + 1;
                     } else if (mood === 2) {
-                        existingMoods.sad = (existingMoods.sad  ||0) + 1;
+                        existingMoods.normal = (existingMoods.normal ||0) + 1;
                     } else if (mood === 3) {
-                        existingMoods.angry = (existingMoods.angry || 0) + 1;
+                        existingMoods.sad = (existingMoods.sad || 0) + 1;
                     }
 
                     // Update the existing entry with the new mood values
@@ -394,9 +394,9 @@ function recordMood(mood) {
                     if (mood === 1) {
                         newMoodEntry.happy = 1;
                     } else if (mood === 2) {
-                        newMoodEntry.sad = 1;
+                        newMoodEntry.normal = 1;
                     } else if (mood === 3) {
-                        newMoodEntry.angry = 1;
+                        newMoodEntry.sad = 1;
                     }
 
                     userMoodRef.child(dateString).set(newMoodEntry).then(() => {

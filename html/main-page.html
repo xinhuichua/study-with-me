@@ -13,7 +13,7 @@
   <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap'>
   <link rel="stylesheet" href="../css/sidebar.css">
   <link rel="stylesheet" href="../css/timer.css">
-  <link rel="stylesheet" href="../css/mood.css">
+  
 </head>
 
 <body style="background-color: #618264;">
@@ -107,8 +107,8 @@
       
         <!-- top row -->
         <!-- HTML -->
-      <div class="row studyBackGround" id="studyBG">
-        <div class="col">
+      <div class="row studyBackGround" id="studyBg">
+        <div class="col-sm-12">
           <div class="col centering">
             <div class="card" id="pointsCard">
                 <div class="card-body text-center">
@@ -124,11 +124,12 @@
                 <!-- the actual content -->
                 <div class="col-11 ">
                     <div class="row d-flex justify-content-center ">
-                        <div class="col-6 divbox" id="imageContainer" >
+                        <div class="col-sm-12 divbox" id="imageContainer" >
+                        
                           <div class="timer">
-                            <div class="test">
+                            <!-- <div class="test"> -->
                               <p class="textColor" id="timer-display">25:00</p>
-                            </div>
+                            <!-- </div> -->
                             <div class="timerbuttons">
                               <button id="start-play-resume-button"><img src="../img/play.png" alt="" id="icon"></button>
                               <button id="reset-button"><img src="../img/reset.png" alt=""></button>
@@ -137,7 +138,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-6 divbox" id="imageContainer2" >
+                        <div class="col-sm-12 divbox" id="imageContainer2" >
                           <div class="">
                             <iframe style="border-radius:12px"
                               src="https://open.spotify.com/embed/playlist/17pb47EzKKVQ1GjTX3APnt?utm_source=generator" class="music"
@@ -145,7 +146,8 @@
                               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                           </div>
                         </div>
-                        <div class="col-6 divbox" id="imageContainer3">
+                       <div class="col-sm-12 divbox" id="imageContainer3">
+                          
                           <div class="card" id="todolist">
                             <div class="card-body">
                              <h2 class="text-center">To-Do List <i class="fa-solid fa-clipboard-list"></i></h2>
@@ -161,16 +163,19 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-6 moodDiv" id="imageContainer4">
+                        <!-- <div class="col-sm-12 divbox moodDiv" id="imageContainer4"> -->
+                          <div class="col-sm-12 divbox moodDiv" id="imageContainer4">
                             <h2 class="mood-header">How are you feeling today?</h2>
                             <p class="mood-subheader">
                               Select mood:
                             </p>
                             <div class="mood-buttons">
-                              <button id="happy-button" onclick="recordMood(1)" disabled><img src="../img/happiness.png" alt="" class="src"></button>
+                              <!-- <button id="happy-button" onclick="recordMood(1)" disabled><img src="../img/happiness.png" alt="" class="src"></button>
                               <button id="normal-button" onclick="recordMood(2)" disabled><img src="../img/normal.png" alt="" class="src"></button>
-                              <button id="sad-button" onclick="recordMood(3)" disabled><img src="../img/sad.png" alt="" class="src"></button>
-
+                              <button id="sad-button" onclick="recordMood(3)" disabled><img src="../img/sad.png" alt="" class="src"></button> -->
+                              <button id="happy-button" onclick="recordMood(1)" disabled>Happy</button>
+                              <button id="normal-button" onclick="recordMood(2)" disabled>Normal</button>
+                              <button id="sad-button" onclick="recordMood(3)" disabled>Sad</button>
                             </div>
                            
 
