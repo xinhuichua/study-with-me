@@ -1,3 +1,16 @@
+html, body{
+    
+   
+}
+/* ROW SPACE ADJUSTING FOR TIMER CSS START */
+.adjustingSpace{
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ROW SPACE ADJUSTING FOR TIMER CSS END */
+
+
+/* NAVBAR CSS START */
 #upperNav{
     background-color: white;
 }
@@ -6,16 +19,23 @@
     
     background-color: white;
 }
+.navDesign{
+    color:#618264;
+    margin: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+/* NAVBAR CSS END */
 
 
-
+/* POINTS FEATURE CSS START */
 #pointsHeader{
-    font-size:30px;
+    font-size:15px;
     font-weight: bold;
 }
 
 #pointsValue{
-    font-size:40px;
+    font-size:20px;
     font-weight: bold;
     color: #618264;
 }
@@ -29,7 +49,7 @@
     will-change: box-shadow,transform;
     background: #B0D9B1;
     box-shadow: 0px 2px 4px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
-    height: 48px;
+    height: 28px;
     padding: 0 32px;
     font-size: 18px;
     border-radius: 6px;
@@ -53,34 +73,22 @@
     justify-content: center;
     align-items: center;
 }
+/* POINTS FEATURE CSS END */
 
-/* -----------------------Study Background-------------------------------------------------- */
-
+/* BACKGROUND CHANGING CSS START */
 .studyBackGround{
     background-repeat: no-repeat;
     background-size: 100% auto;
     
 }
-
-.heightDistance{
-    height: 500px;
-}
+/* BACKGROUND CHANGING CSS END */
 
 
 
-/* ----------------------- end of Study Background-------------------------------------------------- */
-
-.divbox{
-    display: none;
-    width: 900px;
-    height: 400px;
-    
-    /* margin-left: 10px; */
-}
-
-/* -----------------------timer div box-------------------------------------------------- */
+/* TIMER FEATURE CSS START */
 
 .timerDiv {
+    opacity: 70%;
     display: none;
     display: flex;
     flex-direction: column;
@@ -88,17 +96,15 @@
     justify-content: center; /* Center-align the content vertically */
     /* height: 200px; /* Set the height of the timer div to the viewport height */
     /* width: 400px; */
-
-    width: 900px;
-    height: 400px;
+    margin-top: 10px;
+    width: auto;
+    height: 200px;
     background-color: rgb(211, 228, 233) ;
-
-    
 }
 #timer-display {
     /* Style for the timer display */
 
-    font-size:100px;
+    font-size:50px;
     color:black;
 }
 
@@ -117,26 +123,28 @@
 }
 .timerbuttons img{
     border: none;
-    width: 80px;
+    width: 40px;
     background-color: rgb(211, 228, 233) ;
     
     
 }
-/* ------------------ end of timer div box-------------------------------------------------- */
+/* TIMER FEATURE CSS END */
 
-/*---------------------------------------- mood div box------------------------ */
+
+/* MOOD FEATURE CSS START */
 .moodDiv{
-
-   
     background-color: #e9fce9;
-   
+    display: none;
+    width: auto;
+    height: 200px;
+    opacity: 70%;
 }
 
 
 .mood-header{
 
-    margin-top: 40px;
-    font-size:50px;
+    margin-top: 10px;
+    font-size:30px;
     color:black;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
@@ -144,9 +152,9 @@
 }
 
 .mood-subheader{
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
 
 }
@@ -158,6 +166,7 @@
     justify-content: center;
 
 }
+
 
 /* .mood-buttons button{
     margin-left: 10px;
@@ -225,119 +234,13 @@
     color: white;
   }
 
-
-/* ---------------------------- end of mood div box ---------------------*/
-
-
-.bar{
-    
-    margin-top: 10px;
-    
-}
-
-.iconImage{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-top: 10px;
-  }
-  
-.music{
-    width: max-content;
-    height: 100px;
-}
-
-
-.iconImage{
-    width: 40px;
-    height: 40px;
-}
-
-.navDesign{
-    color:#618264;
-    margin: 10px;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-}
-.btnHeight{
-    height: 70px;
-    background-color: white;
-    transition: background-color 0.3;;
-}
-
-
-
-.iconText{
-    font-size: 10px;
-}
+/* MOOD FEATURE CSS END */
 
 
 
 
-.textColor{
-    color: aqua;
-}
 
-.mt-6{
-    margin-top: 8rem;
-}
-.btn-outline-purple{
-    background-color:#9900cc;
-    color:white;
-}
-.btn-outline-purple:hover{
-    background-color: none;
-    color:#9900cc;
-    border-color:#9900cc;
-}
-.fa-trash{
-    color:rgba(250, 120, 33, 0.726);
-}
-.my-6{
-    margin:0.2rem 0;
-}
-.text-bold{
-    font-weight: bold;
-}    
-li{
-    position: relative;
-}
-li .delete-item {
-    position: absolute;
-   right:50px;
-}
-li .form-check-input {
-    position: absolute;
-    right:80px;
-  }
-#mode{
-    margin-right:20px;
-    padding:0 20px;
-}
-.dark-mode{
-    background: #212529 !important;
-    color:#fff !important;
-    
-}
-.dark-mode  .btn-outline-dark{
-    color: #fff;
-    border : 2px solid #fff;
-}
-.dark-mode input::placeholder {
-    color: white;
-  }
-.dark-mode input{
-    background-color: #404040 !important;
-  }
-.dark-mode ul li{
-    background: #212529 !important;
-    color:#fff !important;
-}
-.dark-mode #cardHeader{
-    border-bottom: 2px solid #fff;
-}
-
-
+/* TODO LIST CSS START */
 .todo-container{
     display:flex; /*display delete button at the side*/
     justify-content: space-between;
@@ -353,11 +256,12 @@ li .form-check-input {
 }
 
 #todolist{
-    width: 100%;
-    height:900px;
+    width: auto;
+    height:230px;
     overflow:auto;
+    margin-top: 10px;
 }
 
-.logoutButton{
-    /* design the button */
-}
+
+/* TODO LIST CSS END */
+

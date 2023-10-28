@@ -19,176 +19,196 @@
 </head>
 
 <body style="background-color: #618264;">
-  <nav class="sidebar close" id="sideNav">
-    <header>
-      <div class="image-text">
-        <span class="image">
-          <img src="../img/Ai_images/hiker1.jpg" alt=""> 
-        </span>
-        <div class="text logo-text">
-          <span id="username"></span>
-       </div>
-      </div>
-      <i class='bx bx-chevron-right toggle'></i>
-    </header>
-  
-    <div class="menu-bar">
-      <div class="menu">
-        
-        <ul class="menu-links">
-          <li class="nav-link" onclick="changeBackgroundImage()">
-            <a href="#">
-              <i class='bx bx-minus-front icon' onclick="changeBackgroundImage()"></i>
-              
-              <span class="text nav-text" onclick="changeBackgroundImage()">Background</span>
-            </a>
-          </li>
-  
-          <li class="nav-link" onclick="togglediv('imageContainer')">
-            <a href="#">
-              <i class='bx bx-timer icon' ></i>
-              <span class="text nav-text" >Timer</span>
-            </a>
-          </li>
-  
-          <!-- <li class="nav-link" onclick="togglediv('imageContainer2')">
-            <a href="#">
-              <i class='bx bx-music icon'></i>
-              <span class="text nav-text" >Music</span>
-            </a>
-          </li> -->
-          <li class="nav-link" onclick="toggleMoodDiv('imageContainer3')">
-            <a href="#">
-              <i class='bx bx-happy icon' ></i>
-              <span class="text nav-text">Mood</span>
-            </a>
-          </li>
-
-          <li class="nav-link" onclick="togglediv('imageContainer4')">
-            <a href="#">
-              <i class='bx bx-list-check icon' ></i>
-              <span class="text nav-text" >Todo</span>
-            </a>
-          </li>
-
-          
-    </div>
-  
-  </nav>
-  <div class="container-fluid">
-     <!-- Navbar top -->
-     <div class="row" id="upperNav">
-      <div class="col">
-          <nav class="navbar navbar-expand-lg justify-content-between"> <!-- Use 'justify-content-between' to separate items -->
-         
-            <!-- Hamburger Button (Appears in smaller screens) -->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Navbar Items (Collapsed in smaller screens) -->
-            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 12px;">
-              <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' to push items to the right -->
-                <li class="nav-item">
-                  <a class="nav-link text-center navDesign" href="notetaking.html">notes</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-center navDesign" href="cardlist.html">card shop</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-center navDesign" href="profilepage.html">profile</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-center navDesign" id="logoutButton" style="font-style: italic;">logout</a>
-                  
-                </li>
-              </ul>
-            </div>
-          </nav>
+    <!-- POINTS CLAIM MODAL START -->
+    <div class="modal" tabindex="-1" id="claimPoints">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Points Info</h5>
+          </div>
+          <div class="modal-body text-center ">
+            <p>Points Collected!!!</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
-      
-        <!-- top row -->
-        <!-- HTML -->
-      <div class="row studyBackGround" id="studyBg">
-        <div class="col-sm-12">
-          <div class="col centering">
-              <div class="card text-center">
-                <div class="card-body">
-                  <h5 class="card-title" id="pointsHeader">Current Points:</h5>
-                  <p class="card-text" ><span id="pointsValue"></span></p>
-                  <button id="pointsButton">Claim Points</button>
-                </div>
-              </div>
+    </div>
+    <!-- POINTS CLAIM MODAL END -->
+
+    <!--LOGOUT MODAL START-->
+    <div class="modal" tabindex="-1" id="logoutModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Logout Status</h5>
           </div>
-            <div class="row heightDistance">
-                <!-- the actual content -->
-
-              <!-- <div class="col"> -->
-
-                <!-- Timer -->
-              <div class="row d-flex justify-content-center">
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="col-sm-12 divbox" id="imageContainer" >
-                      <div class="timerDiv">
-                          <p class="textColor" id="timer-display">25:00</p>
-                        <div class="timerbuttons">
-                          <button id="start-play-resume-button"><img src="../img/play.png" alt="" id="icon"></button>
-                          <button id="reset-button"><img src="../img/reset.png" alt=""></button>
-                          <button id="add-minutes-button"><img src="../img/add.png" alt=""></button>
-                          <button id="minus-minutes-button"><img src="../img/minus.png" alt=""></button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Mood -->
-                    <div class="col-lg-6 col-sm-12 divbox moodDiv" id="imageContainer3">
-                      <h2 class="mood-header">How are you feeling today?</h2>
-                      <p class="mood-subheader">
-                        Select mood:
-                      </p>
-                      <div class="mood-buttons">
-                        <button id="happy-button" onclick="recordMood(1)" disabled>Happy</button>
-                        <button id="normal-button" onclick="recordMood(2)" disabled>Normal</button>
-                        <button id="sad-button" onclick="recordMood(3)" disabled>Sad</button>
-                      </div>
-                    </div>
-                </div>
-                
-                <!-- To do -->
-                  <div class="col-lg-6 col-sm-6 divbox" id="imageContainer4">
-                    <div class="card" id="todolist">
-                      <div class="card-body">
-                        <h2 class="text-center">To-Do List <i class="fa-solid fa-clipboard-list"></i></h2>
-                        <div class="input-group mb-3">
-                          <input type="text" class="form-control" id ='input' placeholder="To-Do List" aria-label="Enter a Word" aria-describedby="button2">
-                          <button class="btn btn-outline-success" type="button" id="addButton" onclick="saveTodoList()">Add</button>
-                        </div>
-                        <div class="display" id="display">
-                        </div>
-                        <div class="d-grid col-6 mx-auto">
-                          <button class="btn btn-outline-danger" type="button" id="clearButton">Clear List</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-            <!-- <div class="col-sm-12 divbox" id="imageContainer2" >
-                  <div class="">
-                    <iframe style="border-radius:12px"
-                      src="https://open.spotify.com/embed/playlist/17pb47EzKKVQ1GjTX3APnt?utm_source=generator" class="music"
-                      height="352" frameBorder="0" allowfullscreen=""
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                  </div>
-                </div> -->
-              </div>
+          <div class="modal-body text-center ">
+            <p>Successfully logout!</p>
           </div>
+        </div>
       </div>
-  </div>
+    </div>
+    <!--LOGOUT MODAL END-->
 
 
+    <!-- MAINPAGE SIDEBAR START -->
 
-  
+    <!-- MAINPAGE NAVBAR START -->
+    <nav class="sidebar close" id="sideNav">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <img src="../img/Ai_images/hiker1.jpg" alt=""> 
+          </span>
+          <div class="text logo-text">
+            <span id="username"></span>
+        </div>
+        </div>
+        <i class='bx bx-chevron-right toggle'></i>
+      </header>
+    
+      <div class="menu-bar">
+        <div class="menu">
+          
+          <ul class="menu-links">
+            <li class="nav-link" onclick="changeBackgroundImage()">
+              <a href="#">
+                <i class='bx bx-minus-front icon' onclick="changeBackgroundImage()"></i>
+                
+                <span class="text nav-text" onclick="changeBackgroundImage()">Background</span>
+              </a>
+            </li>
+    
+            <li class="nav-link" onclick="togglediv('imageContainer')">
+              <a href="#">
+                <i class='bx bx-timer icon' ></i>
+                <span class="text nav-text" >Timer</span>
+              </a>
+            </li>
+    
+            <li class="nav-link" onclick="toggleMoodDiv('imageContainer3')">
+              <a href="#">
+                <i class='bx bx-happy icon' ></i>
+                <span class="text nav-text">Mood</span>
+              </a>
+            </li>
+
+            <li class="nav-link" onclick="togglediv('imageContainer4')">
+              <a href="#">
+                <i class='bx bx-list-check icon' ></i>
+                <span class="text nav-text" >Todo</span>
+              </a>
+            </li>     
+      </div>
+    </nav>
+    <!-- MAINPAGE SIDEBAR END -->
+
+    <!-- MAINPAGE MAIN CONTENT START -->
+    <div class="container-fluid">
+      <!-- NAVBAR START -->
+        <div class="row" id="upperNav">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg justify-content-between">
+                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Navbar Items (Collapsed in smaller screens) -->
+                    <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 12px;">
+                        <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' to push items to the right -->
+                            <li class="nav-item">
+                                <a class="nav-link text-center navDesign" href="notetaking.html">notes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-center navDesign" href="cardlist.html">card shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-center navDesign" href="profilepage.html">profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link text-center navDesign" id="logoutButton" style="font-style: italic;">logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                  </nav>
+              </div>
+          </div>  
+        <!-- NAVBAR END -->
+
+        <!-- FEATURES START -->
+        <div class="row studyBackGround" id="studyBg">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="col centering">
+                  <div class="card text-center">
+                      <div class="card-body">
+                          <h5 class="card-title" id="pointsHeader">Current Points:</h5>
+                          <p class="card-text" ><span id="pointsValue"></span></p>
+                          <button id="pointsButton">Claim Points</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <!-- Timer -->
+
+                  <div class="row d-flex justify-content-center adjustingSpace">
+                      <!-- TWO FEATURES IS COMBINED INTO 1 COL CONTAINER -->
+                      <div class="col-lg-6 col-sm-12 order-md-2 order-lg-1 ">
+                          <div class="col-sm-12" id="imageContainer" >
+                              <div class="timerDiv">
+                                  <p id="timer-display">25:00</p>
+                                  <div class="timerbuttons">
+                                    <button id="start-play-resume-button"><img src="../img/play.png" alt="" id="icon"></button>
+                                    <button id="reset-button"><img src="../img/reset.png" alt=""></button>
+                                    <button id="add-minutes-button"><img src="../img/add.png" alt=""></button>
+                                    <button id="minus-minutes-button"><img src="../img/minus.png" alt=""></button>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <!-- Mood -->
+                          <div class="col-lg-6 col-sm-12 col-md-12 order-md-3 order-lg-2 moodDiv" id="imageContainer3">
+                              
+                                <h2 class="mood-header">How are you feeling today?</h2>
+                                <p class="mood-subheader">
+                                  Select mood:
+                                </p>
+                                <div class="mood-buttons">
+                                    <button id="happy-button" onclick="recordMood(1)" disabled>Happy</button>
+                                    <button id="normal-button" onclick="recordMood(2)" disabled>Normal</button>
+                                    <button id="sad-button" onclick="recordMood(3)" disabled>Sad</button>
+                                </div>
+                              
+                          </div>
+                      </div>
+                    
+                      <!-- TODOLIST FEATURE START -->
+                      <div class="col-lg-6 col-sm-12 order-md-1 order-lg-3" id="imageContainer4">
+                          <div class="card" id="todolist">
+                              <div class="card-body">
+                                  <h2 class="text-center">To-Do List <i class="fa-solid fa-clipboard-list"></i></h2>
+                                  <div class="input-group mb-3">
+                                      <input type="text" class="form-control" id ='input' placeholder="To-Do List" aria-label="Enter a Word" aria-describedby="button2">
+                                      <button class="btn btn-outline-success" type="button" id="addButton" onclick="saveTodoList()">Add</button>
+                                  </div>
+                                  <div class="display" id="display">
+                                  </div>
+                                  <div class="d-grid col-6 mx-auto">
+                                      <button class="btn btn-outline-danger" type="button" id="clearButton">Clear List</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- TODOLIST FEATURE END -->
+
+                  </div>
+            </div>
+            <!-- FEATURES END -->
+        </div>
+    </div>
+    <!-- MAINPAGE MAIN CONTENT END -->
+
 </body>
 
 <!-- Firebase scripts -->
@@ -197,11 +217,9 @@
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
 
-
+<!-- references to other files -->
 <script src="../js/main.js"></script>
 <script  src="../js/sidebar.js"></script>
 <script src ="../js/timer.js"></script>
-
-
 
 </html>

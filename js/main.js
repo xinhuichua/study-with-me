@@ -51,14 +51,21 @@ var firebaseConfig = {
 logoutButton.addEventListener('click', () => {
     // Sign the user out
     auth.signOut().then(() => {
-      // Redirect the user to the login page after logout
-      window.location.href = 'home.html'; 
-      
-    }).catch((error) => {
-      // Handle any errors that occur during sign-out
-      console.error('Error signing out:', error);
-    });
+
+        // Show the Bootstrap modal
+    const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+    logoutModal.show();
+   
+    setInterval(function(){
+      window.location.href = "home.html",8000
+    })
+  
+    
+  }).catch((error) => {
+    // Handle any errors that occur during sign-out
+    console.error('Error signing out:', error);
   });
+});
 
 
 function togglediv(id) {
@@ -171,6 +178,11 @@ function resetPoints() {
     
     resetPoints()
     console.log('Points stored in Firebase: ' + currentPoints);
+
+    const claimPoints = new bootstrap.Modal(document.getElementById('claimPoints'));
+    claimPoints.show();
+    
+
 });
 
 // Initialize the points display and start the update interval
@@ -180,11 +192,13 @@ updatePointsInterval();
 
 // Change Background
 var currentImageIndex = 0; // Initialize the current image index
-var imagePaths = ["bg1.jpeg", "bg2.jpg", "bg3.jpeg","bg4.jpg"]; // Replace with your image paths
+var imagePaths = ["clouds.jpg","landscape.jpg", "sailboat.jpg","NatureBG1.jpg","NatureBG2.jpg"]; // Replace with your image paths
+
 
 function changeBackgroundImage() {
   // Select the div with id "studyBG"
-  var studyBGDiv = document.getElementById("studyBg");
+  //var studyBGDiv = document.getElementById("studyBG");
+  var bodytest = document.body;
 
   // Fetch the next image URL from Firebase Storage
   storage
@@ -192,7 +206,10 @@ function changeBackgroundImage() {
     .getDownloadURL()
     .then(function (url) {
       // Set the background image to the fetched image URL
-      studyBGDiv.style.backgroundImage = "url(" + url + ")";
+    //   studyBGDiv.style.backgroundImage = "url(" + url + ")";
+      bodytest.style.backgroundImage = "url(" + url + ")";
+      bodytest.style.backgroundSize = "cover"
+      bodytest.style.backgroundRepeat = "no-repeat"
     })
     .catch(function (error) {
       console.error("Error fetching image URL:", error);
@@ -200,6 +217,8 @@ function changeBackgroundImage() {
 
   // Increment the current image index or reset it to 0 if it reaches the end
   currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
+
+  //only thing is the firebase image is fetch randomly
 }
 
 
