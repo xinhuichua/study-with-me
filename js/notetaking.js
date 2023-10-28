@@ -64,7 +64,7 @@ function updateNote() {
         // Find the selected note by its title and update its content
         userNotesRef.orderByChild('title').equalTo(title).once('value', (snapshot) => {
             if (snapshot.exists()) {
-                
+                snapshot.forEach((childSnapshot) => {
                     const noteId = childSnapshot.key;
                     userNotesRef.child(noteId).update({
                         body: body,
@@ -76,7 +76,7 @@ function updateNote() {
                     // modal()
                     const noteUpdate = new bootstrap.Modal(document.getElementById('updateNotes'));
                     noteUpdate.show();
-                  
+                });
                 
             } else {
                 // Note with the given title does not exist, handle accordingly
