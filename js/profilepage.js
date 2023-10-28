@@ -27,6 +27,7 @@ auth.onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in
         userId = user.uid;
+        profileImage()
         username();
         displayPurchasedImages(userId);
 
@@ -58,6 +59,38 @@ auth.onAuthStateChanged(function(user) {
         userId = null;
     }
 });
+
+// FETCHING USER GENDER
+function profileImage(){
+    if (!userId) {
+        // Handle the case where userId is not defined
+        console.error('userId is not defined');
+        return;
+    }
+    const genders = database.ref('users/' + userId + '/gender');
+
+    const span = document.getElementById('profileImage');
+
+    genders.on('value', function(snapshot){
+        let gender = snapshot.val()
+        console.log(gender)
+        if(gender == "Male"){
+            let profileImage = document.createElement('img')
+            profileImage.src = "../img/Ai_images/dark1.jpg";
+            profileImage.classList.add('profileImage');
+            span.appendChild(profileImage)
+            
+        }else{
+            let profileImage = document.createElement('img')
+            profileImage.src = "../img/Ai_images/rabbit1.jpg";
+            profileImage.classList.add('profileImage');
+            span.appendChild(profileImage)
+        }
+    }, function(error){
+        console.error('Error listening for user full name:', error)
+    }
+    )
+}
 
 function username(){
     if (!userId) {

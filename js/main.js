@@ -19,7 +19,7 @@ var firebaseConfig = {
   const database = firebase.database()
   const storage = firebase.storage()
   
-  let currentUser;
+  let userId;
 
   // Check the user's authentication state on page load
  
@@ -28,20 +28,21 @@ var firebaseConfig = {
   auth.onAuthStateChanged((user) => {
       if (user) {
           // User is signed in
-          currentUser = user;
+          userId = user.uid;
   
           //checkAndEnableButtons();
           window.addEventListener('load', checkAndEnableButtons);
 
-          displayUserTodoList(user.uid);
-
+          displayUserTodoList(userId);
+          profileImage()
+        
           username()
 
           setInterval(checkAndEnableButtons, 5000);
   
       } else {
           // User is signed out
-          currentUser = null;
+          userId = null;
           window.location.href = 'home.html';
        
       }
@@ -67,7 +68,7 @@ logoutButton.addEventListener('click', () => {
   });
 });
 
-
+// TOGGLE DISPLAY FOR MAINPAGE OF THE FEATURES START
 function togglediv(id) {
     var div = document.getElementById(id);
     if (div) {
@@ -88,14 +89,48 @@ function toggleMoodDiv(id) {
         }
     }
 }
+// TOGGLE DISPLAY FOR MAINPAGE OF THE FEATURES END
 
-function username(){
-    if (!currentUser) {
+
+// FETCHING USER GENDER
+function profileImage(){
+    if (!userId) {
         // Handle the case where userId is not defined
         console.error('userId is not defined');
         return;
     }
-    const username = database.ref('users/' + currentUser.uid + '/full_name');
+    const genders = database.ref('users/' + userId + '/gender');
+
+    const span = document.getElementById('profileImage');
+
+    genders.on('value', function(snapshot){
+        let gender = snapshot.val()
+        console.log(gender)
+        if(gender == "Male"){
+            let profileImage = document.createElement('img')
+            profileImage.src = "../img/Ai_images/dark1.jpg";
+            profileImage.classList.add('profileImage');
+            span.appendChild(profileImage)
+            
+        }else{
+            let profileImage = document.createElement('img')
+            profileImage.src = "../img/Ai_images/rabbit1.jpg";
+            profileImage.classList.add('profileImage');
+            span.appendChild(profileImage)
+        }
+    }, function(error){
+        console.error('Error listening for user full name:', error)
+    }
+    )
+}
+// FETCHING USERNAME START
+function username(){
+    if (!userId) {
+        // Handle the case where userId is not defined
+        console.error('userId is not defined');
+        return;
+    }
+    const username = database.ref('users/' + userId + '/full_name');
 
     const span = document.getElementById('username');
 
@@ -111,9 +146,10 @@ function username(){
     }
     )
 }
+// FETCHING USERNAME END
 
 
-// Point System
+// POINT SYSTEM FEATURE START
 const pointsButton = document.getElementById('pointsButton');
 const pointsValue = document.getElementById('pointsValue');
 
@@ -136,7 +172,7 @@ function updatePointsInterval() {
 
 function storePointsInFirebase(points) {
     // Get a reference to the user's points in Firebase
-    const pointToDatabase = database.ref('users/' + currentUser.uid + '/points');
+    const pointToDatabase = database.ref('users/' + userId + '/points');
 
     // Retrieve the current points from Firebase
     pointToDatabase.once('value').then(function(snapshot) {
@@ -188,9 +224,10 @@ function resetPoints() {
 // Initialize the points display and start the update interval
 getCurrentPoints();
 updatePointsInterval();
+// POINT SYSTEM FEATURE END
 
 
-// Change Background
+// CHANGE BACKGROUND FEATURE START
 var currentImageIndex = 0; // Initialize the current image index
 var imagePaths = ["clouds.jpg","landscape.jpg", "sailboat.jpg","NatureBG1.jpg","NatureBG2.jpg"]; // Replace with your image paths
 
@@ -220,13 +257,13 @@ function changeBackgroundImage() {
 
   //only thing is the firebase image is fetch randomly
 }
+// CHANGE BACKGROUND FEATURE END
 
 
 // Call checkAndEnableButtons initially to set the initial button state
 
-
 function checkAndEnableButtons() {
-    if (currentUser) {
+    if (userId) {
         const currentTime = Date.now();
         const fiveSecondsInMilliseconds = 15 * 1000;
 
@@ -255,14 +292,14 @@ input.addEventListener("keyup", function(event){
 function saveTodoList() {
     const todo = document.getElementById('input').value;
     
-    if (!currentUser) {
+    if (!userId) {
         // The user is not signed in; handle this case accordingly
         window.location.href = 'home.html';
         return;
     }
 
     // Ensure the user is signed in before adding a note
-    const userNotesRef = database.ref('users/' + currentUser.uid + '/todo');
+    const userNotesRef = database.ref('users/' + userId + '/todo');
 
     // Push the note data to the user's notes in the Firebase database
     const newNoteRef = userNotesRef.push();
@@ -364,8 +401,8 @@ function clearToDoList(userId) {
 const clearButton = document.getElementById('clearButton');
 
 clearButton.addEventListener('click', () => {
-    if (currentUser) {
-        clearToDoList(currentUser.uid);
+    if (userId) {
+        clearToDoList(userId);
     } else {
         
         console.log("user needs to sign in to do this action")
@@ -380,8 +417,8 @@ var moodChart; // Declare moodChart as a global variable
 function recordMood(mood) {
     console.log(mood);
     // Get the current user (you may need to implement user authentication)
-    if (currentUser) {
-        const userMoodRef = database.ref("users/" + currentUser.uid + "/mood");
+    if (userId) {
+        const userMoodRef = database.ref("users/" + userId + "/mood");
 
         // Create a timestamp for today in a format like 'YYYY-MM'
         const today = new Date();
@@ -479,8 +516,8 @@ document.getElementById('sad-button').addEventListener('click', () => {
 ;
 // // Function to add multiple mood records for testing
 // function addTestMoodRecords() {
-//     // Replace 'currentUser.uid' with the actual user's UID
-//     const userMoodRef = database.ref("users/" + currentUser.uid + "/mood");
+//     // Replace 'userId' with the actual user's UID
+//     const userMoodRef = database.ref("users/" + userId + "/mood");
 
 //     // Define some emoji codes for testing
 //     const emojiCodes = ['&#128514', '&#128514', '&#128514', '&#128514','&#128514','&#128514']; // Emoji codes for 😂, 😁, and 😂
@@ -505,8 +542,8 @@ document.getElementById('sad-button').addEventListener('click', () => {
 
 
 // function addTestMoodRecordsForSeptember() {
-//     // Replace 'currentUser.uid' with the actual user's UID
-//     const userMoodRef = database.ref("users/" + currentUser.uid + "/mood");
+//     // Replace 'userId' with the actual user's UID
+//     const userMoodRef = database.ref("users/" + userId + "/mood");
 
 //     // Define some emoji codes for testing
 //     const emojiCodes = ['&#128514']; // Emoji codes for 😂, 😁, and 😂
