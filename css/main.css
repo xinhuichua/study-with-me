@@ -8,10 +8,7 @@
 }
 
 
-#pointsCard{
-  
-    text-align: center;
-}
+
 #pointsHeader{
     font-size:30px;
     font-weight: bold;
@@ -51,34 +48,58 @@
     transform: translateY(2px);
 }
 
-
-.divbox{
-    /* display: none; */
-    /* width: 500px;
-    height: 200px; */
-    width: 900px;
-    height: 400px;
-    margin-left: 60px;
+.centering{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* ------------------timer div box-------------------------------------------------- */
+/* -----------------------Study Background-------------------------------------------------- */
 
-.timer {
+.studyBackGround{
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    
+}
+
+.heightDistance{
+    height: 500px;
+}
+
+
+
+/* ----------------------- end of Study Background-------------------------------------------------- */
+
+.divbox{
+    display: none;
+    width: 900px;
+    height: 400px;
+    
+    /* margin-left: 10px; */
+}
+
+/* -----------------------timer div box-------------------------------------------------- */
+
+.timerDiv {
+    display: none;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center-align the content horizontally */
     justify-content: center; /* Center-align the content vertically */
-    height: 200px; /* Set the height of the timer div to the viewport height */
-    width: 400px;
+    /* height: 200px; /* Set the height of the timer div to the viewport height */
+    /* width: 400px; */
+
+    width: 900px;
+    height: 400px;
     background-color: rgb(211, 228, 233) ;
 
     
 }
 #timer-display {
     /* Style for the timer display */
-    font-size:50px;
-    color:white;
 
+    font-size:100px;
+    color:black;
 }
 
 .timerbuttons{
@@ -89,14 +110,14 @@
 }
 
 .timerbuttons button{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
     padding:0px;
     border: 0px;
 }
 .timerbuttons img{
     border: none;
-    width: 40px;
+    width: 80px;
     background-color: rgb(211, 228, 233) ;
     
     
@@ -105,9 +126,7 @@
 
 /*---------------------------------------- mood div box------------------------ */
 .moodDiv{
-    display: none;
-    /* width: 500px;
-    height: 200px; */
+
    
     background-color: #e9fce9;
    
@@ -207,11 +226,8 @@
 
 
 /* ---------------------------- end of mood div box ---------------------*/
-.centering{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
+
 .bar{
     
     margin-top: 10px;
@@ -230,9 +246,6 @@
     height: 100px;
 }
 
-.heightDistance{
-    height: 500px;
-}
 
 .iconImage{
     width: 40px;
@@ -257,11 +270,7 @@
     font-size: 10px;
 }
 
-.studyBackGround{
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    
-}
+
 
 
 .textColor{
@@ -334,7 +343,8 @@ li .form-check-input {
 }
 
 #todolist{
-    height:200px;
+    width: 100%;
+    height:900px;
     overflow:auto;
 }
 
