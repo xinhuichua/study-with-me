@@ -224,18 +224,23 @@ function checkAndEnableButtons() {
     }
 }
 
+let input = document.getElementById('input')
+input.addEventListener("keyup", function(event){
+    if (event.key === "Enter") {
+        if (input.value != "") { //this is to prevent them from mistyping enter key and have many blank todo list
+        saveTodoList();
+        }
+    }
+}) 
 
 function saveTodoList() {
     const todo = document.getElementById('input').value;
     
-
     if (!currentUser) {
         // The user is not signed in; handle this case accordingly
         window.location.href = 'home.html';
         return;
     }
-
-    
 
     // Ensure the user is signed in before adding a note
     const userNotesRef = database.ref('users/' + currentUser.uid + '/todo');
@@ -258,6 +263,7 @@ function saveTodoList() {
 function displayUserTodoList(uid) {
     const display = document.getElementById('display');
     const todoInput = document.getElementById('input');
+    let count = 0;
     
 
     // Reference to the user's notes in the database
@@ -276,7 +282,7 @@ function displayUserTodoList(uid) {
             const noteContainer = document.createElement('div');
             noteContainer.className = 'todo-container';
             noteContainer.setAttribute('margin-top','10px');
-
+           
             // Add a click event listener to each note container
             noteContainer.addEventListener('click', () => {
                 // Display the clicked note in the preview area
@@ -286,9 +292,10 @@ function displayUserTodoList(uid) {
 
             // Create a delete button for the note
 
-             const deleteButton = document.createElement('img');
+            const deleteButton = document.createElement('img');
             deleteButton.setAttribute('src', '../img/delete.png');
             deleteButton.setAttribute('width', '20px');
+            deleteButton.className = 'deleteButton';
       
 
             // Add a click event listener to the delete button

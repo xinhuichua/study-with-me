@@ -57,7 +57,13 @@
               <span class="text nav-text" >Music</span>
             </a>
           </li> -->
-  
+          <li class="nav-link" onclick="toggleMoodDiv('imageContainer3')">
+            <a href="#">
+              <i class='bx bx-happy icon' ></i>
+              <span class="text nav-text">Mood</span>
+            </a>
+          </li>
+
           <li class="nav-link" onclick="togglediv('imageContainer4')">
             <a href="#">
               <i class='bx bx-list-check icon' ></i>
@@ -65,12 +71,7 @@
             </a>
           </li>
 
-          <li class="nav-link" onclick="toggleMoodDiv('imageContainer3')">
-            <a href="#">
-              <i class='bx bx-happy icon' ></i>
-              <span class="text nav-text">Mood</span>
-            </a>
-          </li>
+          
     </div>
   
   </nav>
@@ -161,7 +162,7 @@
                         <h2 class="text-center">To-Do List <i class="fa-solid fa-clipboard-list"></i></h2>
                         <div class="input-group mb-3">
                           <input type="text" class="form-control" id ='input' placeholder="To-Do List" aria-label="Enter a Word" aria-describedby="button2">
-                          <button class="btn btn-outline-purple" type="button" id="addButton" onclick="saveTodoList()">Add</button>
+                          <button class="btn btn-outline-success" type="button" id="addButton" onclick="saveTodoList()">Add</button>
                         </div>
                         <div class="display" id="display">
                         </div>

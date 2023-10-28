@@ -341,6 +341,15 @@ li .form-check-input {
 .todo-container{
     display:flex; /*display delete button at the side*/
     justify-content: space-between;
+    padding: 18px 
+}
+
+.deleteButton:hover {
+    text-decoration: line-through;
+}
+
+.notes__summary-view:hover {
+    font-size: 20px;
 }
 
 #todolist{
