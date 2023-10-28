@@ -46,7 +46,10 @@ firebase.auth().onAuthStateChanged((user) => { //check whether user login - user
     }
 });
 
-
+function modal(){
+    const noteUpdate = new bootstrap.Modal(document.getElementById('updateNotess'));
+    noteUpdate.show();
+}
 
 //-------------Note function-------------------------
 // Function to update a note's content
@@ -61,7 +64,7 @@ function updateNote() {
         // Find the selected note by its title and update its content
         userNotesRef.orderByChild('title').equalTo(title).once('value', (snapshot) => {
             if (snapshot.exists()) {
-                snapshot.forEach((childSnapshot) => {
+                
                     const noteId = childSnapshot.key;
                     userNotesRef.child(noteId).update({
                         body: body,
@@ -70,7 +73,11 @@ function updateNote() {
 
                    //success message
                     console.log('Note updated successfully!');
-                });
+                    // modal()
+                    const noteUpdate = new bootstrap.Modal(document.getElementById('updateNotes'));
+                    noteUpdate.show();
+                  
+                
             } else {
                 // Note with the given title does not exist, handle accordingly
               console.log('Note not found for update.');
