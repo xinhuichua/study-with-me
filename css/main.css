@@ -53,7 +53,7 @@
 
 
 .divbox{
-    /* display: none; */
+    display: none;
     /* width: 500px;
     height: 200px; */
     width: 900px;
@@ -105,7 +105,7 @@
 
 /*---------------------------------------- mood div box------------------------ */
 .moodDiv{
-    display: none;
+    /* display: none; */
     /* width: 500px;
     height: 200px; */
    
