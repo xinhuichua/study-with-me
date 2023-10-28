@@ -30,9 +30,10 @@ var form = document.getElementsByTagName("form")[0];
 form.addEventListener("keydown", function(event) {
   // If the user presses the "Enter" key on the keyboard
   if (event.key === "Enter") {
+    event.preventDefault();
     // Trigger the button element with a click
     resetPassword.click();
-    console.log('enter')
+    // console.log('enter')
   }
 });
 
