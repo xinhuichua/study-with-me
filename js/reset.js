@@ -25,8 +25,18 @@ const auth = firebase.auth();
 
 auth.useDeviceLanguage();
 
-const resetPasswordFunction = () => {
+var form = document.getElementsByTagName("form")[0];
+// Execute a function when the user presses a key on the keyboard
+form.addEventListener("keydown", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Trigger the button element with a click
+    resetPassword.click();
+    console.log('enter')
+  }
+});
 
+const resetPasswordFunction = () => {
 
     const email = mailField.value;
 
@@ -44,7 +54,7 @@ const resetPasswordFunction = () => {
 }
 
 
-resetPassword.addEventListener('click', resetPasswordFunction);
+// resetPassword.addEventListener('click', resetPasswordFunction);
 
 //Animations
 mailField.addEventListener('focus', () => {
@@ -55,4 +65,3 @@ mailField.addEventListener('blur', () => {
     if(!mailField.value)
         labels.item(0).className = "unfocused-field";
 });
-
