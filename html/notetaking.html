@@ -211,9 +211,9 @@
               class="notes__title"
               type="text"
               placeholder=" Enter a title..."
-              id="noteTitle"
-            />
-
+              id="noteTitle"/>
+            <span id="final" class="text-light text-center"></span>
+            <span id="interim" class="text-info text-center"></span>
             <textarea
               class="notes__body"
               id="noteBody"
@@ -222,15 +222,13 @@
             <button
               class="notes__save btn btn-success m-2"
               type="button"
-              onclick="saveNote()"
-            >
+              onclick="saveNote()">
               Save Note
             </button>
             <button
               class="notes__update btn btn-light m-2"
               type="button"
-              onclick="updateNote()"
-            >
+              onclick="updateNote()">
               Update Note
             </button>
           </div>
