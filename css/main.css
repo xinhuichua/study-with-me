@@ -2,6 +2,7 @@ html, body{
     
    
 }
+
 /* ROW SPACE ADJUSTING FOR TIMER CSS START */
 .adjustingSpace{
     margin-left: auto;
@@ -83,12 +84,14 @@ html, body{
 }
 /* BACKGROUND CHANGING CSS END */
 
-
-
+/* need this code to make the divbox disappear */
+.divbox{
+    display: none;
+}
 /* TIMER FEATURE CSS START */
 
 .timerDiv {
-    opacity: 70%;
+    /* opacity: 70%; */
     display: none;
     display: flex;
     flex-direction: column;
