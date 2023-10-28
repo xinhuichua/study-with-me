@@ -96,8 +96,6 @@ function saveNote() {
     const title = document.getElementById('noteTitle').value;
     const body = document.getElementById('noteBody').value;
 
-
-
     if (!currentUser) {
         // The user is not signed in; handle this case accordingly
         console.log('You need to sign in to add a note.');
@@ -110,24 +108,35 @@ function saveNote() {
         return;
     }
 
-    // Ensure the user is signed in before adding a note
     const userNotesRef = database.ref('users/' + currentUser.uid + '/notes');
 
-    // Push the note data to the user's notes in the Firebase database
-    const newNoteRef = userNotesRef.push();
-    newNoteRef.set({
-        title: title,
-        body: body,
-        timestamp: firebase.database.ServerValue.TIMESTAMP,
+    // Check if a note with the same title already exists
+    userNotesRef.orderByChild('title').equalTo(title).once('value', (snapshot) => {
+        if (snapshot.exists()) {
+            console.log('A note with the same title already exists.');
+
+            const titleExist = new bootstrap.Modal(document.getElementById('titleExist'));
+            titleExist.show();
+        } else {
+            // No note with the same title exists, so save the new note
+            const newNoteRef = userNotesRef.push();
+            newNoteRef.set({
+                title: title,
+                body: body,
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+            });
+
+            // Clear the input fields after saving
+            document.getElementById('noteTitle').value = '';
+            document.getElementById('noteBody').value = '';
+
+            console.log('Note saved successfully!');
+            const noteSaved = new bootstrap.Modal(document.getElementById('noteSaved'));
+            noteSaved.show();
+        }
     });
-
-    // Clear the input fields after saving
-    document.getElementById('noteTitle').value = '';
-    document.getElementById('noteBody').value = '';
-
-   
-    console.log('Note saved successfully!');
 }
+
 
 
 
