@@ -26,7 +26,7 @@
           <div class="modal-header">
             <h5 class="modal-title w-100 text-center">Points Info</h5>
           </div>
-          <div class="modal-body text-center ">
+          <div class="modal-body text-center">
             <p>Points Collected!!!</p>
           </div>
           <div class="modal-footer">
@@ -77,28 +77,28 @@
               <a href="#">
                 <i class='bx bx-minus-front icon' onclick="changeBackgroundImage()"></i>
                 
-                <span class="text nav-text" onclick="changeBackgroundImage()">Background</span>
+                <span class="text nav-text" onclick="changeBackgroundImage()">background</span>
               </a>
             </li>
     
             <li class="nav-link" onclick="togglediv('imageContainer')">
               <a href="#">
                 <i class='bx bx-timer icon' ></i>
-                <span class="text nav-text" >Timer</span>
+                <span class="text nav-text" >timer</span>
               </a>
             </li>
     
             <li class="nav-link" onclick="toggleMoodDiv('imageContainer3')">
               <a href="#">
                 <i class='bx bx-happy icon' ></i>
-                <span class="text nav-text">Mood</span>
+                <span class="text nav-text">mood</span>
               </a>
             </li>
 
             <li class="nav-link" onclick="togglediv('imageContainer4')">
               <a href="#">
                 <i class='bx bx-list-check icon' ></i>
-                <span class="text nav-text" >Todo</span>
+                <span class="text nav-text" >to-do list</span>
               </a>
             </li>     
       </div>
@@ -166,6 +166,25 @@
                                   </div>
                               </div>
                           </div>
+                          <!-- success modal-->
+                          <div class="modal" tabindex="-1" id="successModal">
+                            <div class="modal-dialog">
+                              <div class="modal-content" style="background-color: #B0D9B1;">
+                                <div class="modal-header">
+                                  <!-- <h5 class="modal-title w-100 text-center">Success</h5> -->
+                                </div>
+                                <div class="modal-body">
+                                  
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- end of modals-->
 
                           <!-- Mood -->
                           <div class="col-lg-6 col-sm-12 col-md-12 order-md-3 order-lg-2 moodDiv divbox" id="imageContainer3">
@@ -187,9 +206,9 @@
                       <div class="col-lg-6 col-sm-12 order-md-1 order-lg-3 divbox" id="imageContainer4">
                           <div class="card" id="todolist">
                               <div class="card-body">
-                                  <h2 class="text-center">To-Do List <i class="fa-solid fa-clipboard-list"></i></h2>
+                                  <h2 class="todoTitle text-center">To-Do List <i class="fa-solid fa-clipboard-list"></i></h2>
                                   <div class="input-group mb-3">
-                                      <input type="text" class="form-control" id ='input' placeholder="To-Do List" aria-label="Enter a Word" aria-describedby="button2">
+                                      <input type="text" class="form-control" id ='input' placeholder="Add a new task" aria-label="Enter a Word" aria-describedby="button2">
                                       <button class="btn btn-outline-success" type="button" id="addButton" onclick="saveTodoList()">Add</button>
                                   </div>
                                   <div class="display" id="display">
