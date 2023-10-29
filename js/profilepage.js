@@ -233,6 +233,7 @@ function displayChart(userId) {
                 ],
             },
             options: {
+                maintainAspectRatio: false,
                 scales: {
                     x: {
                         beginAtZero: true,

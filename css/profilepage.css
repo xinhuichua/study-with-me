@@ -1,55 +1,10 @@
-.font{
-    font-size: 20px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-family: 'Times New Roman', Times, serif;
-}
 
-/* .background{
-    background-image: url(../img/Ai_images/dark1.jpg);
-    background-size: cover;
-    height: 700px;
-} */
-.profileImage{
-    width: 250px;
-    /* height: 300px;     */
-}
-
-.colHeight{
-    height: 500px;
-}
-
-/* CSS Styles */
-.emoji-group {
-    margin-bottom: 10px; /* Adjust as needed */
-}
-
-.emoji {
-    font-size: 24px; /* Adjust as needed */
-    margin-right: 5px; /* Adjust spacing between emojis */
-}
-
-
-/* Add this to your CSS */
 body {
     
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
-.container-fluid {
-    max-width: 100%; /* Limit the container width */
-    height: 100vh;
-    margin: 0 auto; /* Center the container horizontally */
-}
 
-/* CSS to style the emoji container */
-.emoji-scroll-container {
-    max-height: 300px; /* Set your desired fixed height here */
-    overflow-y: auto; /* Enable vertical scrolling when content exceeds the height */
-    padding: 10px; /* Optional: Add padding for spacing */
-}
 
 .username {
 
@@ -59,7 +14,9 @@ body {
 
     text-align: center;
 
-    margin-top: 10px;
+    padding-top:20px;
+
+  
 
 }
 
@@ -82,4 +39,25 @@ body {
     margin: 10px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
+}
+
+
+
+.profileImage{
+    max-width: 100%;
+    
+}
+.quote{
+
+    font-family: 'Times New Roman', Times, serif;
+    color:#618264; 
+    font-family: monospace;
+}
+
+.chart-container{
+  position: relative; 
+  height: 80vh;
+  width: 80vw;
+  align-self: center;
+  margin: auto;
 }

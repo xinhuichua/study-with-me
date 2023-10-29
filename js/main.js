@@ -416,7 +416,7 @@ var moodChart; // Declare moodChart as a global variable
 
 function recordMood(mood) {
     console.log(mood);
-    // Get the current user (you may need to implement user authentication)
+    // Get the current user 
     if (userId) {
         const userMoodRef = database.ref("users/" + userId + "/mood");
 
