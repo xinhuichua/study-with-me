@@ -9,7 +9,7 @@
   /* ===== Colors ===== */
   --body-color: #e4e9f7;
   --sidebar-color: #fff;
-  --primary-color: #dc143c;
+  --primary-color: #79AC78;
   --primary-color-light: #f6f5ff;
   --toggle-color: #ddd;
   --text-color: #707070;
@@ -89,7 +89,7 @@ body.dark {
 }
 
 .sidebar .text {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 500;
   white-space: nowrap;
   opacity: 1;
@@ -103,13 +103,17 @@ body.dark {
   position: relative;
 }
 
+
 .sidebar header .image-text {
   display: flex;
   align-items: center;
+
 }
 .sidebar header .logo-text {
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
+  font-size: 25px;
 }
 header .image-text .name {
   margin-top: 2px;

@@ -1,7 +1,4 @@
-html, body{
-    
-   
-}
+
 .profileImage{
     width: 50px;
     height: 50px;
@@ -102,17 +99,16 @@ html, body{
     flex-direction: column;
     align-items: center; /* Center-align the content horizontally */
     justify-content: center; /* Center-align the content vertically */
-    /* height: 200px; /* Set the height of the timer div to the viewport height */
-    /* width: 400px; */
+
     margin-top: 10px;
     width: auto;
     height: 200px;
-    background-color: rgb(211, 228, 233) ;
+    background-color: #D0E7D2;
 }
 #timer-display {
     /* Style for the timer display */
 
-    font-size:50px;
+    font-size:80px;
     color:black;
 }
 
@@ -132,10 +128,25 @@ html, body{
 .timerbuttons img{
     border: none;
     width: 40px;
-    background-color: rgb(211, 228, 233) ;
+    background-color:#D0E7D2 ;
     
     
 }
+
+
+#minus-minutes-button:disabled {
+    color: grey; /* Converts the image to grayscale when disabled */
+    opacity: 0.6; /* Adjust opacity to make it visually indicate it's disabled */
+}
+
+#start-play-resume-button:disabled {
+    color: grey; /* Converts the image to grayscale when disabled */
+    opacity: 0.6; /* Adjust opacity to make it visually indicate it's disabled */
+}
+
+
+
+
 /* TIMER FEATURE CSS END */
 
 
@@ -174,21 +185,6 @@ html, body{
     justify-content: center;
 
 }
-
-
-/* .mood-buttons button{
-    margin-left: 10px;
-    margin-right: 10px;
-    padding:0px;
-    border: 0px;
-    width: 100px;
-} */
-/* .mood-buttons img{
-    border: none;
-    width: 50px; 
-    background-color: #e9fce9;
-    ;
-} */
 
 .mood-buttons button {
     border-radius: 10px;
@@ -247,12 +243,12 @@ html, body{
 
 
 
-
 /* TODO LIST CSS START */
 .todo-container{
     display:flex; /*display delete button at the side*/
     justify-content: space-between;
-    padding: 18px 
+    padding: 18px;
+    
 }
 
 .deleteButton:hover {
@@ -268,6 +264,14 @@ html, body{
     height:230px;
     overflow:auto;
     margin-top: 10px;
+}
+
+.todoTitle{
+    color: #618264;
+}
+
+#imageContainer4 #input::placeholder {
+    color: rgba(131, 124, 124, 0.55);
 }
 
 
