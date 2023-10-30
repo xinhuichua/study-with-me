@@ -6,7 +6,6 @@ axios.get('https://api.api-ninjas.com/v1/quotes', {
     headers: { 'X-Api-Key': API_KEY }
 })
     .then(response => {
-        console.log(response.data);
         var data = response.data[0].quote
          document.getElementById('quote').innerText = data 
         

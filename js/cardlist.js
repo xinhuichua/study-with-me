@@ -88,8 +88,6 @@ function getUserImageUrlData() {
                 });
             }
 
-            // the userCurrentImages array contains all the user's purchased images
-            console.log('User\'s current images:', userCurrentImages);
         })
         .catch(function(error) {
             console.error('Error fetching user images:', error);
