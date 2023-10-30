@@ -102,13 +102,13 @@
 
     margin-top: 10px;
     width: auto;
-    height: 200px;
+    height: 180px;
     background-color: #D0E7D2;
 }
 #timer-display {
     /* Style for the timer display */
 
-    font-size:80px;
+    font-size:70px;
     color:black;
 }
 
@@ -155,7 +155,7 @@
     background-color: #e9fce9;
     display: none;
     width: auto;
-    height: 200px;
+    height: 180px;
     opacity: 70%;
 }
 
@@ -273,7 +273,11 @@
 #imageContainer4 #input::placeholder {
     color: rgba(131, 124, 124, 0.55);
 }
+.testtt{
+    height: 380px;
+    margin-top: 7px;
+}
+
 
 
 /* TODO LIST CSS END */
-
