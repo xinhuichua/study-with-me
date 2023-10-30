@@ -32,7 +32,7 @@ function register() {
   // Get all our input fields
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  const full_name = document.getElementById('full_name').value;
+  const username = document.getElementById('username').value;
 
   // Get the selected gender
   let gender;
@@ -90,7 +90,7 @@ function register() {
       // Create User data
       var user_data = {
         email: email,
-        full_name: full_name,
+        username: username,
         gender: gender, // Store the selected gender
         last_login: Date.now()
       };
