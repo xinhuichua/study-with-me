@@ -90,7 +90,7 @@ function register() {
       // Create User data
       var user_data = {
         email: email,
-        username: username,
+        full_name: username,
         gender: gender, // Store the selected gender
         last_login: Date.now()
       };
