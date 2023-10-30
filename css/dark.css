@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 body {
-  background-color: #618264;
+  background-color: #B0D9B1;
   color: #171717;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -42,6 +42,25 @@ body.dark-mode .justify{
   color:white;
 }
 
+body.dark-mode .notes__title {
+  color:white;
+}
+
+body.dark-mode .notes__title::placeholder {
+  color:white;
+}
+
+body.dark-mode .notes__body {
+  color:white;
+}
+
+body.dark-mode .notes__body::placeholder {
+  color:white;
+}
+
+body.dark-mode .bxs-microphone {
+  color: #7ade7a;
+}
 
 .mode-toggle {
   position: relative;
