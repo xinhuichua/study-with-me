@@ -447,6 +447,9 @@ function recordMood(mood) {
                     // Update the existing entry with the new mood values
                     userMoodRef.child(dateString).update(existingMoods).then(() => {
                         console.log('Mood updated successfully:', existingMoods);
+                        const recordModal = new bootstrap.Modal(document.getElementById('recordModal'));
+                        recordModal.show();
+
                         // Call the function to update button states after updating mood
                         checkAndEnableButtons();
                     }).catch((error) => {
@@ -467,6 +470,9 @@ function recordMood(mood) {
 
                     userMoodRef.child(dateString).set(newMoodEntry).then(() => {
                         console.log('Mood recorded successfully:', newMoodEntry);
+                        
+                        const recordModal = new bootstrap.Modal(document.getElementById('recordModal'));
+                        recordModal.show();
                         // Call the function to update button states after recording mood
                         checkAndEnableButtons();
                     }).catch((error) => {

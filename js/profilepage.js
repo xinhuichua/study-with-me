@@ -186,17 +186,7 @@ function displayImagesCount(imagesArray) {
 
 
 
-
-
-
-
-
 const moodDataArray = [];
-
-
-
-
-var testing12345 = []; // This array will store mood data objects
 var moodChart; // Declare moodChart as a global variable
 
 function displayChart(userId) {
@@ -233,7 +223,8 @@ function displayChart(userId) {
                 ],
             },
             options: {
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
+                responsive: true,
                 scales: {
                     x: {
                         beginAtZero: true,
@@ -246,8 +237,6 @@ function displayChart(userId) {
         });
     }
 }
-
-
 
 function fetchMoodDataForDates(userId, dates) {
     return new Promise((resolve, reject) => {
@@ -292,5 +281,58 @@ function fetchMoodDataForDates(userId, dates) {
     });
 }
 
-// Specify the dates you want to fetch
-const datesToFetch = ["2023-10", "2023-11", "2023-12"];
+// Specify the months and days you want to fetch for the current year
+const currentYear = new Date().getFullYear();
+const monthsToFetch = Array.from({ length: 12 }, (_, i) => `${currentYear}-${(i + 1).toString().padStart(2, '0')}`);
+const daysInMonth = (year, month) => new Date(year, month, 0).getDate();
+const daysToFetch = Array.from({ length: daysInMonth(currentYear, new Date().getMonth() + 1) }, (_, i) => `${currentYear}-${(new Date().getMonth() + 1).toString().padStart(2, '0')}-${(i + 1).toString().padStart(2, '0')}`);
+
+// Use the dynamically generated months and days
+const datesToFetch = [...monthsToFetch, ...daysToFetch];
+
+// Call the function with the dynamically generated dates
+fetchMoodDataForDates(userId, datesToFetch);
+
+
+// function fetchMoodDataForDates(userId, dates) {
+//     return new Promise((resolve, reject) => {
+//         if (userId) {
+//             var promises = dates.map(date => {
+//                 const userMoodRef = database.ref("users/" + userId + "/mood/" + date);
+//                 return userMoodRef.once("value")
+//                     .then(snapshot => {
+//                         if (snapshot.exists()) {
+//                             const moodData = snapshot.val();
+//                             const happy = moodData.happy || 0;
+//                             const normal = moodData.normal || 0;
+//                             const sad = moodData.sad || 0;
+//                             const moodDataObject = {
+//                                 date: date,
+//                                 happy: happy,
+//                                 normal: normal,
+//                                 sad: sad
+//                             };
+//                             // Update the existing data in the array or push new data
+//                             const existingDataIndex = moodDataArray.findIndex(item => item.date === date);
+//                             if (existingDataIndex !== -1) {
+//                                 moodDataArray[existingDataIndex] = moodDataObject;
+//                             } else {
+//                                 moodDataArray.push(moodDataObject);
+//                             }
+//                         } else {
+//                             console.log(`No mood data found for ${date}`);
+//                         }
+//                     })
+//                     .catch(error => {
+//                         console.error('Error fetching mood data:', error);
+//                         reject(error);
+//                     });
+//             });
+
+//             // Wait for all promises to resolve before resolving the main Promise
+//             Promise.all(promises).then(() => {
+//                 resolve();
+//             });
+//         }
+//     });
+// }
