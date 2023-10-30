@@ -73,7 +73,6 @@ function profileImage(){
 
     genders.on('value', function(snapshot){
         let gender = snapshot.val()
-        console.log(gender)
         if(gender == "Male"){
             let profileImage = document.createElement('img')
             profileImage.src = "../img/Ai_images/dark1.jpg";
