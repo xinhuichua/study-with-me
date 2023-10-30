@@ -378,7 +378,8 @@ function displayUserTodoList(uid) {
 function deleteListFromDatabase(uid, noteId) {
     const userNotesRef = database.ref('users/' + uid + '/todo');
 
-    const confirmed = window.confirm("Are you sure you want to delete?")
+    const confirmed = new bootstrap.Modal(document.getElementById('delete'));
+    confirmed.show();
 
     if(confirmed){
         userNotesRef.child(noteId).remove();
@@ -390,8 +391,10 @@ function deleteListFromDatabase(uid, noteId) {
 function clearToDoList(userId) {
     const userToDoListRef = database.ref('users/' + userId + '/todo');
 
-    const confirmed = window.confirm("Are you sure you want to clear the entire list?")
-
+   
+    const confirmed = new bootstrap.Modal(document.getElementById('delete'));
+    confirmed.show();
+    
     if(confirmed){
         userToDoListRef.remove();
     }
