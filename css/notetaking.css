@@ -1,7 +1,10 @@
+
+
 html,
 body {
-    height: 100%;
-    margin: 0;   
+    height: 2000px;
+    margin: 0px; 
+    padding: 0px;  
     background-color: #B0D9B1;
 }
 .pr-0 {
@@ -250,4 +253,9 @@ display: block;
     justify-content: center;
     align-items: center;
     margin: 0px;
+}
+
+.backgroundTest{
+    height: 1000px;
+  
 }
