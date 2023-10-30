@@ -20,6 +20,7 @@
 
 <body class="backgroundTest">
 
+  <!--modal to be displayed when user is about to delete note-->
   <div class="modal fade" tabindex="-1" id="updateNotes">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -28,6 +29,20 @@
         </div>
         <div class="modal-body text-center ">
           <p>Note Updated!</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" tabindex="-1" id="titleExist">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title w-100 text-center">Note</h5>
+        </div>
+        <div class="modal-body text-center ">
+          <p>Title Already Exists, Please use a different title</p>
         </div>
         
       </div>
@@ -49,47 +64,48 @@
   </div>
 
   <div
-      class="modal fade"
-      id="deleteConfirmationModal"
-      tabindex="-1"
-      aria-labelledby="deleteConfirmationModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="deleteConfirmationModalLabel">
-              Confirm Deletion
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            Are you sure you want to delete this note?
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              class="btn btn-danger"
-              id="confirmDeleteButton"
-            >
-              Delete
-            </button>
-          </div>
+    class="modal fade"
+    id="deleteConfirmationModal"
+    tabindex="-1"
+    aria-labelledby="deleteConfirmationModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteConfirmationModalLabel">
+            Confirm Deletion
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this note?
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            id="confirmDeleteButton"
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>
+  </div>
+  <!--modal to be displayed when user is about to delete note-->
 
   <div class="container-fluid">
 
@@ -246,8 +262,7 @@
   integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
   crossorigin="anonymous"></script>
 
-<!-- Your JavaScript -->
-<script src="../js/notetaking.js"></script>
+
 
 
 
