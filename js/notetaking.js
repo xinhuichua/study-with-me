@@ -80,7 +80,9 @@ function updateNote() {
                 
             } else {
                 // Note with the given title does not exist, handle accordingly
-              console.log('Note not found for update.');
+              
+              const noUpdate = new bootstrap.Modal(document.getElementById('noUpdate'));
+              noUpdate.show();
             }
         });
     } else {
@@ -104,7 +106,8 @@ function saveNote() {
 
     if (title.trim() === '' || body.trim() === '') {
         // Handle the case where either the title or body is empty
-        console.log('Please enter both a title and a body for the note.');
+        const missingTitleOrBodyModal = new bootstrap.Modal(document.getElementById('missingTitleOrBodyModal'));
+        missingTitleOrBodyModal.show();
         return;
     }
 
@@ -117,7 +120,8 @@ function saveNote() {
 
             const titleExist = new bootstrap.Modal(document.getElementById('titleExist'));
             titleExist.show();
-        } else {
+        }
+        else {
             // No note with the same title exists, so save the new note
             const newNoteRef = userNotesRef.push();
             newNoteRef.set({
