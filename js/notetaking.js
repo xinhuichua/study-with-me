@@ -31,7 +31,12 @@ firebase.auth().onAuthStateChanged((user) => { //check whether user login - user
         // Sign the user out
         auth.signOut().then(() => {
           // Redirect the user to the login page after logout
-          window.location.href = 'home.html'; // Replace with the actual login page URL
+            const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+            logoutModal.show();
+            setInterval(function(){
+                    window.location.href = "home.html",8000
+                })
+          // Replace with the actual login page URL
         }).catch((error) => {
           // Handle any errors that occur during sign-out
           console.error('Error signing out:', error);
@@ -72,7 +77,7 @@ function updateNote() {
                     });
 
                    //success message
-                    console.log('Note updated successfully!');
+                    // console.log('Note updated successfully!');
                     // modal()
                     const noteUpdate = new bootstrap.Modal(document.getElementById('updateNotes'));
                     noteUpdate.show();
@@ -116,7 +121,7 @@ function saveNote() {
     // Check if a note with the same title already exists
     userNotesRef.orderByChild('title').equalTo(title).once('value', (snapshot) => {
         if (snapshot.exists()) {
-            console.log('A note with the same title already exists.');
+            // console.log('A note with the same title already exists.');
 
             const titleExist = new bootstrap.Modal(document.getElementById('titleExist'));
             titleExist.show();
@@ -134,7 +139,7 @@ function saveNote() {
             document.getElementById('noteTitle').value = '';
             document.getElementById('noteBody').value = '';
 
-            console.log('Note saved successfully!');
+            // console.log('Note saved successfully!');
             const noteSaved = new bootstrap.Modal(document.getElementById('noteSaved'));
             noteSaved.show();
         }

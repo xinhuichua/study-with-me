@@ -218,7 +218,7 @@ function createImageContainers() {
                                             if (error) {
                                                 console.error('Error deducting points from the database:', error);
                                             } else {
-                                                console.log('Points deducted successfully. New user points:', updatedPoints);
+                                                // console.log('Points deducted successfully. New user points:', updatedPoints);
                                                 
                                                 // Add the purchased card content to the user's database record with this function
                                                 addImageToUserDatabase(url, cardNameElement, points);
@@ -260,7 +260,7 @@ function addImageToUserDatabase(imageUrl, cardNameElement, points) {
     
     if (userId) {
         const imgNameText = cardNameElement.textContent;
-        console.log('Adding image to user database - userId:', userId, 'imageUrl:', imageUrl, 'name:', imgNameText, 'cardpoint', points);
+        // console.log('Adding image to user database - userId:', userId, 'imageUrl:', imageUrl, 'name:', imgNameText, 'cardpoint', points);
 
         
         const userRef = database.ref('users/' + userId);
@@ -274,7 +274,7 @@ function addImageToUserDatabase(imageUrl, cardNameElement, points) {
             if (error) {
                 console.error('Error adding image to user database:', error);
             } else {
-                console.log('Image added to user database successfully.');
+                // console.log('Image added to user database successfully.');
                 purchasedImageUrls.push({ 
                     imageUrl: imageUrl, 
                     cardNameElement: imgNameText, 

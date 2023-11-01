@@ -119,7 +119,7 @@ function profileImage(){
             span.appendChild(profileImage)
         }
     }, function(error){
-        console.error('Error listening for user full name:', error)
+        // console.error('Error listening for user full name:', error)
     }
     )
 }
@@ -142,7 +142,7 @@ function username(){
             console.log("UNKNOWN USERNAME")
         }
     }, function(error){
-        console.error('Error listening for user full name:', error)
+        // console.error('Error listening for user full name:', error)
     }
     )
 }
@@ -197,7 +197,7 @@ function storePointsInFirebase(points) {
             Points: updatedPoints,
         });
 
-        console.log('Points stored in Firebase:', updatedPoints);
+        // console.log('Points stored in Firebase:', updatedPoints);
     });
 }
 
@@ -213,7 +213,7 @@ function resetPoints() {
     storePointsInFirebase(currentPoints);
     
     resetPoints()
-    console.log('Points stored in Firebase: ' + currentPoints);
+    // console.log('Points stored in Firebase: ' + currentPoints);
 
     const claimPoints = new bootstrap.Modal(document.getElementById('claimPoints'));
     claimPoints.show();
@@ -313,7 +313,7 @@ function saveTodoList() {
     
 
     // Optionally, you can add a success message or perform any other action
-  console.log("Note saved successfully")
+//   console.log("Note saved successfully")
 }
 
 function displayUserTodoList(uid) {
