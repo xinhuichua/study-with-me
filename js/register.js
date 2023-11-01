@@ -53,8 +53,7 @@ function register() {
     const modalBody = document.querySelector('#errorModal .modal-body');
     
       
-    modalBody.innerText = "Please fill in all blanks"
-  
+    modalBody.innerText = "Please type in a valid email or key in a password with more than 6 characters" 
 
     const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
     errorModal.show();
@@ -67,7 +66,7 @@ function register() {
     const modalBody = document.querySelector('#errorModal .modal-body');
     
       
-    modalBody.innerText = "Please key in all fields";
+    modalBody.innerText = "Please fill in all the fields";
   
 
     const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));

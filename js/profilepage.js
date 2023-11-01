@@ -75,13 +75,13 @@ function profileImage(){
         let gender = snapshot.val()
         if(gender == "Male"){
             let profileImage = document.createElement('img')
-            profileImage.src = "../img/Ai_images/dark1.jpg";
+            profileImage.src = "../img/Ai_images/malerabbit.jpg";
             profileImage.classList.add('profileImage');
             span.appendChild(profileImage)
             
         }else{
             let profileImage = document.createElement('img')
-            profileImage.src = "../img/Ai_images/rabbit1.jpg";
+            profileImage.src = "../img/Ai_images/femalerabbit.jpg";
             profileImage.classList.add('profileImage');
             span.appendChild(profileImage)
         }
@@ -263,7 +263,7 @@ function fetchMoodDataForDates(userId, dates) {
                                 moodDataArray.push(moodDataObject);
                             }
                         } else {
-                            console.log(`No mood data found for ${date}`);
+                            // console.log(`No mood data found for ${date}`);
                         }
                     })
                     .catch(error => {
@@ -293,45 +293,3 @@ const datesToFetch = [...monthsToFetch, ...daysToFetch];
 fetchMoodDataForDates(userId, datesToFetch);
 
 
-// function fetchMoodDataForDates(userId, dates) {
-//     return new Promise((resolve, reject) => {
-//         if (userId) {
-//             var promises = dates.map(date => {
-//                 const userMoodRef = database.ref("users/" + userId + "/mood/" + date);
-//                 return userMoodRef.once("value")
-//                     .then(snapshot => {
-//                         if (snapshot.exists()) {
-//                             const moodData = snapshot.val();
-//                             const happy = moodData.happy || 0;
-//                             const normal = moodData.normal || 0;
-//                             const sad = moodData.sad || 0;
-//                             const moodDataObject = {
-//                                 date: date,
-//                                 happy: happy,
-//                                 normal: normal,
-//                                 sad: sad
-//                             };
-//                             // Update the existing data in the array or push new data
-//                             const existingDataIndex = moodDataArray.findIndex(item => item.date === date);
-//                             if (existingDataIndex !== -1) {
-//                                 moodDataArray[existingDataIndex] = moodDataObject;
-//                             } else {
-//                                 moodDataArray.push(moodDataObject);
-//                             }
-//                         } else {
-//                             console.log(`No mood data found for ${date}`);
-//                         }
-//                     })
-//                     .catch(error => {
-//                         console.error('Error fetching mood data:', error);
-//                         reject(error);
-//                     });
-//             });
-
-//             // Wait for all promises to resolve before resolving the main Promise
-//             Promise.all(promises).then(() => {
-//                 resolve();
-//             });
-//         }
-//     });
-// }

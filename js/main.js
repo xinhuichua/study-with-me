@@ -108,13 +108,13 @@ function profileImage(){
         let gender = snapshot.val()
         if(gender == "Male"){
             let profileImage = document.createElement('img')
-            profileImage.src = "../img/Ai_images/dark1.jpg";
+            profileImage.src = "../img/Ai_images/malerabbit.jpg";
             profileImage.classList.add('profileImage');
             span.appendChild(profileImage)
             
         }else{
             let profileImage = document.createElement('img')
-            profileImage.src = "../img/Ai_images/rabbit1.jpg";
+            profileImage.src = "../img/Ai_images/femalerabbit.jpg";
             profileImage.classList.add('profileImage');
             span.appendChild(profileImage)
         }
@@ -418,7 +418,7 @@ var moodDataArray = []; // This array will store mood data objects
 var moodChart; // Declare moodChart as a global variable
 
 function recordMood(mood) {
-    console.log(mood);
+    // console.log(mood);
     // Get the current user 
     if (userId) {
         const userMoodRef = database.ref("users/" + userId + "/mood");
@@ -469,7 +469,7 @@ function recordMood(mood) {
                     }
 
                     userMoodRef.child(dateString).set(newMoodEntry).then(() => {
-                        console.log('Mood recorded successfully:', newMoodEntry);
+                        // console.log('Mood recorded successfully:', newMoodEntry);
                         
                         const recordModal = new bootstrap.Modal(document.getElementById('recordModal'));
                         recordModal.show();
