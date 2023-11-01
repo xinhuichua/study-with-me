@@ -1,7 +1,14 @@
-
+html{
+    width: 100%;
+}
 body {
     
     overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+.container-fluid{
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 
@@ -57,9 +64,9 @@ body {
 .chart-container{
   position: relative; 
   height: 80vh;
-  width: 80vw;
+  width: auto;
   align-self: center;
   margin: auto;
-  
+
 }
 
