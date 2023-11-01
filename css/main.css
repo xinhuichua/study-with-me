@@ -12,6 +12,34 @@
 }
 /* ROW SPACE ADJUSTING FOR TIMER CSS END */
 
+.adjustment{
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userManualBtn{
+    background-color: white;
+    border-radius: 10%;
+    
+}
+
+/* Add this CSS for the hover effect */
+.userManualBtn {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
+}
+
+.userManualBtn:hover {
+    background-color: mintcream;
+    color: black;
+}
+
+
+
+
 
 /* NAVBAR CSS START */
 #upperNav{

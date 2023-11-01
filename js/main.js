@@ -37,6 +37,7 @@ var firebaseConfig = {
           profileImage()
         
           username()
+          guide()
 
           setInterval(checkAndEnableButtons, 5000);
   
@@ -158,14 +159,14 @@ let currentPoints = 0; // Initialize points with 0
 // Function to fetch and display the user's current points
 function getCurrentPoints() {
     // Update points
-    currentPoints += 20; // Increase points by 10 (adjust the increment as needed)
+    currentPoints += 25; // Increase points by 10 (adjust the increment as needed)
     pointsValue.textContent = currentPoints;
 }
 
 // Function to update points periodically (e.g., every 5 seconds)
 function updatePointsInterval() {
     getCurrentPoints(); // Initial call to get points
-    setInterval(getCurrentPoints, 5000); // Update points every 5 seconds (adjust the interval as needed)
+    setInterval(getCurrentPoints, 10000); // Update points every 5 seconds (adjust the interval as needed)
 }
 
 
@@ -518,65 +519,23 @@ document.getElementById('normal-button').addEventListener('click', () => {
 document.getElementById('sad-button').addEventListener('click', () => {
     lastButtonClickTime = Date.now(); // Update the last button click time
     enableButtons(); // Enable the buttons after a click
-})
+});
 
 
-;
-// // Function to add multiple mood records for testing
-// function addTestMoodRecords() {
-//     // Replace 'userId' with the actual user's UID
-//     const userMoodRef = database.ref("users/" + userId + "/mood");
-
-//     // Define some emoji codes for testing
-//     const emojiCodes = ['&#128514', '&#128514', '&#128514', '&#128514','&#128514','&#128514']; // Emoji codes for 😂, 😁, and 😂
-
-//     // Loop through the emoji codes and add them as new mood records
-//     emojiCodes.forEach((emojiCode) => {
-//         const newMoodRecord = {
-//             mood: emojiCode,
-//             timestamp: firebase.database.ServerValue.TIMESTAMP
-//         };
-
-//         // Push the new mood record to Firebase
-//         userMoodRef.push(newMoodRecord)
-//             .then(() => {
-//                 console.log('New mood record added successfully:', emojiCode);
-//             })
-//             .catch((error) => {
-//                 console.error('Error adding new mood record:', error);
-//             });
-//     });
-// }
+// USER GUIDE START
+ var userGuidance = document.getElementById('userGuidance');
 
 
-// function addTestMoodRecordsForSeptember() {
-//     // Replace 'userId' with the actual user's UID
-//     const userMoodRef = database.ref("users/" + userId + "/mood");
+function guide(){
+    
+    userGuidance.addEventListener('click', function() {
+        const test = new bootstrap.Modal(document.getElementById('userGuide'));
+        test.show();
+    } )
 
-//     // Define some emoji codes for testing
-//     const emojiCodes = ['&#128514']; // Emoji codes for 😂, 😁, and 😂
-
-//     // Loop through the emoji codes and add them as new mood records for September
-//     emojiCodes.forEach((emojiCode) => {
-//         const currentDate = new Date();
-//         currentDate.setMonth(8); // Set the month to September (JavaScript months are zero-based)
-//         const timestamp = currentDate.getTime();
-
-//         const newMoodRecord = {
-//             mood: emojiCode,
-//             timestamp: timestamp
-//         };
-
-//         // Push the new mood record to Firebase
-//         userMoodRef.push(newMoodRecord)
-//             .then(() => {
-//                 console.log('New mood record added successfully for September:', emojiCode);
-//             })
-//             .catch((error) => {
-//                 console.error('Error adding new mood record for September:', error);
-//             });
-//     });
-// }
+  
+}
+// USER GUIDE END
 
 
 
