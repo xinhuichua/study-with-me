@@ -34,7 +34,7 @@ firebase.auth().onAuthStateChanged((user) => { //check whether user login - user
             const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
             logoutModal.show();
             setInterval(function(){
-                    window.location.href = "home.html",8000
+                    window.location.href = "/index.html",8000
                 })
           // Replace with the actual login page URL
         }).catch((error) => {
@@ -47,7 +47,7 @@ firebase.auth().onAuthStateChanged((user) => { //check whether user login - user
     } else {
         // User is signed out
       //  currentUser = null;
-        window.location = 'home.html'; //If User is not logged in, redirect to home page
+        window.location = '/index.html'; //If User is not logged in, redirect to home page
     }
 });
 

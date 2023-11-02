@@ -107,7 +107,7 @@ function register() {
       successModal.show();
 
       setInterval(function(){
-            window.location.href = "home.html",4000
+            window.location.href = "/index.html",4000
           })
     })
     .catch(function (error) {

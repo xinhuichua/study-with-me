@@ -87,11 +87,11 @@ function login() {
       console.log(error_message)
 
       //display fail box
-      if(error_message != null){
+      if(error_code == 'auth/internal-error'){
         const modalBody = document.querySelector('#errorModal .modal-body');
       
         
-        modalBody.innerText = error_message;
+        modalBody.innerText = "Incorrect password or email. Please try again";
       
   
         const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));

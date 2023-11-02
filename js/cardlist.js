@@ -40,7 +40,7 @@ auth.onAuthStateChanged(function(user) {
         displayPoint()
     } else {
         // User is signed out
-        window.location = 'home.html'; //If User is not logged in, redirect to home page
+        window.location = '/index.html'; //If User is not logged in, redirect to home page
     }
 });
 logoutButton.addEventListener('click', () => {
@@ -52,7 +52,7 @@ logoutButton.addEventListener('click', () => {
       logoutModal.show();
      
       setInterval(function(){
-        window.location.href = "home.html",8000
+        window.location.href = "/index.html",8000
       })
     
       
