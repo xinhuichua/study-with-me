@@ -31,8 +31,8 @@ Welcome to our Project! This is a study website that provides users (aka scholar
 1. Click 'register' in the landing page and fill in required information fields to create an account.
 2. After registering an account, user will be redirected back to the landing page.
 3. Click 'login' on the landing page and fill in credentials to login using the created account.
-4. Upon successful login, the main page (focus page) will be displayed.
-5. If users are unable to key in a correct password, they can click on the 'Forgot Password' link which will redirect them to reset their password.
+4. If users are unable to key in a correct password, they can click on the 'Forgot Password' link which will redirect them to reset their password.
+5. Upon successful login, the main page (focus page) will be displayed.
 6. Users can click the information icon, denoted by a 'Click Me' tool tip, to view a user guide on the features in the focus page.
 7. Using the side collapsible nav-bar, users can explore the focus page's features, namely customisable background, pomodoro timer, mood indicator and to-do list.
 8. Points will be generated as long as users remain on the focus page and these points can be claimed.
