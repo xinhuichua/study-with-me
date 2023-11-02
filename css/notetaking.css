@@ -1,4 +1,10 @@
+.displayAllNotes{
+    padding: 0px;
+}
 
+.paddingShift{
+    padding-left: 10px;
+}
 
 html,
 body {
