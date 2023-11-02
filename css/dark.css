@@ -67,6 +67,14 @@ body.dark-mode .bxs-microphone {
   color: #7ade7a;
 }
 
+body.dark-mode .modal-body{
+  color: black;
+}
+body.dark-mode .modal-title{
+  color: black;
+}
+
+
 .mode-toggle {
   position: relative;
   padding: 0;
