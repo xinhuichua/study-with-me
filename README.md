@@ -1,7 +1,7 @@
 # SoloScholar
 WAD II project
 Website URL: https://soloscholar.netlify.app/
-GIT Url: https://github.com/xinhuichua/study-with-me
+GIT URl: https://github.com/xinhuichua/study-with-me
 
 # Description
 Welcome to our SoloScholar! This is a study website that provides users with different features and functions to assist them in their study journey. In this website, users can self-study, write notes and collect a myriad of unique and interesting cards as a form of delayed gratification. To motivate and recognise their commendable efforts, our users will be rewarded points based on their study durations.
@@ -27,12 +27,13 @@ Welcome to our SoloScholar! This is a study website that provides users with dif
   - Mood Charts
     - Gain insights of their emotional states
 
-User testing:
-Username: xinhui.chua188@gmail.com
-Password: 111111
+For Testing Purposes:
+| Username  | Password |
+| ------------- | ------------- |
+| xinhui.chua188@gmail.com  | 111111  |
 
 # Step by Step Instructions
-
+Website 
 1. Click 'register' in the landing page and fill in required information fields to create an account.
 2. After registering an account, user will be redirected back to the landing page.
 3. Click 'login' on the landing page and fill in credentials to login using the created account.
