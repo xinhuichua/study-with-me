@@ -3,7 +3,7 @@ WAD II project
 url: https://soloscholar.netlify.app/
 
 # Description
-Welcome to our Project! This is a study website that provides users (aka scholars) with different features and functions to assist them in their study journey. In this website, scholars can self-study, write notes and collect a myriad of unique and interesting cards as a form of delayed gratification. To motivate and recognise their commendable efforts, our scholars will be rewarded points based on their study durations.
+Welcome to our SoloScholar! This is a study website that provides users with different features and functions to assist them in their study journey. In this website, users can self-study, write notes and collect a myriad of unique and interesting cards as a form of delayed gratification. To motivate and recognise their commendable efforts, our users will be rewarded points based on their study durations.
 
 # Features
 1) Focus Page
