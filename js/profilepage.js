@@ -46,7 +46,7 @@ auth.onAuthStateChanged(function(user) {
                 const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
                 logoutModal.show();
                 setInterval(function(){
-                    window.location.href = "home.html",8000
+                    window.location.href = "/index.html",8000
                 })
             }).catch((error) => {
                 // Handle any errors that occur during sign-out

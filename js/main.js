@@ -44,7 +44,7 @@ var firebaseConfig = {
       } else {
           // User is signed out
           userId = null;
-          window.location.href = 'home.html';
+          window.location.href = '/index.html';
        
       }
   });
@@ -59,7 +59,7 @@ logoutButton.addEventListener('click', () => {
     logoutModal.show();
    
     setInterval(function(){
-      window.location.href = "home.html",8000
+      window.location.href = "/index.html",8000
     })
   
     
