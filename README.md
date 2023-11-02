@@ -26,6 +26,10 @@ Welcome to our SoloScholar! This is a study website that provides users with dif
   - Mood Charts
     - Gain insights of their emotional states
 
+User testing:
+Username: xinhui.chua188@gmail.com
+Password: 111111
+
 # Step by Step Instructions
 
 1. Click 'register' in the landing page and fill in required information fields to create an account.
