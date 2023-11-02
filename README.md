@@ -1,4 +1,4 @@
-# study-with-me 
+# SoloScholar
 WAD II project
 url: https://soloscholar.netlify.app/
 
@@ -19,7 +19,7 @@ Welcome to our SoloScholar! This is a study website that provides users with dif
   - Dark Theme Switcher
 
 3) Card Shop
-  - Incentivises scholars to persevere on and accumulate points as they study
+  - Incentivises users to persevere on and accumulate points as they study
   - Acquire all of the cards!
 
 4) Mood Tracker
@@ -47,10 +47,10 @@ Welcome to our SoloScholar! This is a study website that provides users with dif
 17. The profile page displays the user's profile picture, username, mood chart and purchased card.
 
 # Tech Stack
-- Frontend UI:https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white | https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white | https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+- Frontend UI:https: ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) | ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 - FrontEnd Framework: * [[![Vue][Vue.js]][Vue-url]](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08)
 - FrontEnd Styling: [* [![Bootstrap][Bootstrap.com]][Bootstrap-url]](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 - Backend: Firebase
 - API: API Ninjas | Web Speech API
-
+- Beyond the Lab: ![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white
 
