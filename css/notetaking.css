@@ -1,17 +1,31 @@
 .displayAllNotes{
     padding: 0px;
+    /* width: 500px; */
 }
+
 
 .paddingShift{
     padding-left: 10px;
 }
 
-html,
+html{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
 body {
     height: 2000px;
     margin: 0px; 
     padding: 0px;  
     background-color: #B0D9B1;
+    
+    overflow-x: hidden;
+   
+    
+    
 }
 .pr-0 {
     padding-right: 0px;
@@ -70,6 +84,9 @@ body {
     padding: 2px;
     color:white;
 }
+.checkWidth{
+    padding: 0;
+}
 
 /* below is the added list */
 /* Add a border to create space between note summaries */
@@ -116,11 +133,12 @@ body {
     flex-direction: column;
 
     flex-grow: 1;
+    /* width: 50px; */
 }
 
 
 .notes__body {
-    width: 100%;
+    width: 97%;
     height: 300px;
     outline:none;
     border:0;
@@ -133,7 +151,7 @@ body {
     background-color: #B0D9B1;
     color: black;
     border:0;
-    width: 100%;
+    width: 97%;
     
    
 }
@@ -150,8 +168,8 @@ body {
     line-height: 1.5;
     margin-top: 2em;
     resize: none;
-   color: black;
-outline:none;
+    color: black;
+    outline:none;
     background: #B0D9B1;
 }
 
