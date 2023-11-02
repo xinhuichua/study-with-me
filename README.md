@@ -1,4 +1,4 @@
-# study-with-me
+# study-with-me 
 WAD II project
 url: https://soloscholar.netlify.app/
 
@@ -47,8 +47,10 @@ Welcome to our SoloScholar! This is a study website that provides users with dif
 17. The profile page displays the user's profile picture, username, mood chart and purchased card.
 
 # Tech Stack
-- Frontend UI: HTML | CSS | JavaScript
-- FrontEnd Framework: Vue
-- FrontEnd Styling: Bootstrap
+- Frontend UI:[![ForTheBadge uses-html](http://ForTheBadge.com/images/badges/uses-html.svg)](http://ForTheBadge.com) [![ForTheBadge uses-css](http://ForTheBadge.com/images/badges/uses-css.svg)](http://ForTheBadge.com) [![ForTheBadge uses-js](http://ForTheBadge.com/images/badges/uses-js.svg)](http://ForTheBadge.com)
+- FrontEnd Framework: * [![Vue][Vue.js]][Vue-url]
+- FrontEnd Styling: * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 - Backend: Firebase
 - API: API Ninjas | Web Speech API
+
+
