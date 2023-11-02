@@ -184,8 +184,35 @@
 
     </div>
     <div class="row p-3">
-      <div class="col-lg-3 col-md-4 col-sm-3 col-xs-2"></div>
-      <div class="col-lg-8 col-md-7 col-sm-6 col-xs-5 title">
+      <div class="col-lg-3 col-md-4 col-sm-5"><h2>My Notes <i class="bi bi-stickies mx-2"></i></h2></div>
+        <!-- <div class="testing"> -->
+          <!-- <h2 class="testing1">My Notes <i class="bi bi-stickies"></i></h2> -->
+          <div class="col-lg-8 col-md-7 col-sm-3 testing">
+            <button class="notes__save btn btn-success m-2" type="button" onclick="saveNote()">
+              Save Note
+            </button>
+            <button class="notes__update btn btn-light m-2" type="button" onclick="updateNote()">
+              Update Note
+            </button>
+
+          </div>
+          <div class="col-lg-1 col-md-1 col-sm-3 col-xs-5 testing">
+            <div id="app">
+              <div class="flex">
+                <div class="mode-toggle" @click="modeToggle" :class="darkDark">
+                  <div class="toggle">
+                    <div id="dark-mode" type="checkbox"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- </div>
+       -->
+      
+      </div>
+      <!-- <div class="col-lg-8 col-md-7 col-sm-6 col-xs-5 title">
 
         <div class="testing">
           <h2 class="testing1">My Notes <i class="bi bi-stickies"></i></h2>
@@ -196,10 +223,10 @@
             Update Note
           </button>
         </div>
-      </div>
+      </div> -->
 
       <!--get dark mode or light mode-->
-      <div class="col-lg-1 col-md-1 col-sm-3 col-xs-5">
+      <!-- <div class="col-lg-1 col-md-1 col-sm-3 col-xs-5">
         <div id="app">
           <div class="flex">
             <div class="mode-toggle" @click="modeToggle" :class="darkDark">
@@ -209,7 +236,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
 
