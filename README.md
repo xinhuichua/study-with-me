@@ -52,5 +52,5 @@ Welcome to our SoloScholar! This is a study website that provides users with dif
 - FrontEnd Styling: [* [![Bootstrap][Bootstrap.com]][Bootstrap-url]](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 - Backend: Firebase
 - API: API Ninjas | Web Speech API
-- Beyond the Lab: ![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white
+- Beyond the Lab: ![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white)
 
