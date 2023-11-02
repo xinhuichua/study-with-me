@@ -9,9 +9,9 @@ Welcome to our SoloScholar! This is a study website that provides users with dif
 1) Focus Page
   - Customisable Background
   - Pomodoro Timer
-  - Mood Indicator
+  - Mood Tracking
   - To-Do List
-  - Points Claimant
+  - Points Collection
 
 2) Note-Taking
   - Create Notes
@@ -48,7 +48,7 @@ Password: 111111
 14. Clicking 'card shop' in the top nav-bar will bring users to the card shop page.
 15. Points claimed in the focus page can be used to purchase cards in the shop. Users can purchase a desired card by clicking on the card.
 16. Clicking 'profile' in the top nav-bar will take the users to the profile page.
-17. The profile page displays the user's profile picture, username, mood chart and purchased card.
+17. The profile page displays the user's profile picture, username, mood chart and purchased cards
 
 # Tech Stack
 - Frontend UI:https: ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) | ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | ![CSS](https://img.shields.io/badge/css-%23E34F26.svg?style=for-the-badge&logo=css&logoColor=white)
