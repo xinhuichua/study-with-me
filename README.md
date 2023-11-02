@@ -47,9 +47,9 @@ Welcome to our SoloScholar! This is a study website that provides users with dif
 17. The profile page displays the user's profile picture, username, mood chart and purchased card.
 
 # Tech Stack
-- Frontend UI:[![ForTheBadge uses-html](http://ForTheBadge.com/images/badges/uses-html.svg)](http://ForTheBadge.com) [![ForTheBadge uses-css](http://ForTheBadge.com/images/badges/uses-css.svg)](http://ForTheBadge.com) [![ForTheBadge uses-js](http://ForTheBadge.com/images/badges/uses-js.svg)](http://ForTheBadge.com)
-- FrontEnd Framework: * [![Vue][Vue.js]][Vue-url]
-- FrontEnd Styling: * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+- Frontend UI:https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white | https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white | https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+- FrontEnd Framework: * [[![Vue][Vue.js]][Vue-url]](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08)
+- FrontEnd Styling: [* [![Bootstrap][Bootstrap.com]][Bootstrap-url]](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 - Backend: Firebase
 - API: API Ninjas | Web Speech API
 
