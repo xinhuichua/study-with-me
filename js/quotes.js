@@ -1,5 +1,5 @@
 var category = 'success'
-const API_KEY = '+HnQMrGNtc7dnxh61ujwVQ==DPYFTuSfVmMK4YUF'
+const API_KEY = 'YOUR_API_KEY'
 
 axios.get('https://api.api-ninjas.com/v1/quotes', {
     params: { category: category },
