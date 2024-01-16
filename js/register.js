@@ -2,7 +2,7 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
   // put your api stuff here
-  apiKey: "AIzaSyCT4ilVsx9OHQwazEKXgPyHaV1wus6e_Ik",
+  apiKey: "YOUR_API_KEY",
   authDomain: "test1-69744.firebaseapp.com",
   databaseURL: "https://test1-69744-default-rtdb.asia-southeast1.firebasedatabase.app/",
   projectId: "test1-69744",
